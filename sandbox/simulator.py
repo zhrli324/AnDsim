@@ -1,10 +1,11 @@
 from agent import Agent
-from tool import Tool
 from pre_info import AgentInfo
+import threading
 
 back_info = """
 test_back_info
 """
+time_step = 1
 
 class Simulator:
     """
@@ -69,6 +70,15 @@ class Simulator:
         self._init_agents()
         self._init_neighbors()
 
+    def _emulate_step(
+            self,
+    ):
+        """
+        每个时间步的行为模拟
+        :return:
+        """
+        pass
+
     def emulate(
             self,
     ) -> None:
@@ -76,4 +86,5 @@ class Simulator:
         启动模拟
         :return:
         """
+        threading.Timer(time_step, self._emulate_step).start()
         pass
