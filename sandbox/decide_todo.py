@@ -2,7 +2,7 @@
 
 class Thought:
     """
-
+    想法类，存放符合规范的想法(如客体、工具等)
     """
     def __init__(
             self,
@@ -14,7 +14,7 @@ class Thought:
 
 def execute(thought):
     """
-    执行操作
+    通过想法来执行操作
     :param thought:
     :return:
     """
