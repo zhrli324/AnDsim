@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4815aed6-8eb3-459c-8d82-7d39233e977a" name="更改" comment="Completed some modules">
+    <list default="true" id="4815aed6-8eb3-459c-8d82-7d39233e977a" name="更改" comment="Added some modules">
       <change afterPath="$PROJECT_DIR$/agent_executor_builder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/decide_todo.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/action.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/simulator.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/simulator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +52,12 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/modules/defense" />
+      <recent name="$PROJECT_DIR$/simulator" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -68,6 +78,9 @@
       <workItem from="1725867043222" duration="31000" />
       <workItem from="1725888748688" duration="4601000" />
       <workItem from="1725952113771" duration="11383000" />
+      <workItem from="1726030956878" duration="7685000" />
+      <workItem from="1726051496880" duration="4290000" />
+      <workItem from="1726144654326" duration="8789000" />
     </task>
     <task id="LOCAL-00001" summary="initialize code">
       <option name="closed" value="true" />
@@ -85,7 +98,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725992402963</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added some modules">
+      <option name="closed" value="true" />
+      <created>1726038122571</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1726038122571</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +127,7 @@
     <MESSAGE value="initialize code" />
     <MESSAGE value="initialize cod" />
     <MESSAGE value="Completed some modules" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed some modules" />
+    <MESSAGE value="Added some modules" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some modules" />
   </component>
 </project>
