@@ -1,13 +1,14 @@
 
-
-class Thought:
+class Action:
     """
-    想法类，存放符合规范的想法(如客体、工具等)
+    行动类，是规范化后的单个行动
     """
     def __init__(
             self,
     ) -> None:
-        self.obj_name = None
+        self.type = None
+        self.agent = None
+        self.prompt = None
         self.content = None
         pass
 

@@ -1,6 +1,7 @@
 from agent import Agent
 from pre_info import AgentInfo
 import threading
+import random
 
 back_info = """
 test_back_info
@@ -70,9 +71,19 @@ class Simulator:
         self._init_agents()
         self._init_neighbors()
 
+    def get_entrance(
+            self,
+    ) -> Agent:
+        """
+        找出一个用于测试攻击方法的入口agent
+        :return: 返回的入口agent
+        """
+        entrance_num = random.randint(0, len(self.agents))
+        return self.agents[entrance_num]
+
     def _emulate_step(
             self,
-    ):
+    ) -> None:
         """
         每个时间步的行为模拟
         :return:
@@ -81,9 +92,11 @@ class Simulator:
 
     def emulate(
             self,
+            num_step: int=10
     ) -> None:
         """
         启动模拟
+        :param num_step: 执行时间步的个数
         :return:
         """
         threading.Timer(time_step, self._emulate_step).start()

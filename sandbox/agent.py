@@ -1,7 +1,7 @@
 from log import Log
 from tool import Tool
 from pre_info import AgentInfo
-from decide_todo import Thought, execute
+from action import Action, execute
 import random
 
 class Agent:
@@ -22,6 +22,7 @@ class Agent:
         self.background = background
         self.memory = []
         self.is_chatting = False
+        self.message_buffer = []
 
     def _generate(
             self,
@@ -59,38 +60,77 @@ class Agent:
             message = self._generate(prompt)
             pass
 
+#    def _end_chat(
+#            self,
+#    ) -> None:
+#        """
+#        agent结束对话的方法
+#        :return:
+#        """
+
     def reply(
             self,
             agent,
             prompt: str=None,
-            end: bool=False,
-    ):
+    ) -> None:
         """
         agent对话中的回复
-        :param agent:
-        :param prompt:
+        :param agent: 回复的对象agent
+        :param prompt: 对话方给的prompt
         :return:
         """
-        if random.random() < self.background.end_chat_prob:
+        end = True and random.random() < self.background.end_chat_prob# 判断是否应该结束对话的逻辑, work in progress
+        if end: # 结束对话
             prompt += """
-            You want to end this chat!
-            """
+            You want to end this chat! 
+            Please speak in the tone of wanting to end the conversation and add an <END> marker at the end"""
             message = self._generate(prompt)
             self.is_chatting = False
             agent.is_chatting = False
-            # agent.reply(self, message, end=True)
-            pass
         else:
             message = self._generate(prompt)
-            agent.reply(self, message)
-
+            agent.message_buffer.append(message)
 
     def _think(
             self,
-    ) -> Thought:
+            prompt: str=None,
+    ) -> list[Action]:
         """
         agent根据记忆与获得的信息，思考应当做什么
+        生成一个行动列表
         """
+        pass
+
+    def _take_action(
+            self,
+            actions: list[Action],
+    ) -> None:
+        """
+        根据行动列表来执行各行动
+        :param actions: 待执行的行动列表
+        :return:
+        """
+        for action in actions:
+            if action.type == 'tool':
+                # 使用工具
+                pass
+            elif action.type == 'chat':
+                message = self._generate(action.prompt)
+                action.agent.message_buffer.append(message)
+                self.is_chatting = True
+            else:
+                print("error")
+        pass
+
+    def _decide_todo(
+            self,
+    ) -> None:
+        """
+        判断是否要行动、要做什么事
+        :return:
+        """
+        actions_list = self._think()
+        self._take_action(actions_list)
         pass
 
     def act(
@@ -100,8 +140,15 @@ class Agent:
         做出决定，执行动作，并生成记录日志
         :return:
         """
-        thought = self._think()
-        execute(thought)
-        log = Log(self.name, thought.obj_name, thought.content)
-        self._memorize(log)
+        if self.is_chatting:
+            self.reply()
+            self._decide_todo()
+        else:
+            if len(self.message_buffer) > 0:
+                self.reply()
+                self._decide_todo()
+            else:
+                self._decide_todo()
+
+        # log的逻辑待补全
 
