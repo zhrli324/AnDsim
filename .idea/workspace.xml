@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4815aed6-8eb3-459c-8d82-7d39233e977a" name="更改" comment="Added some modules">
+    <list default="true" id="4815aed6-8eb3-459c-8d82-7d39233e977a" name="更改" comment="Refactored the architecture of thinking and dialogue">
       <change afterPath="$PROJECT_DIR$/agent_executor_builder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/api_keys.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/llama.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/tools_config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/generate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sandbox/prompt.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/decide_todo.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/action.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/log.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/log.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox/simulator.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/simulator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +33,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/sandbox/agent.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -48,12 +57,13 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;PyScientificConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/config" />
       <recent name="$PROJECT_DIR$/modules/defense" />
       <recent name="$PROJECT_DIR$/simulator" />
     </key>
@@ -80,7 +90,11 @@
       <workItem from="1725952113771" duration="11383000" />
       <workItem from="1726030956878" duration="7685000" />
       <workItem from="1726051496880" duration="4290000" />
-      <workItem from="1726144654326" duration="8789000" />
+      <workItem from="1726144654326" duration="8927000" />
+      <workItem from="1726313605215" duration="3485000" />
+      <workItem from="1726317227002" duration="49000" />
+      <workItem from="1726317285123" duration="79000" />
+      <workItem from="1726317382752" duration="3694000" />
     </task>
     <task id="LOCAL-00001" summary="initialize code">
       <option name="closed" value="true" />
@@ -106,18 +120,53 @@
       <option name="project" value="LOCAL" />
       <updated>1726038122571</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Refactored the architecture of thinking and dialogue">
+      <option name="closed" value="true" />
+      <created>1726161651911</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1726161651911</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="user">
+                    <value>
+                      <list>
+                        <option value="*" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -128,6 +177,7 @@
     <MESSAGE value="initialize cod" />
     <MESSAGE value="Completed some modules" />
     <MESSAGE value="Added some modules" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some modules" />
+    <MESSAGE value="Refactored the architecture of thinking and dialogue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored the architecture of thinking and dialogue" />
   </component>
 </project>

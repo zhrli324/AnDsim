@@ -1,8 +1,17 @@
 from log import Log
+from sandbox.generate import generate_with_gpt
 from tool import Tool
 from pre_info import AgentInfo
 from action import Action, execute
+from prompt import prompt_template
+from generate import (
+    generate_with_gpt,
+    generate_with_claude,
+    generate_with_llama,
+)
+
 import random
+import asyncio
 
 class Agent:
     """
@@ -22,7 +31,8 @@ class Agent:
         self.background = background
         self.memory = []
         self.is_chatting = False
-        self.message_buffer = []
+        self.message_buffer = [] # 未读消息的缓冲区
+        self.conversation_buffer = [] # 正在进行的对话缓冲区
 
     def _generate(
             self,
@@ -33,7 +43,20 @@ class Agent:
         暂时直接将背景、记忆与prompt直接拼接起来作为输入，调用openai api生成回答
         :param prompt: 给LLM的提示
         """
-        pass
+        prompt = prompt_template(prompt)
+        if self.model[:3] == 'gpt':
+            generated_text = generate_with_gpt(prompt, self.model)
+            return generated_text
+        elif self.model[:6] == 'claude':
+            generated_text = generate_with_claude(prompt, self.model)
+            return generated_text
+        elif self.model[:5] == 'llama':
+            generated_text = generate_with_llama(prompt, self.model)
+            return generated_text
+        else:
+            print("Check your model name")
+            return ""
+        # working in progress
 
     def _memorize(
             self,
@@ -44,29 +67,6 @@ class Agent:
         :param log: 要存到记忆中的某条行为
         """
         self.memory.append(log)
-
-    def begin_chat(
-            self,
-            agent,
-            prompt: str=None,
-    ) -> None:
-        """
-        agent间开始进行聊天
-        :param agent: 进行聊天的agent
-        :param prompt: 用户提示
-        :return:
-        """
-        if not self.is_chatting and not agent.is_chatting:
-            message = self._generate(prompt)
-            pass
-
-#    def _end_chat(
-#            self,
-#    ) -> None:
-#        """
-#        agent结束对话的方法
-#        :return:
-#        """
 
     def reply(
             self,
@@ -79,17 +79,19 @@ class Agent:
         :param prompt: 对话方给的prompt
         :return:
         """
-        end = True and random.random() < self.background.end_chat_prob# 判断是否应该结束对话的逻辑, work in progress
+        end = True and random.random() < self.background.end_chat_prob # 判断是否应该结束对话的逻辑
         if end: # 结束对话
             prompt += """
             You want to end this chat! 
             Please speak in the tone of wanting to end the conversation and add an <END> marker at the end"""
             message = self._generate(prompt)
             self.is_chatting = False
+            self.conversation_buffer.clear()
             agent.is_chatting = False
+            agent.conversation_buffer.clear()
         else:
             message = self._generate(prompt)
-            agent.message_buffer.append(message)
+            agent.conversation_buffer.append(message)
 
     def _think(
             self,
@@ -133,7 +135,7 @@ class Agent:
         self._take_action(actions_list)
         pass
 
-    def act(
+    async def act(
             self,
     ) -> None:
         """
@@ -145,6 +147,8 @@ class Agent:
             self._decide_todo()
         else:
             if len(self.message_buffer) > 0:
+                self.conversation_buffer.append(self.message_buffer[0])
+                self.message_buffer.pop(0)
                 self.reply()
                 self._decide_todo()
             else:
