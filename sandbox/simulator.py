@@ -2,6 +2,7 @@ from agent import Agent
 from pre_info import AgentInfo
 import threading
 import random
+import asyncio
 
 back_info = """
 test_back_info
@@ -81,23 +82,26 @@ class Simulator:
         entrance_num = random.randint(0, len(self.agents))
         return self.agents[entrance_num]
 
-    def _emulate_step(
+    async def _emulate_step(
             self,
     ) -> None:
         """
-        每个时间步的行为模拟
+        模拟一个时间步
         :return:
         """
+        await asyncio.gather(*(agent.act() for agent in self.agents))
         pass
 
-    def emulate(
+    async def emulate(
             self,
             num_step: int=10
     ) -> None:
         """
-        启动模拟
+        启动模拟多个时间步
         :param num_step: 执行时间步的个数
         :return:
         """
-        threading.Timer(time_step, self._emulate_step).start()
+        for _ in range(num_step):
+            await self._emulate_step()
+            await asyncio.sleep(0.5)
         pass

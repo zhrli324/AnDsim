@@ -1,0 +1,5 @@
+model_name: llama
+model_type: llama3
+model_path: meta-llama/Meta-Llama-3-8B-Instruct
+
+max_new_tokens: 120
