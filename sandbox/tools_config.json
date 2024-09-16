@@ -2,7 +2,7 @@
     "google_search": {
         "description": "Search using Google Custom Search API",
         "prompt": "Perform a search query on Google",
-        "api_key": "AIzaSyAxbrnrjyWnZ5IOIIXO0lOhea6EzRNbZXA", 
-        "search_engine_id": "f52de688dbee84466"
+        "api_key": "", 
+        "search_engine_id": ""
     }
 }
