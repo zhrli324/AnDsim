@@ -1,4 +1,4 @@
-from agent import Agent
+from agent import Agent, EntranceAgent
 from pre_info import AgentInfo
 import threading
 import random
@@ -28,6 +28,7 @@ class Simulator:
         self.num_agents = num_agents
         self.agents_mode = agents_mode
         self.subject = subject
+        self.history = []
         self.agents = []
         self.tools = []
 
@@ -50,7 +51,10 @@ class Simulator:
         if self.agents_mode == 'preset' and self.subject == 'normal':
             for i in range(self.num_agents):
                 info = AgentInfo()
-                agent = Agent(name=f"Agent_{i}", model='got-4o-mini', tools=self.tools, background=info)
+                if i == 0:
+                    agent = EntranceAgent(name=f"Agent_{i}", model='got-4o-mini', tools=self.tools, background=info)
+                else:
+                    agent = Agent(name=f"Agent_{i}", model='got-4o-mini', tools=self.tools, background=info)
                 self.agents.append(agent)
 
     def _init_neighbors(

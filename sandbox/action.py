@@ -1,3 +1,4 @@
+from tool import Tool
 
 class Action:
     """
@@ -7,16 +8,16 @@ class Action:
             self,
     ) -> None:
         self.type = None
+        self.tool = None
         self.agent = None
-        self.prompt = None
-        self.content = None
+        self.reply_prompt = None
+        self.end_chat = None
         pass
 
-
-def execute(thought):
-    """
-    通过想法来执行操作
-    :param thought:
-    :return:
-    """
-    pass
+    def execute_tool(
+            self,
+    ) -> None:
+        """
+        模拟工具的执行
+        :return:
+        """

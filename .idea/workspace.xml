@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4815aed6-8eb3-459c-8d82-7d39233e977a" name="更改" comment="Refactored the architecture of thinking and dialogue">
-      <change afterPath="$PROJECT_DIR$/agent_executor_builder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/api_keys.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/llama.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/tools_config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/generate.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox/prompt.py" afterDir="false" />
+    <list default="true" id="4815aed6-8eb3-459c-8d82-7d39233e977a" name="更改" comment="Update README.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/action.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/action.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/log.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/log.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox/simulator.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/simulator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +87,9 @@
       <workItem from="1726313605215" duration="3485000" />
       <workItem from="1726317227002" duration="49000" />
       <workItem from="1726317285123" duration="79000" />
-      <workItem from="1726317382752" duration="3694000" />
+      <workItem from="1726317382752" duration="4000000" />
+      <workItem from="1726321453784" duration="320000" />
+      <workItem from="1726368402861" duration="14697000" />
     </task>
     <task id="LOCAL-00001" summary="initialize code">
       <option name="closed" value="true" />
@@ -128,7 +123,31 @@
       <option name="project" value="LOCAL" />
       <updated>1726161651911</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Improve dialogue logic">
+      <option name="closed" value="true" />
+      <created>1726321382285</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1726321382285</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Improve dialogue logic">
+      <option name="closed" value="true" />
+      <created>1726321405307</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1726321405307</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Update README.md">
+      <option name="closed" value="true" />
+      <created>1726321672010</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1726321672010</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +174,11 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
               <option name="FILTERS">
                 <map>
                   <entry key="user">
@@ -178,6 +202,8 @@
     <MESSAGE value="Completed some modules" />
     <MESSAGE value="Added some modules" />
     <MESSAGE value="Refactored the architecture of thinking and dialogue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored the architecture of thinking and dialogue" />
+    <MESSAGE value="Improve dialogue logic" />
+    <MESSAGE value="Update README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
   </component>
 </project>
