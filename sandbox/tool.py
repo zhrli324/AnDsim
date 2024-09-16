@@ -45,7 +45,7 @@ class Tool:
             print(f"Input kwargs: {kwargs}")
             return f"Simulated output for {self.name}"
     
-    def goole_search(self, query, num_results=5):
+    def google_search(self, query, num_results=5):
         """
         使用 Google Custom Search API 进行搜索
         :param query: 搜索关键词
