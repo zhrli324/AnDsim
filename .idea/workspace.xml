@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4815aed6-8eb3-459c-8d82-7d39233e977a" name="更改" comment="Fix bugs">
-      <change afterPath="$PROJECT_DIR$/sandbox/rag.py" afterDir="false" />
+    <list default="true" id="4815aed6-8eb3-459c-8d82-7d39233e977a" name="更改" comment="上传测试用例">
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datasets/agent_preinstall.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/test_z.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/multi-agent-system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/multi-agent-system.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/generate.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/generate.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox/pre_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/pre_info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/tool.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/tool.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/tools_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/tools_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/test.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,10 +29,19 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/sandbox/agent.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/sandbox/tool.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -46,19 +56,25 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Python.tool.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/work/study/BUPT/computer/LLM_learn/AnDsim/scripts",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+
+    "settings.editor.selected.configurable": "preferences.general",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\work\study\BUPT\computer\LLM_learn\AnDsim\scripts" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/config" />
       <recent name="$PROJECT_DIR$/modules/defense" />
@@ -98,8 +114,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PY-242.21829.153" />
-        <option value="bundled-python-sdk-464836ebc622-b74155a9e76b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.21829.153" />
+        <option value="bundled-python-sdk-09665e90c3a7-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.15026.15" />
       </set>
     </attachedChunks>
   </component>
@@ -124,8 +139,12 @@
       <workItem from="1726317382752" duration="4000000" />
       <workItem from="1726321453784" duration="320000" />
       <workItem from="1726368402861" duration="15384000" />
-      <workItem from="1726479537184" duration="391000" />
-      <workItem from="1726642419119" duration="3894000" />
+      <workItem from="1726584960120" duration="1583000" />
+      <workItem from="1726625511347" duration="6807000" />
+      <workItem from="1726633060678" duration="7000" />
+      <workItem from="1726642495162" duration="116000" />
+      <workItem from="1726642651468" duration="35000" />
+      <workItem from="1726642733523" duration="4629000" />
     </task>
     <task id="LOCAL-00001" summary="initialize code">
       <option name="closed" value="true" />
@@ -191,7 +210,23 @@
       <option name="project" value="LOCAL" />
       <updated>1726474398375</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="上传测试用例">
+      <option name="closed" value="true" />
+      <created>1726586105750</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1726586105750</updated>
+    </task>
+    <task id="LOCAL-00010" summary="上传测试用例">
+      <option name="closed" value="true" />
+      <created>1726586157053</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1726586157053</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +260,13 @@
               </option>
               <option name="FILTERS">
                 <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
                   <entry key="user">
                     <value>
                       <list>
@@ -249,7 +291,8 @@
     <MESSAGE value="Improve dialogue logic" />
     <MESSAGE value="Update README.md" />
     <MESSAGE value="Fix single-step actions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix single-step actions" />
+    <MESSAGE value="上传测试用例" />
+    <option name="LAST_COMMIT_MESSAGE" value="上传测试用例" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/multi_agent_system$tool.coverage" NAME="tool 覆盖结果" MODIFIED="1726644420602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
