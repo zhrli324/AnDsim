@@ -1,5 +1,9 @@
-from setuptools.errors import UnknownFileError
+from sqlite3 import complete_statement
 
+from langchain.embeddings import OpenAIEmbeddings
+from langchain.schema import Document
+from langchain_community.vectorstores import FAISS
+import yaml
 from log import Log
 from sandbox.generate import generate_with_gpt
 from tool import Tool
@@ -27,7 +31,10 @@ def add_conversation(
     :param src_thought:
     :return: 追加后的des_thought
     """
-    pass
+    for thought in src_thought:
+        des_thought += f"""
+        {thought}
+        """
     return des_thought
 
 
@@ -35,15 +42,42 @@ def add_background(
         des_thought: str,
         background: AgentInfo,
         short_term_memory: list[str],
-        long_term_memory: list[str],
+        rag_dir: str,
 ) -> str:
     """
     将agent的background和长短记忆加到des_thought中
-    :param des_thought:
+    :param des_thought: 最终的思考字符串
+    :param background: agent的背景
+    :param short_term_memory: agent的短期记忆
+    :param rag_dir: agent的存放在RAG中的长期记忆
     :return: 追加后的des_thought
     """
-    pass
+    des_thought += f"""
+    Background: {background.info}\n
+    Your neighbors that can directly chat with you: {background.neighbors}\n
+    """
+    long_memory = ... # 使用rag_dir从RAG中调取出长记忆
+    des_thought += f"""
+    Long memory: {long_memory}\n
+    Short memory: {short_term_memory}\n
+    """
     return des_thought
+
+
+def save_to_rag(
+        text: str,
+) -> None:
+    """
+    将文本保存到某agent的RAG中，作为长期记忆
+    :param text: 要保存的记忆文本信息
+    :return:
+    """
+    with open("../config/api_keys.yaml") as f:
+        config = yaml.load(f, Loader=yaml.FullLoader)
+    openai_api_key = config["openai_api_key"]
+    embedding = OpenAIEmbeddings(openai_api_key=openai_api_key)
+    # mainDB = FAISS.from_documents(Document(), embedding)
+    # mainDB.save_local(self.rag_dir)
 
 
 class Agent:
@@ -55,6 +89,7 @@ class Agent:
             name: str,
             model: str,
             tools: list[Tool],
+            rag_dir: str,
             background: AgentInfo,
     ) -> None:
         self.name = name
@@ -62,7 +97,7 @@ class Agent:
         self.tools = tools
         self.background = background
         self.short_term_memory = []
-        self.long_term_memory = [] # 用RAG实现
+        self.rag_dir = rag_dir # 用RAG实现
         self.is_chatting = False
         self.message_buffer = [] # 未读消息的缓冲区
         self.conversation_buffer = [] # 正在进行的对话缓冲区
@@ -96,7 +131,7 @@ class Agent:
             log: Log,
     ) -> None:
         """
-        将某条日志存到某agent的记忆中
+        将某条日志存到某agent的短期记忆中
         :param log: 要存到记忆中的某条行为
         """
         self.short_term_memory.append(log)
@@ -115,7 +150,7 @@ class Agent:
             text_to_consider,
             self.background,
             self.short_term_memory,
-            self.long_term_memory,
+            self.rag_dir,
         )
         return text_to_consider
 
@@ -144,6 +179,8 @@ class Agent:
         for action in actions:
             if action.type == 'use_tool':
                 # 模拟执行工具
+                # log = Log(self.name, None, action.type)
+                # self._memorize(log)
                 pass
             elif action.type == 'reply':
                 if action.end_chat:
@@ -157,13 +194,18 @@ class Agent:
                     action.agent.conversation_buffer.clear()
                     # 短期记忆与长期记忆
                     # 系统全局日志
+                    log = Log(self.name, action.agent.name, action.type + 'end')
                 else:
                     result = self._generate(action.reply_prompt)
                     self.conversation_buffer.append(result)
                     action.agent.conversation_buffer.append(result)
+                    log = Log(self.name, action.agent.name, action.type + result)
+                self._memorize(log)
             elif action.type == 'start_chat':
                 result = self._generate(action.reply_prompt)
                 action.agent.message_buffer.append(result)
+                log = Log(self.name, action.agent.name, action.type + result)
+                self._memorize(log)
             else:
                 raise ValueError("No such action type")
 
