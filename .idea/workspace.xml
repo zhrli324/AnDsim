@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4815aed6-8eb3-459c-8d82-7d39233e977a" name="更改" comment="Fix single-step actions">
+    <list default="true" id="4815aed6-8eb3-459c-8d82-7d39233e977a" name="更改" comment="Fix bugs">
+      <change afterPath="$PROJECT_DIR$/sandbox/rag.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/generate.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/generate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/pre_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/pre_info.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/tool.py" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/tool.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/tools_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/tools_config.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,25 +44,56 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.tool.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/config" />
       <recent name="$PROJECT_DIR$/modules/defense" />
       <recent name="$PROJECT_DIR$/simulator" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="tool" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="multi-agent-system" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sandbox" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sandbox/tool.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.tool" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -87,6 +124,8 @@
       <workItem from="1726317382752" duration="4000000" />
       <workItem from="1726321453784" duration="320000" />
       <workItem from="1726368402861" duration="15384000" />
+      <workItem from="1726479537184" duration="391000" />
+      <workItem from="1726642419119" duration="3894000" />
     </task>
     <task id="LOCAL-00001" summary="initialize code">
       <option name="closed" value="true" />
@@ -211,5 +250,8 @@
     <MESSAGE value="Update README.md" />
     <MESSAGE value="Fix single-step actions" />
     <option name="LAST_COMMIT_MESSAGE" value="Fix single-step actions" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/multi_agent_system$tool.coverage" NAME="tool 覆盖结果" MODIFIED="1726644420602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sandbox" />
   </component>
 </project>

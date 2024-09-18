@@ -91,7 +91,7 @@ def load_tools_config(config_path):
 
 
 
-def get_toolkits_by_names(tool_names, config_path=r"D:\profile_me\BUPT\project\Bupt\AnDsim\sandbox\tools_config.json"):
+def get_toolkits_by_names(tool_names, config_path=r"./tools_config.json"):
     """
     根据给定的工具名称列表，返回对应的 tool 对象集合
     :param tool_names: 工具名称列表

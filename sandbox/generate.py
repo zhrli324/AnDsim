@@ -1,6 +1,7 @@
-import openai
+from openai import OpenAI
 import anthropic
 import yaml
+
 
 def generate_with_gpt(
         prompt,
@@ -13,8 +14,19 @@ def generate_with_gpt(
     with open("../config/api_keys.yaml") as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
     openai_api_key = config["openai_api_key"]
-    generated_text = "" # generating
-    return generated_text
+    client = OpenAI(api_key=openai_api_key)
+    generated_text = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": "You are an agent."},
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ]
+    )
+    return str(generated_text.choices[0].message)
+
 
 def generate_with_claude(
         prompt,
@@ -27,8 +39,26 @@ def generate_with_claude(
     with open("../config/api_keys.yaml") as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
     anthropic_api_key = config["anthropic_api_key"]
-    generated_text = "" # generating
-    return generated_text
+    client = anthropic.Anthropic(api_key=anthropic_api_key)
+    generated_text = client.messages.create(
+        model="claude-3-5-sonnet-20240620",
+        max_tokens=1000,
+        temperature=0,
+        system="You are an agent.",
+        messages=[
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": prompt
+                    }
+                ]
+            }
+        ]
+    )
+    return generated_text.content
+
 
 def generate_with_llama(
         prompt,
