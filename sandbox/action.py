@@ -1,4 +1,4 @@
-from tool import Tool
+from sandbox.tool import Tool
 
 class Action:
     """

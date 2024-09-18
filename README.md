@@ -15,3 +15,7 @@
 
 未实现：所有预设prompt、agent系统初始化、模拟工具、RAG系统、
 全局日志、agent决策、agent对话
+
+
+
+EntranceAgent(Agent)的额外控制指令未实现

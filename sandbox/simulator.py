@@ -1,5 +1,5 @@
-from agent import Agent, EntranceAgent
-from pre_info import AgentInfo
+from sandbox.agent import Agent, EntranceAgent
+from sandbox.pre_info import AgentInfo
 import threading
 import random
 import asyncio
@@ -9,15 +9,17 @@ test_back_info
 """
 time_step = 1
 
+
 class Simulator:
     """
     模拟器，用来管理调用整个multi-agent系统
     """
+
     def __init__(
             self,
             num_agents: int,
-            agents_mode: str='preset',
-            subject: str='normal',
+            agents_mode: str = 'preset',
+            subject: str = 'normal',
     ) -> None:
         """
         初始化系统设置
@@ -31,6 +33,7 @@ class Simulator:
         self.history = []
         self.agents = []
         self.tools = []
+        self.agent_description_path = "../datasets/agent_preinstall.json"
 
     def _init_tools(
             self,
@@ -48,21 +51,39 @@ class Simulator:
         初始化所有agent
         :return:
         """
-        if self.agents_mode == 'preset' and self.subject == 'normal':
+        if self.subject == 'normal':
             for i in range(self.num_agents):
-                info = AgentInfo()
+                info = AgentInfo(1, 0,
+                                 self.agent_description_path)  ###actively_chat_probability，end_chat_probability 未填写
                 if i == 0:
-                    agent = EntranceAgent(name=f"Agent_{i}", model='got-4o-mini', tools=self.tools, background=info)
+                    agent = EntranceAgent(name=f"Agent_{i}", model='got-4o-mini', tools=self.tools, rag_dir="",
+                                          background=info, extra_command="")
                 else:
-                    agent = Agent(name=f"Agent_{i}", model='got-4o-mini', tools=self.tools, background=info)
+                    agent = Agent(name=f"Agent_{i}", model='got-4o-mini', tools=self.tools, rag_dir="", background=info)
                 self.agents.append(agent)
+        if self.agents_mode == 'preset':
+            self._init_neighbors(self.num_agents, self.agents)
 
     def _init_neighbors(
             self,
+            num_agents: int,
+            agents
     ) -> None:
+
         """
         初始化所有agent的邻居agent(可以直接对话)
+        :param num_agents:agents数量
+        :param agents:总agents索引
         """
+        for i in range(num_agents):
+            i_L = i - 1
+            i_R = i + 1
+            if i == 0:
+                i_L = num_agents - 1
+            if i == num_agents - 1:
+                i_R = 0
+            agents[i].background.neighbors.append(i_L)
+            agents[i].background.neighbors.append(i_R)
         pass
 
     def initialize(
@@ -74,7 +95,6 @@ class Simulator:
         """
         self._init_tools()
         self._init_agents()
-        self._init_neighbors()
 
     def get_entrance(
             self,
@@ -98,10 +118,10 @@ class Simulator:
 
     async def emulate(
             self,
-            num_step: int=10
+            num_step: int = 10
     ) -> None:
         """
-        启动模拟多个时间步
+        启动模拟多个时间步k
         :param num_step: 执行时间步的个数
         :return:
         """

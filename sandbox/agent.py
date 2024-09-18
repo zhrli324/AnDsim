@@ -4,19 +4,21 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.schema import Document
 from langchain_community.vectorstores import FAISS
 import yaml
-from log import Log
+from sandbox.log import Log
 from sandbox.generate import generate_with_gpt
-from tool import Tool
-from pre_info import AgentInfo
-from action import Action
-from prompt import prompt_template
-from generate import (
+from sandbox.tool import Tool
+from sandbox.pre_info import AgentInfo
+from sandbox.action import Action
+from sandbox.prompt import prompt_template
+from sandbox.generate import (
     generate_with_gpt,
     generate_with_claude,
     generate_with_llama,
 )
 
 import random
+
+
 # import asyncio
 
 
@@ -56,7 +58,7 @@ def add_background(
     Background: {background.info}\n
     Your neighbors that can directly chat with you: {background.neighbors}\n
     """
-    long_memory = ... # 使用rag_dir从RAG中调取出长记忆
+    long_memory = ...  # 使用rag_dir从RAG中调取出长记忆
     des_thought += f"""
     Long memory: {long_memory}\n
     Short memory: {short_term_memory}\n
@@ -84,6 +86,7 @@ class Agent:
     """
     agent类，定义了agent的属性与方法
     """
+
     def __init__(
             self,
             name: str,
@@ -97,10 +100,10 @@ class Agent:
         self.tools = tools
         self.background = background
         self.short_term_memory = []
-        self.rag_dir = rag_dir # 用RAG实现
+        self.rag_dir = rag_dir  # 用RAG实现
         self.is_chatting = False
-        self.message_buffer = [] # 未读消息的缓冲区
-        self.conversation_buffer = [] # 正在进行的对话缓冲区
+        self.message_buffer = []  # 未读消息的缓冲区
+        self.conversation_buffer = []  # 正在进行的对话缓冲区
 
     def _generate(
             self,
@@ -227,14 +230,17 @@ class EntranceAgent(Agent):
     入口agent类
     可以进行一些预设来执行任务
     """
+
     def __init__(
             self,
             name: str,
             model: str,
             tools: list[Tool],
+            rag_dir: str,
             background: AgentInfo,
-            extra_command: str, # 额外的控制指令或prompt
+            extra_command: str,  # 额外的控制指令或prompt
     ):
-        super().__init__(name, model, tools, background)
-        self.background = ... ## 重点编辑background，使其执行特定行为
+        super().__init__(name=name, model=model, tools=tools, rag_dir="", background=background)
+        # self.background = ... ## 重点编辑background，使其执行特定行为
+        extra_command = ""
         pass
