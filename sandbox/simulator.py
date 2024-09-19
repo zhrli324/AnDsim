@@ -113,7 +113,7 @@ class Simulator:
         模拟一个时间步
         :return:
         """
-        await asyncio.gather(*(agent.act() for agent in self.agents))
+        await asyncio.gather(*(agent.emulate_one_step() for agent in self.agents))
         pass
 
     async def emulate(

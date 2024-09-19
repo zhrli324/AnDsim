@@ -19,3 +19,16 @@
 
 
 EntranceAgent(Agent)的额外控制指令未实现
+
+
+
+未读消息json格式(缓冲区)
+
+```json
+{
+    "send": ,
+    "receive": ,
+    "prompt": ,
+}
+```
+

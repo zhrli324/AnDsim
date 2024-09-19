@@ -6,6 +6,7 @@ from langchain_community.vectorstores import FAISS
 import yaml
 from sandbox.log import Log
 from sandbox.generate import generate_with_gpt
+from sandbox.message import AgentMessage
 from sandbox.tool import Tool
 from sandbox.pre_info import AgentInfo
 from sandbox.action import Action
@@ -23,47 +24,50 @@ import random
 
 
 def add_conversation(
-        des_thought: str,
-        src_thought: list[str],
+        des_thought: AgentMessage,
+        src_thought: AgentMessage,
 ) -> str:
     """
     将src_thought列表中的对话历史加到des_thought中
     使其作为需要考虑的内容
-    :param des_thought:
-    :param src_thought:
+    :param des_thought: 当前agent的history信息
+    :param src_thought: 正在进行的对话缓冲区内容
     :return: 追加后的des_thought
     """
-    for thought in src_thought:
-        des_thought += f"""
-        {thought}
-        """
+    des_thought.prompt += "the reply message you received: " + src_thought.prompt + "\n"
+
     return des_thought
 
 
 def add_background(
-        des_thought: str,
+        agentmessage: AgentMessage,
         background: AgentInfo,
         short_term_memory: list[str],
         rag_dir: str,
 ) -> str:
     """
     将agent的background和长短记忆加到des_thought中
-    :param des_thought: 最终的思考字符串
+    :param agentmessage: 接收的聊天信息
     :param background: agent的背景
     :param short_term_memory: agent的短期记忆
     :param rag_dir: agent的存放在RAG中的长期记忆
     :return: 追加后的des_thought
     """
+    ###z 预设有待完善
+    des_thought = f"""
+        presuppose: You can talk to neighbor{agentmessage.send}, you can call tool b\n
+        """
     des_thought += f"""
     Background: {background.info}\n
-    Your neighbors that can directly chat with you: {background.neighbors}\n
     """
-    long_memory = ...  # 使用rag_dir从RAG中调取出长记忆
-    des_thought += f"""
+    long_memory = ...  ###z 使用rag_dir从RAG中调取出长记忆
+    ###z 短期记忆未编辑
+    des_thought += f""" 
     Long memory: {long_memory}\n
     Short memory: {short_term_memory}\n
     """
-    return des_thought
+
+    return AgentMessage(agentmessage.receive, agentmessage.send, des_thought)
 
 
 def save_to_rag(
@@ -101,7 +105,7 @@ class Agent:
         self.background = background
         self.short_term_memory = []
         self.rag_dir = rag_dir  # 用RAG实现
-        self.is_chatting = False
+        self.is_chatting = -1
         self.message_buffer = []  # 未读消息的缓冲区
         self.conversation_buffer = []  # 正在进行的对话缓冲区
 
@@ -141,25 +145,49 @@ class Agent:
 
     def receive_information(
             self,
-            text_to_consider: str,
-    ) -> str:
-        if self.is_chatting:
+    ) -> AgentMessage:
+        if self.is_chatting != -1:
+            self.conversation_buffer = self.extract_first_match("send", self.is_chatting)
+            text_to_consider = add_background(
+                self.conversation_buffer,
+                self.background,
+                self.short_term_memory,
+                self.rag_dir,
+            )  ###z 这个message是我准备发送的，但还未编辑完
             text_to_consider = add_conversation(text_to_consider, self.conversation_buffer)
+            if self.conversation_buffer.is_end:
+                text_to_consider.prompt += "Note: This conversation is over and no further answers are required"
+                self.is_chatting = -1
         elif len(self.message_buffer):
-            self.conversation_buffer.append(self.message_buffer.pop(0))
-            self.is_chatting = True
+            self.conversation_buffer = self.message_buffer.pop(0)  # 这个message是我收到的
+            self.is_chatting = self.conversation_buffer.send
+            text_to_consider = add_background(
+                self.conversation_buffer,
+                self.background,
+                self.short_term_memory,
+                self.rag_dir,
+            )  ###z 这个message是我准备发送的，但还未编辑完
             text_to_consider = add_conversation(text_to_consider, self.conversation_buffer)
-        text_to_consider = add_background(
-            text_to_consider,
-            self.background,
-            self.short_term_memory,
-            self.rag_dir,
-        )
+
         return text_to_consider
+
+    def extract_first_match(self, key, value):
+        """
+        读取保持对话中，对方发送的消息
+        :param key: 关键参数
+        :param value:关键值
+        :return:要进入缓冲区参数
+        """
+        for i, item in enumerate(self.message_buffer):
+            if item.get(key) == value:
+                # 提取匹配的元素
+                extracted = self.message_buffer.pop(i)
+                return extracted
+        return None
 
     def think(
             self,
-            prompt: str,
+            prompt: AgentMessage,
     ) -> list[Action]:
         """
         通过prompt让LLM进行决策，并格式化为规范的action列表
@@ -219,8 +247,7 @@ class Agent:
         让agent模拟一个时间步
         :return:
         """
-        text_to_consider = ""
-        text_to_consider = self.receive_information(text_to_consider)
+        text_to_consider = self.receive_information()
         actions = self.think(text_to_consider)
         self.act(actions)
 
