@@ -13,7 +13,7 @@ class AgentInfo:
             actively_chat_probability: float,
             end_chat_probability: float,
             agent_description_path: str
-    ) -> None:
+    ) -> str:
         '''
         单个agent的背景信息初始化
         :param actively_chat_probability:
@@ -24,10 +24,9 @@ class AgentInfo:
         self.neighbors = []
         self.actively_chat_probability = actively_chat_probability
         self.end_chat_prob = end_chat_probability
-        pass
 
 
-    def preinstall_system_prompt(self, agent_description_path: str) -> None:
+    def preinstall_system_prompt(self, agent_description_path: str) -> str:
         with open(os.path.join(agent_description_path), "r") as f:
             agent_description = json.load(f)
         agent_description= choice(agent_description)
