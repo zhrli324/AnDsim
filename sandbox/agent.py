@@ -3,9 +3,7 @@ from sqlite3 import complete_statement
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.schema import Document
 from langchain_community.vectorstores import FAISS
-import yaml
 from sandbox.log import Log
-from sandbox.generate import generate_with_gpt
 from sandbox.message import AgentMessage
 from sandbox.tool import Tool
 from sandbox.pre_info import AgentInfo
@@ -18,15 +16,15 @@ from sandbox.generate import (
 )
 
 import random
-
-
-# import asyncio
+import yaml
+import json
+import os
 
 
 def add_conversation(
         des_thought: AgentMessage,
         src_thought: AgentMessage,
-) -> str:
+) -> AgentMessage:
     """
     将src_thought列表中的对话历史加到des_thought中
     使其作为需要考虑的内容
@@ -54,14 +52,14 @@ def add_conversation(
 
 
 def add_background(
-        agentmessage: AgentMessage,
+        agent_message: AgentMessage,
         background: AgentInfo,
         short_term_memory: list[str],
         rag_dir: str,
-) -> str:
+) -> AgentMessage:
     """
     将agent的background和长短记忆加到des_thought中
-    :param agentmessage: 接收的聊天信息
+    :param agent_message: 接收的聊天信息
     :param background: agent的背景
     :param short_term_memory: agent的短期记忆
     :param rag_dir: agent的存放在RAG中的长期记忆
@@ -69,7 +67,7 @@ def add_background(
     """
     ###z 预设有待完善
     des_thought = f"""
-        presuppose: You can talk to neighbor{agentmessage.send}, you can call tool b\n
+        presuppose: You can talk to neighbor{agent_message.send}, you can call tool b\n
         """
     des_thought += f"""
     Background: {background.info}\n
@@ -81,23 +79,7 @@ def add_background(
     Short memory: {short_term_memory}\n
     """
 
-    return AgentMessage([agentmessage.receive], [agentmessage.send], des_thought)
-
-
-def save_to_rag(
-        text: str,
-) -> None:
-    """
-    将文本保存到某agent的RAG中，作为长期记忆
-    :param text: 要保存的记忆文本信息
-    :return:
-    """
-    with open("../config/api_keys.yaml") as f:
-        config = yaml.load(f, Loader=yaml.FullLoader)
-    openai_api_key = config["openai_api_key"]
-    embedding = OpenAIEmbeddings(openai_api_key=openai_api_key)
-    # mainDB = FAISS.from_documents(Document(), embedding)
-    # mainDB.save_local(self.rag_dir)
+    return AgentMessage([agent_message.receive], [agent_message.send], des_thought)
 
 
 class Agent:
@@ -110,7 +92,6 @@ class Agent:
             name: list,
             model: str,
             tools: list[Tool],
-            rag_dir: str,
             background: AgentInfo,
     ) -> None:
         self.name = name
@@ -119,10 +100,20 @@ class Agent:
         self.background = background
         self.short_term_memory = []  # 短期记忆
         self.max_memory = 5
-        self.short_term_memory = []
-        self.rag_dir = rag_dir  # 用RAG实现
         self.message_buffer = []  # 未读消息的缓冲区
         self.conversation_buffer = []  # 正在进行的对话缓冲区
+        self.rag_dir = f'./Vector_DB/vectorstore_agent_{self.name}/'
+        os.makedirs(self.rag_dir, exist_ok=True)
+
+        # 初始化长期记忆知识库
+        with open("../config/api_keys.yaml") as f:
+            config = yaml.load(f, Loader=yaml.FullLoader)
+        openai_api_key = config["openai_api_key"]
+        embedding = OpenAIEmbeddings(openai_api_key=openai_api_key)
+        long_memory = []
+        main_db = FAISS.from_documents(long_memory, embedding)
+        main_db.save_local(self.rag_dir)
+        self.embedding = embedding
 
     def _generate(
             self,
@@ -157,11 +148,7 @@ class Agent:
         :param log: 要保存的记忆文本信息
         :return:
         """
-        with open("../config/api_keys.yaml") as f:
-            config = yaml.load(f, Loader=yaml.FullLoader)
-        openai_api_key = config["openai_api_key"]
-        embedding = OpenAIEmbeddings(openai_api_key=openai_api_key)
-        main_db = FAISS.load_local(self.rag_dir, embedding)
+        main_db = FAISS.load_local(self.rag_dir, self.embedding)
         new_memory = [Document(
             subjective=log.subjective,
             objective=log.objective,
@@ -170,7 +157,20 @@ class Agent:
         )]
         main_db.add_documents(new_memory)
         main_db.save_local(self.rag_dir)
-        # working in progress...
+
+    def _search_rag(
+            self,
+            query: str,
+    ) -> list[Document]:
+        """
+        在agent的长期记忆向量数据库中搜索与query最相关的几条
+        :param query: 检索的query
+        :return: 最相关的k条记忆列表，每条记忆用Document格式返回
+        """
+        k = 5
+        db = FAISS.load_local(self.rag_dir, self.embedding)
+        rag_docs = db.similarity_search(query, k=k)
+        return rag_docs
 
     def _memorize(
             self,
@@ -271,10 +271,10 @@ class Agent:
     def think(
             self,
             text_to_consider: AgentMessage,
-    ) -> list[Action]:
+    ) -> Action:
         """
         通过prompt让LLM进行决策，并格式化为规范的action列表
-        :param prompt: LLM决策使用的prompt
+        :param text_to_consider: agent要考虑的信息
         :return: action列表
         """
         raw_result = self._generate(text_to_consider.prompt)
@@ -335,7 +335,6 @@ class Agent:
     ) -> None:
         """
         让agent模拟一个时间步
-        :return:
         """
         text_to_consider = self.receive_information()
         if text_to_consider.prompt == "<waiting>":

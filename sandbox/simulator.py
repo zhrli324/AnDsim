@@ -1,13 +1,10 @@
 from sandbox.agent import Agent, EntranceAgent
 from sandbox.pre_info import AgentInfo
-import threading
 import random
-import asyncio
 
 back_info = """
 test_back_info
 """
-time_step = 1
 
 
 class Simulator:
@@ -19,17 +16,17 @@ class Simulator:
             self,
             num_agents: int,
             agents_mode: str = 'preset',
-            subject: str = 'normal',
+            theme: str = 'normal',
     ) -> None:
         """
         初始化系统设置
         :param num_agents: 系统中agent的数量
         :param agents_mode: 系统中agent的排列方法
-        :param subject: 系统的聊天主题
+        :param theme: 系统的聊天主题
         """
         self.num_agents = num_agents
         self.agents_mode = agents_mode
-        self.subject = subject
+        self.theme = theme
         self.history = []
         self.agents = []
         self.tools = []
@@ -56,10 +53,10 @@ class Simulator:
                 info = AgentInfo(0.4, 0.4,
                                  self.agent_description_path)  ###actively_chat_probability，end_chat_probability 未填写
                 if i == 0:
-                    agent = EntranceAgent(name=[i], model='got-4o-mini', tools=self.tools, rag_dir="",
+                    agent = EntranceAgent(name='[i]', model='got-4o-mini', tools=self.tools,
                                           background=info, extra_command="")
                 else:
-                    agent = Agent(name=[i], model='got-4o-mini', tools=self.tools, rag_dir="", background=info)
+                    agent = Agent(name=[i], model='got-4o-mini', tools=self.tools, background=info)
                 self.agents.append(agent)
         if self.agents_mode == 'preset':
             self._init_neighbors(self.num_agents, self.agents)
@@ -106,17 +103,17 @@ class Simulator:
         entrance_num = random.randint(0, len(self.agents))
         return self.agents[entrance_num]
 
-    async def _emulate_step(
-            self,
-    ) -> None:
-        """
-        模拟一个时间步
-        :return:
-        """
-        await asyncio.gather(*(agent.emulate_one_step() for agent in self.agents))
-        pass
+    # async def _emulate_step(
+    #         self,
+    # ) -> None:
+    #     """
+    #     模拟一个时间步
+    #     :return:
+    #     """
+    #     await asyncio.gather(*(agent.emulate_one_step() for agent in self.agents))
+    #     pass
 
-    async def emulate(
+    def emulate(
             self,
             num_step: int = 10
     ) -> None:
@@ -126,6 +123,6 @@ class Simulator:
         :return:
         """
         for _ in range(num_step):
-            await self._emulate_step()
-            await asyncio.sleep(0.5)
+            for agent in self.agents:
+                agent.emulate_one_step()
         pass
