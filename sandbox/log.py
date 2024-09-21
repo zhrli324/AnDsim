@@ -7,13 +7,14 @@ class Log:
     Log是记忆或日志类，包含主体、客体、选择、内容、时间戳四个属性
     """
 
-    def __init__(self,
-                 subjective: str,
-                 objective: str,
-                 select: str,
-                 context: str,
-                 receive_context: str,
-                 ):
+    def __init__(
+            self,
+            subjective: str,
+            objective: str,
+            select: str,
+            context: str,
+            receive_context: str,
+    ) -> None:
         self.subjective = subjective
         self.objective = objective
         self.select = select

@@ -1,11 +1,6 @@
 from sandbox.agent import Agent, EntranceAgent
 from sandbox.pre_info import AgentInfo
 import random
-import asyncio
-
-back_info = """
-test_back_info
-"""
 
 
 class Simulator:
@@ -49,7 +44,7 @@ class Simulator:
         初始化所有agent
         :return:
         """
-        if self.subject == 'normal':
+        if self.theme == 'normal':
             for i in range(self.num_agents):
                 info = AgentInfo(0.4, 0.4,
                                  self.agent_description_path)  ###actively_chat_probability，end_chat_probability 未填写

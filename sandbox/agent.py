@@ -1,4 +1,3 @@
-import json
 from collections import deque
 from sqlite3 import complete_statement
 
@@ -97,7 +96,7 @@ class Agent:
 
     def __init__(
             self,
-            name: list,
+            name: list[int],
             model: str,
             tools: list[Tool],
             background: AgentInfo,
@@ -376,14 +375,13 @@ class EntranceAgent(Agent):
 
     def __init__(
             self,
-            name: str,
+            name: list[int],
             model: str,
             tools: list[Tool],
-            rag_dir: str,
             background: AgentInfo,
             extra_command: str,  # 额外的控制指令或prompt
     ):
-        super().__init__(name=name, model=model, tools=tools, rag_dir="", background=background)
+        super().__init__(name=name, model=model, tools=tools, background=background)
         # self.background = ... ## 重点编辑background，使其执行特定行为
         extra_command = ""
         pass

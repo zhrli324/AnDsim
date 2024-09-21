@@ -9,7 +9,7 @@ os.environ["https_proxy"] = "http://127.0.0.1:7897"
 
 
 class Mocktool:
-    def __init__(self, name, desciprtion, prompt, max_retries=3):
+    def __init__(self, name, description, prompt, max_retries=3):
         """
         初始化 MockTool
         :param name: 模拟工具的名称
@@ -17,7 +17,7 @@ class Mocktool:
         :param prompt: 模拟工具的初始 prompt
         """
         self.name = name
-        self.desciption = desciprtion
+        self.description = description
         self.prompt = prompt
         self.api_key = os.environ.get("OPENAI_API_KEY")
         self.api_base_url = os.environ.get("OPENAI_BASE_URL")
@@ -93,7 +93,7 @@ def initialize_mock_tools(config_file):
     for tool_info in config:
         tool = Mocktool(
             name=tool_info['name'],
-            desciprtion=tool_info['description'],
+            description=tool_info['description'],
             prompt=tool_info['prompt']
         )
         tools.append(tool)
