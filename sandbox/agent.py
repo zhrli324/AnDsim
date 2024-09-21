@@ -1,3 +1,5 @@
+import json
+from collections import deque
 from sqlite3 import complete_statement
 
 from langchain.embeddings import OpenAIEmbeddings
@@ -76,8 +78,11 @@ def add_background(
     ###z 短期记忆未编辑
     des_thought += f""" 
     Long memory: {long_memory}\n
-    Short memory: {short_term_memory}\n
-    """
+    Short memory:
+     """
+    for short_term in short_term_memory:
+        des_thought +=  f"{short_term_memory}\n"
+
 
     return AgentMessage([agent_message.receive], [agent_message.send], des_thought)
 
@@ -100,7 +105,9 @@ class Agent:
         self.background = background
         self.short_term_memory = []  # 短期记忆
         self.max_memory = 5
+        self.short_term_memory = []
         self.message_buffer = []  # 未读消息的缓冲区
+        self.received_messages = "" # 暂存收到的消息
         self.conversation_buffer = []  # 正在进行的对话缓冲区
         self.rag_dir = f'./Vector_DB/vectorstore_agent_{self.name}/'
         os.makedirs(self.rag_dir, exist_ok=True)
@@ -189,8 +196,10 @@ class Agent:
     def receive_information(
             self,
     ) -> AgentMessage:
+        self.received_messages=""
         if len(self.message_buffer):
             self.conversation_buffer = self.message_buffer.pop(0)
+            self.received_messages=self.conversation_buffer.prompt
             text_to_consider = add_background(
                 self.conversation_buffer,
                 self.background,
@@ -286,52 +295,65 @@ class Agent:
     def act(
             self,
             action: Action,
+            agents: list
     ) -> None:
         """
         执行动作，并生成记录日志
         :return:
         """
 
-        if action.type == 'use_tool':
+        while action.type == 'use_tool':
             # 模拟执行工具
             # log = Log(self.name, None, action.type)
             # self._memorize(log)
             tools = ...
-            prompt = action.sending_target
-            prompt += f"""
-            you have used {action.tool_name},and have the answer {tools}, please continue to finish the dialogue"""
-            self.think(AgentMessage(self.name, action.sending_target, prompt))
+            prompt = f"""
+            you have used {action.tool_name},and have the answer "{tools}", please continue to finish the dialogue"""
+            action.reply_prompt+=prompt
+            self.think(AgentMessage(self.name, action.sending_target, action.reply_prompt))
+            log = Log(self.name, action.sending_target, action.type, action.reply_prompt,self.received_messages)
+            with open('../Log/log.txt', 'a', encoding='utf-8') as file:
+                file.write(log.convert_to_str())
 
-        elif action.type == 'send_message':
 
-            if action.end_chat == -1:
-                # action.reply_prompt += """
-                #     You want to end this chat!
-                #     Please speak in the tone of wanting to end the conversation and add an <END> marker at the end"""
-                answer = self._generate(action.reply_prompt)
-                # # self.is_chatting = False
-                # self.conversation_buffer.clear()
-                # action.agent.is_chatting = False
-                # action.agent.conversation_buffer.clear()
-                # 短期记忆与长期记忆
-                # 系统全局日志
-                log = Log(self.name, action.agent.name, action.type + 'end')
-            else:
-                result = self._generate(action.reply_prompt)
-                self.conversation_buffer.append(result)
-                action.agent.conversation_buffer.append(result)
-                log = Log(self.name, action.agent.name, action.type + result)
-            self._memorize(log)
-        elif action.type == 'start_chat':
-            result = self._generate(action.reply_prompt)
-            action.agent.message_buffer.append(result)
-            log = Log(self.name, action.agent.name, action.type + result)
-            self._memorize(log)
+        if action.type == 'send_message':
+            for i in action.sending_target:
+                result = action.reply_prompt
+                agents[i].conversation_buffer.append(result)
+                log = Log(self.name, action.sending_target, action.type,action.reply_prompt,self.received_messages)
+                with open('../Log/log.txt', 'a', encoding='utf-8') as file:
+                    file.write(log.convert_to_str())
+                self._memorize(log)
+
+        #     if action.end_chat == -1:
+        #         action.reply_prompt += """
+        #             You want to end this chat!
+        #             Please speak in the tone of wanting to end the conversation and add an <END> marker at the end"""
+        #         answer = self._generate(action.reply_prompt)
+        #         # self.is_chatting = False
+        #         self.conversation_buffer.clear()
+        #         action.agent.is_chatting = False
+        #         action.agent.conversation_buffer.clear()
+        #         # 短期记忆与长期记忆
+        #         # 系统全局日志
+        #         log = Log(self.name, action.agent.name, action.type + 'end')
+        #     else:
+        #         result = self._generate(action.reply_prompt)
+        #         self.conversation_buffer.append(result)
+        #         action.agent.conversation_buffer.append(result)
+        #         log = Log(self.name, action.agent.name, action.type + result)
+        #     self._memorize(log)
+        # elif action.type == 'start_chat':
+        #     result = self._generate(action.reply_prompt)
+        #     action.agent.message_buffer.append(result)
+        #     log = Log(self.name, action.agent.name, action.type + result)
+        #     self._memorize(log)
         else:
             raise ValueError("No such action type")
 
     def emulate_one_step(
             self,
+            agents: list,
     ) -> None:
         """
         让agent模拟一个时间步

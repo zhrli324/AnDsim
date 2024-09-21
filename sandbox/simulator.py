@@ -1,6 +1,7 @@
 from sandbox.agent import Agent, EntranceAgent
 from sandbox.pre_info import AgentInfo
 import random
+import asyncio
 
 back_info = """
 test_back_info
@@ -53,7 +54,7 @@ class Simulator:
                 info = AgentInfo(0.4, 0.4,
                                  self.agent_description_path)  ###actively_chat_probability，end_chat_probability 未填写
                 if i == 0:
-                    agent = EntranceAgent(name='[i]', model='got-4o-mini', tools=self.tools,
+                    agent = EntranceAgent(name=[i], model='got-4o-mini', tools=self.tools,
                                           background=info, extra_command="")
                 else:
                     agent = Agent(name=[i], model='got-4o-mini', tools=self.tools, background=info)
