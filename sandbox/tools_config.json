@@ -1,8 +1,0 @@
-{
-    "google_search": {
-        "description": "Search using Google Custom Search API",
-        "prompt": "Perform a search query on Google",
-        "api_key": "",
-        "search_engine_id": ""
-    }
-}

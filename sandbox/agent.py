@@ -1,4 +1,3 @@
-import json
 from sqlite3 import complete_statement
 
 from langchain.embeddings import OpenAIEmbeddings
@@ -119,6 +118,8 @@ class Agent:
         self.tools = tools
         self.background = background
         self.short_term_memory = []  # 短期记忆
+        self.max_memory = 5
+        self.short_term_memory = []
         self.rag_dir = rag_dir  # 用RAG实现
         self.message_buffer = []  # 未读消息的缓冲区
         self.conversation_buffer = []  # 正在进行的对话缓冲区
@@ -147,6 +148,30 @@ class Agent:
             return ""
         # working in progress
 
+    def _save_to_rag(
+            self,
+            log: Log,
+    ) -> None:
+        """
+        将文本保存到某agent的RAG中，作为长期记忆
+        :param log: 要保存的记忆文本信息
+        :return:
+        """
+        with open("../config/api_keys.yaml") as f:
+            config = yaml.load(f, Loader=yaml.FullLoader)
+        openai_api_key = config["openai_api_key"]
+        embedding = OpenAIEmbeddings(openai_api_key=openai_api_key)
+        main_db = FAISS.load_local(self.rag_dir, embedding)
+        new_memory = [Document(
+            subjective=log.subjective,
+            objective=log.objective,
+            page_content=log.context,
+            timestamp=log.timestamp,
+        )]
+        main_db.add_documents(new_memory)
+        main_db.save_local(self.rag_dir)
+        # working in progress...
+
     def _memorize(
             self,
             log: Log,
@@ -155,7 +180,11 @@ class Agent:
         将某条日志存到某agent的短期记忆中
         :param log: 要存到记忆中的某条行为
         """
-        self.short_term_memory.append(log)
+        if len(self.short_term_memory) < self.max_memory:
+            self.short_term_memory.append(log)
+        else:
+            self._save_to_rag(self.short_term_memory.pop(-1))
+            self.short_term_memory.append(log)
 
     def receive_information(
             self,

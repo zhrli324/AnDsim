@@ -9,13 +9,13 @@ class AgentMessage:
             send: list,
             receive: list,
             prompt: str,
-    ) -> str:
-        '''
+    ) -> None:
+        """
             通讯信息初始化
             :param send:发送端
             :param receive:接收端
             :param prompt:信息内容
-        '''
+        """
         self.send: list = send
         self.receive: list = receive
         self.prompt: str = prompt

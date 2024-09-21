@@ -13,13 +13,13 @@ class AgentInfo:
             actively_chat_probability: float,
             end_chat_probability: float,
             agent_description_path: str
-    ) -> str:
-        '''
+    ) -> None:
+        """
         单个agent的背景信息初始化
         :param actively_chat_probability:
         :param end_chat_probability:
-        :param agent_description: agent预设prompt文件地址
-        '''
+        :param agent_description_path: agent预设prompt文件地址
+        """
         self.info = self.preinstall_system_prompt(agent_description_path)
         self.neighbors = []
         self.actively_chat_probability = actively_chat_probability
