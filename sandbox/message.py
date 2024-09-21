@@ -6,8 +6,8 @@ class AgentMessage:
 
     def __init__(
             self,
-            send: int,
-            receive: int,
+            send: list,
+            receive: list,
             prompt: str,
     ) -> str:
         '''
@@ -16,9 +16,8 @@ class AgentMessage:
             :param receive:接收端
             :param prompt:信息内容
         '''
-        self.send: int = send
-        self.receive: int = receive
+        self.send: list = send
+        self.receive: list = receive
         self.prompt: str = prompt
-        self.is_end: bool =False
 
 
