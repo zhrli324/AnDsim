@@ -2,6 +2,10 @@ import openai
 import os
 import time
 import json
+from datetime import datetime
+
+os.environ["http_proxy"]="http://127.0.0.1:7897"
+os.environ["https_proxy"]= "http://127.0.0.1:7897"
 
 class Mocktool:
     def __init__(self, name, desciprtion, prompt, max_retries=3):
@@ -17,14 +21,17 @@ class Mocktool:
         self.api_key = os.environ.get("OPENAI_API_KEY")
         self.api_base_url = os.environ.get("OPENAI_BASE_URL")
         self.max_retries = max_retries
-        openai.api_key = self.api_key
+        # openai.api_key = self.api_key
+        self.client = openai.OpenAI(
+            api_key=self.api_key
+        )
         # openai.api_base = self.api_base_url
         # openai.proxy = {
         #     "http": "http://127.0.0.1:7897",
         #     "https": "http://127.0.0.1:7897"
         # }
 
-        openai.proxy = None
+        # openai.proxy = None
 
     def __call__(self, query):
         """
@@ -45,14 +52,21 @@ class Mocktool:
         retries = 0
         while retries < self.max_retries:
             try:
-                response = openai.ChatCompletion.create(
+                # response = openai.ChatCompletion.create(
+                #     model="gpt-4o", 
+                #     messages=[{"role": "system", "content": "You are a tool simulation engine."},
+                #             {"role": "user", "content": prompt}],
+                #     # max_tokens=100,
+                # )
+                # # 提取 GPT 的生成内容
+                # gpt_response = response['choices'][0]['message']['content']
+                response = self.client.chat.completions.create(
                     model="gpt-4o", 
                     messages=[{"role": "system", "content": "You are a tool simulation engine."},
                             {"role": "user", "content": prompt}],
-                    # max_tokens=100,  # 限制生成的 token 数量
+                    # max_tokens=100, 
                 )
-                # 提取 GPT 的生成内容
-                gpt_response = response['choices'][0]['message']['content']
+                gpt_response = response.choices[0].message.content
                 return gpt_response
             except openai.error.Timeout as e:
                 retries += 1
@@ -85,12 +99,33 @@ def initialize_mock_tools(config_file):
 
     return tools
 
+def save_results_to_file(results, output_dir):
+    """
+    将工具的输出结果保存到 JSON 文件中
+    :param results: 模拟工具的输出结果
+    :param output_file: 保存结果的文件路径
+    """
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_file_path = os.path.join(output_dir, f"results_{timestamp}.json")
+
+    with open(output_file_path, 'w', encoding='utf-8') as file:
+        json.dump(results, file, indent=4, ensure_ascii=False)
+
+
 if __name__ == "__main__":
     config_file_path = "D:\profile_me\BUPT\project\Bupt\AnDsim\config\mock_tools_config.json"
 
+    output_dir = "D:\profile_me\BUPT\project\Bupt\AnDsim\output"
+
     mock_tools = initialize_mock_tools(config_file_path)
 
+    results = [] 
     for tool in mock_tools:
         print(f"Using tool: {tool.name}")
-        result = tool("Explain machine learning in simple terms.")
+        result = tool("解释机器学习是什么")
+        results.append({
+            "tool_name": tool.name,
+            "result": result
+        })
         print(result)
+    save_results_to_file(results, output_dir)

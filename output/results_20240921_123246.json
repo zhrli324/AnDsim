@@ -1,0 +1,14 @@
+[
+    {
+        "tool_name": "MockSearchEngine",
+        "result": "{\n  \"tool_name\": \"MockSearchEngine\",\n  \"query\": \"解释机器学习是什么\",\n  \"results\": [\n    {\n      \"number\": 1,\n      \"title\": \"机器学习简介\",\n      \"snippet\": \"机器学习是一种人工智能(AI)方法，通过从大量数据中识别模式，使计算机能够在没有明确编程指令的情况下进行推理和决策。它包括多个技术和方法，如监督学习、无监督学习和强化学习。\",\n      \"url\": \"https://baike.baidu.com/item/机器学习/1639920\"\n    },\n    {\n      \"number\": 2,\n      \"title\": \"什么是机器学习？\",\n      \"snippet\": \"机器学习(Machine Learning, ML)是一门研究如何使计算机通过数据进行学习的方法。它是一类算法的集合，用于发现数据中的模式，并根据这些模式进行预测或决策。\",\n      \"url\": \"https://www.zhihu.com/question/21348291\"\n    },\n    {\n      \"number\": 3,\n      \"title\": \"机器学习的基本概念与应用\",\n      \"snippet\": \"机器学习是人工智能的一个分支，旨在通过数据分析，构建能够自动改进和调整的算法和模型。它广泛应用于图像识别、自然语言处理、预测分析等领域。\",\n      \"url\": \"https://www.liepin.com/s/tech/ml/\"\n    },\n    {\n      \"number\": 4,\n      \"title\": \"机器学习：技术与实现\",\n      \"snippet\": \"机器学习涉及自然语言处理、计算机视觉、数据挖掘等多个领域，其核心在于模型通过训练数据自主学习，完成特定任务。具体方法包括线性回归、决策树、支持向量机等。\",\n      \"url\": \"https://www.jiqizhixin.com/articles/2021-01-01-ml-overview\"\n    },\n    {\n      \"number\": 5,\n      \"title\": \"理解机器学习：概念和用途\",\n      \"snippet\": \"理解机器学习的核心在于其数据驱动的特性。通过分析和总结历史数据，机器学习算法能够建立数学模型，实现自动化任务。这在推荐系统、医疗诊断、金融分析等方面都有应用。\",\n      \"url\": \"https://tech.sina.com.cn/it/2021-05-12/doc-ikmyaawc5711709.shtml\"\n    }\n  ]\n}"
+    },
+    {
+        "tool_name": "MockCalculator",
+        "result": "{\n  \"tool_name\": \"MockCalculator\",\n  \"query\": \"解释机器学习是什么\",\n  \"result\": \"This tool only performs mathematical calculations. Please provide a mathematical query.\"\n}"
+    },
+    {
+        "tool_name": "MockTranslator",
+        "result": "{\n  \"tool_name\": \"MockTranslator\",\n  \"query\": \"解释机器学习是什么\",\n  \"source_language\": \"Chinese\",\n  \"target_language\": \"English\",\n  \"translation\": \"Explain what machine learning is\"\n}"
+    }
+]
