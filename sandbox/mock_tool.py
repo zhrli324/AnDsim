@@ -1,6 +1,7 @@
 import openai
 import os
 import time
+import json
 
 class Mocktool:
     def __init__(self, name, desciprtion, prompt, max_retries=3):
@@ -64,12 +65,15 @@ class Mocktool:
         # return f"Simulated Response for Tool '{self.name}': Handling query based on prompt - '{prompt}'"
     
 
-def initialize_mock_tools(config):
+def initialize_mock_tools(config_file):
     """
-    初始化多个 MockTool 对象
-    :param config: 配置文件包含工具的名称、描述、prompt
+    从 JSON 文件初始化多个 MockTool 对象
+    :param config_file: 配置文件路径
     :return: 返回初始化后的工具列表
     """
+    with open(config_file, 'r')as file:
+        config = json.load(file)
+
     tools = []
     for tool_info in config:
         tool = Mocktool(
@@ -82,20 +86,9 @@ def initialize_mock_tools(config):
     return tools
 
 if __name__ == "__main__":
-    tools_config = [
-        {
-            "name": "MockSearchEngine",
-            "description": "This is a simulated search engine tool.",
-            "prompt": "You are a search engine tool. Your task is to retrieve relevant information for user queries."
-        },
-        {
-            "name": "MockCalculator",
-            "description": "This is a simulated calculator tool.",
-            "prompt": "You are a calculator tool. Your task is to perform mathematical operations for user queries."
-        }
-    ]
+    config_file_path = "D:\profile_me\BUPT\project\Bupt\AnDsim\config\mock_tools_config.json"
 
-    mock_tools = initialize_mock_tools(tools_config)
+    mock_tools = initialize_mock_tools(config_file_path)
 
     for tool in mock_tools:
         print(f"Using tool: {tool.name}")
