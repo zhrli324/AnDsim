@@ -53,13 +53,13 @@ class Simulator:
         """
         if self.subject == 'normal':
             for i in range(self.num_agents):
-                info = AgentInfo(1, 0,
+                info = AgentInfo(0.4, 0.4,
                                  self.agent_description_path)  ###actively_chat_probability，end_chat_probability 未填写
                 if i == 0:
-                    agent = EntranceAgent(name=f"Agent_{i}", model='got-4o-mini', tools=self.tools, rag_dir="",
+                    agent = EntranceAgent(name=[i], model='got-4o-mini', tools=self.tools, rag_dir="",
                                           background=info, extra_command="")
                 else:
-                    agent = Agent(name=f"Agent_{i}", model='got-4o-mini', tools=self.tools, rag_dir="", background=info)
+                    agent = Agent(name=[i], model='got-4o-mini', tools=self.tools, rag_dir="", background=info)
                 self.agents.append(agent)
         if self.agents_mode == 'preset':
             self._init_neighbors(self.num_agents, self.agents)

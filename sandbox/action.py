@@ -6,13 +6,20 @@ class Action:
     """
     def __init__(
             self,
+            type,
+            tool_name,
+            tool_parameter,
+            tool_used,
+            reply_prompt,
+            sending_target
     ) -> None:
-        self.type = None
-        self.tool = None
-        self.agent = None
-        self.reply_prompt = None
-        self.end_chat = None
-        pass
+        self.type = type
+        self.tool_name = tool_name
+        self.tool_parameter = tool_parameter
+        self.tool_used = tool_used
+        self.reply_prompt = reply_prompt
+        self.sending_target = sending_target
+
 
     def execute_tool(
             self,
