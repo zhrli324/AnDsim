@@ -56,7 +56,7 @@ def add_conversation(
 def add_background(
         agent_message: AgentMessage,
         background: AgentInfo,
-        short_term_memory: list[str],
+        short_term_memory: list[Log],
         rag_dir: str,
 ) -> AgentMessage:
     """
@@ -73,16 +73,19 @@ def add_background(
         """
     des_thought += f"""
     Background: {background.info}\n
+    neighbor：{background.neighbors}\n
     """
     long_memory = rag_dir  ###z 使用rag_dir从RAG中调取出长记忆
     ###z 短期记忆未编辑
     des_thought += f""" 
     Long memory: {long_memory}\n
-    Short memory:
+    Short memory: 
      """
-    for short_term in short_term_memory:
-        des_thought +=  f"{short_term_memory}\n"
-
+    if len(short_term_memory):
+        for short_term in short_term_memory:
+            des_thought += f"you received {short_term.receive_context}, and sand {short_term.context} to {short_term.objective}.\n"
+    else:
+        des_thought += "No Short memory\n"
 
     return AgentMessage([agent_message.receive], [agent_message.send], des_thought)
 
@@ -107,20 +110,20 @@ class Agent:
         self.max_memory = 5
         self.short_term_memory = []
         self.message_buffer = []  # 未读消息的缓冲区
-        self.received_messages = "" # 暂存收到的消息
+        self.received_messages = ""  # 暂存收到的消息
         self.conversation_buffer = []  # 正在进行的对话缓冲区
         self.rag_dir = f'./Vector_DB/vectorstore_agent_{self.name}/'
         os.makedirs(self.rag_dir, exist_ok=True)
 
-        # 初始化长期记忆知识库
-        with open("../config/api_keys.yaml") as f:
-            config = yaml.load(f, Loader=yaml.FullLoader)
-        openai_api_key = config["openai_api_key"]
-        embedding = OpenAIEmbeddings(openai_api_key=openai_api_key)
-        long_memory = []
-        main_db = FAISS.from_documents(long_memory, embedding)
-        main_db.save_local(self.rag_dir)
-        self.embedding = embedding
+        # # 初始化长期记忆知识库          ###zyh test
+        # with open("../config/api_keys.yaml") as f:
+        #     config = yaml.load(f, Loader=yaml.FullLoader)
+        # openai_api_key = config["openai_api_key"]
+        # embedding = OpenAIEmbeddings(openai_api_key=openai_api_key)
+        # long_memory = []
+        # main_db = FAISS.from_documents(long_memory, embedding)
+        # main_db.save_local(self.rag_dir)
+        # self.embedding = embedding
 
     def _generate(
             self,
@@ -196,10 +199,10 @@ class Agent:
     def receive_information(
             self,
     ) -> AgentMessage:
-        self.received_messages=""
+        self.received_messages = ""
         if len(self.message_buffer):
             self.conversation_buffer = self.message_buffer.pop(0)
-            self.received_messages=self.conversation_buffer.prompt
+            self.received_messages = self.conversation_buffer.prompt
             text_to_consider = add_background(
                 self.conversation_buffer,
                 self.background,
@@ -210,6 +213,7 @@ class Agent:
         else:  ##没有对话要回复，概率开启新对话
             if self.background.actively_chat_probability > random.random():
                 receive_nb = [random.choice(self.background.neighbors)]
+                self.conversation_buffer=AgentMessage(receive_nb,self.name,"")
                 text_to_consider = add_background(
                     self.conversation_buffer,
                     self.background,
@@ -309,18 +313,17 @@ class Agent:
             tools = ...
             prompt = f"""
             you have used {action.tool_name},and have the answer "{tools}", please continue to finish the dialogue"""
-            action.reply_prompt+=prompt
+            action.reply_prompt += prompt
             self.think(AgentMessage(self.name, action.sending_target, action.reply_prompt))
-            log = Log(self.name, action.sending_target, action.type, action.reply_prompt,self.received_messages)
+            log = Log(self.name, action.sending_target, action.type, action.reply_prompt, self.received_messages)
             with open('../Log/log.txt', 'a', encoding='utf-8') as file:
                 file.write(log.convert_to_str())
-
 
         if action.type == 'send_message':
             for i in action.sending_target:
                 result = action.reply_prompt
                 agents[i].conversation_buffer.append(result)
-                log = Log(self.name, action.sending_target, action.type,action.reply_prompt,self.received_messages)
+                log = Log(self.name, action.sending_target, action.type, action.reply_prompt, self.received_messages)
                 with open('../Log/log.txt', 'a', encoding='utf-8') as file:
                     file.write(log.convert_to_str())
                 self._memorize(log)

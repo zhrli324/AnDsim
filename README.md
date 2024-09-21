@@ -74,7 +74,7 @@ You can perform only one operation and return it in the following format：
 "Note: This conversation is over and no further answers are required"
 ```
 
-prompt返回值中要添加已使用工具，当前使用工具，发送目标，三个参数
+
 
 背景中要添加好友是谁
 
