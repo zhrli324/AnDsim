@@ -4,6 +4,8 @@ from sqlite3 import complete_statement
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.schema import Document
 from langchain_community.vectorstores import FAISS
+from sqlalchemy.testing.suite.test_reflection import metadata
+
 from sandbox.log import Log
 from sandbox.message import AgentMessage
 from sandbox.tool import Tool
@@ -52,43 +54,6 @@ def add_conversation(
     return des_thought
 
 
-def add_background(
-        agent_message: AgentMessage,
-        background: AgentInfo,
-        short_term_memory: list[Log],
-        rag_dir: str,
-) -> AgentMessage:
-    """
-    将agent的background和长短记忆加到des_thought中
-    :param agent_message: 接收的聊天信息
-    :param background: agent的背景
-    :param short_term_memory: agent的短期记忆
-    :param rag_dir: agent的存放在RAG中的长期记忆
-    :return: 追加后的des_thought
-    """
-    ###z 预设有待完善
-    des_thought = f"""
-        presuppose: You can talk to neighbor{agent_message.send}, you can call tool b\n
-        """
-    des_thought += f"""
-    Background: {background.info}\n
-    neighbor：{background.neighbors}\n
-    """
-    long_memory = rag_dir  ###z 使用rag_dir从RAG中调取出长记忆
-    ###z 短期记忆未编辑
-    des_thought += f""" 
-    Long memory: {long_memory}\n
-    Short memory: 
-     """
-    if len(short_term_memory):
-        for short_term in short_term_memory:
-            des_thought += f"you received {short_term.receive_context}, and sand {short_term.context} to {short_term.objective}.\n"
-    else:
-        des_thought += "No Short memory\n"
-
-    return AgentMessage([agent_message.receive], [agent_message.send], des_thought)
-
-
 class Agent:
     """
     agent类，定义了agent的属性与方法
@@ -100,29 +65,80 @@ class Agent:
             model: str,
             tools: list[Tool],
             background: AgentInfo,
+            max_memory: int=5
     ) -> None:
         self.name = name
         self.model = model
         self.tools = tools
         self.background = background
         self.short_term_memory = []  # 短期记忆
-        self.max_memory = 5
-        self.short_term_memory = []
+        self.max_memory = max_memory
         self.message_buffer = []  # 未读消息的缓冲区
         self.received_messages = ""  # 暂存收到的消息
-        self.conversation_buffer = []  # 正在进行的对话缓冲区
-        self.rag_dir = f'./Vector_DB/vectorstore_agent_{self.name}/'
+        self.conversation_buffer = AgentMessage([], [], "") # 正在进行的对话缓冲区
+
+        self.rag_dir = f"./Vector_DB/vectorstore_agent_{self.name}/"
         os.makedirs(self.rag_dir, exist_ok=True)
 
-        # # 初始化长期记忆知识库          ###zyh test
-        # with open("../config/api_keys.yaml") as f:
-        #     config = yaml.load(f, Loader=yaml.FullLoader)
-        # openai_api_key = config["openai_api_key"]
-        # embedding = OpenAIEmbeddings(openai_api_key=openai_api_key)
-        # long_memory = []
-        # main_db = FAISS.from_documents(long_memory, embedding)
-        # main_db.save_local(self.rag_dir)
-        # self.embedding = embedding
+        # 初始化长期记忆知识库
+        with open("../config/api_keys.yaml") as f:
+            config = yaml.load(f, Loader=yaml.FullLoader)
+        openai_api_key = config["openai_api_key"]
+        embedding = OpenAIEmbeddings(openai_api_key=openai_api_key)
+        long_memory = []
+        main_db = FAISS.from_documents(long_memory, embedding)
+        main_db.save_local(self.rag_dir)
+        self.embedding = embedding
+
+    def add_background(
+            self,
+            agent_message: AgentMessage,
+            background: AgentInfo,
+            short_term_memory: list[Log],
+            rag_dir: str,
+    ) -> AgentMessage:
+        """
+        将agent的background和长短记忆加到des_thought中
+        :param agent_message: 接收的聊天信息
+        :param background: agent的背景
+        :param short_term_memory: agent的短期记忆
+        :param rag_dir: agent的存放在RAG中的长期记忆
+        :return: 追加后的des_thought
+        """
+        ###z 预设有待完善
+
+        # 调取rag中长期记忆
+        rag_docs = self._search_rag(agent_message.prompt)
+        long_memory = ""
+        for index, rag_doc in enumerate(rag_docs, start=1):
+            long_memory += f"""
+            --- Begin Long History {index} ---
+            time: {rag_doc.metadata["timestamp"]}\n
+            sender: {rag_doc.metadata["subjective"]}\n
+            object: {rag_doc.metadata["object"]}\n
+            --- End Long History {index} ---
+            """
+
+        des_thought = f"""
+            presuppose: You can talk to neighbor{agent_message.send}, you can call tool b\n
+        """
+        des_thought += f"""
+        Background: {background.info}\n
+        Neighbor：{background.neighbors}\n
+        """
+
+        ###z 短期记忆未编辑
+        des_thought += f""" 
+        Long memory: {long_memory}\n
+        Short memory: 
+         """
+        if len(short_term_memory):
+            for short_term in short_term_memory:
+                des_thought += f"you received {short_term.receive_context}, and sand {short_term.context} to {short_term.objective}.\n"
+        else:
+            des_thought += "No Short memory\n"
+
+        return AgentMessage([agent_message.receive], [agent_message.send], des_thought)
 
     def _generate(
             self,
@@ -144,8 +160,7 @@ class Agent:
             generated_text = generate_with_llama(prompt, self.model)
             return generated_text
         else:
-            print("Check your model name")
-            return ""
+            raise NameError("No such model")
         # working in progress
 
     def _save_to_rag(
@@ -159,10 +174,12 @@ class Agent:
         """
         main_db = FAISS.load_local(self.rag_dir, self.embedding)
         new_memory = [Document(
-            subjective=log.subjective,
-            objective=log.objective,
             page_content=log.context,
-            timestamp=log.timestamp,
+            metadata={
+                "subjective": log.subjective,
+                "objective": log.objective,
+                "timestamp": log.timestamp,
+            },
         )]
         main_db.add_documents(new_memory)
         main_db.save_local(self.rag_dir)
@@ -202,7 +219,7 @@ class Agent:
         if len(self.message_buffer):
             self.conversation_buffer = self.message_buffer.pop(0)
             self.received_messages = self.conversation_buffer.prompt
-            text_to_consider = add_background(
+            text_to_consider = self.add_background(
                 self.conversation_buffer,
                 self.background,
                 self.short_term_memory,
@@ -212,8 +229,8 @@ class Agent:
         else:  ##没有对话要回复，概率开启新对话
             if self.background.actively_chat_probability > random.random():
                 receive_nb = [random.choice(self.background.neighbors)]
-                self.conversation_buffer=AgentMessage(receive_nb,self.name,"")
-                text_to_consider = add_background(
+                self.conversation_buffer = AgentMessage(receive_nb, self.name, "")
+                text_to_consider = self.add_background(
                     self.conversation_buffer,
                     self.background,
                     self.short_term_memory,
@@ -221,7 +238,7 @@ class Agent:
                 )  ###z 这个message是自己准备发送的，但还未编辑完
                 text_to_consider = add_conversation(text_to_consider, self.conversation_buffer)
             else:
-                return AgentMessage([-1], [-1], "<waiting>"),
+                return AgentMessage([-1], [-1], "<waiting>")
         # if self.is_chatting != -1:
         #     self.conversation_buffer = self.extract_first_match("send", self.is_chatting)
         #     if self.conversation_buffer == None:  ###z 可能会找不到回复  【模型等待一回合】
@@ -263,7 +280,8 @@ class Agent:
         #         text_to_consider = add_conversation(text_to_consider, self.conversation_buffer)  ###z is是否更新
         #     else:
         #         return AgentMessage(-1, -1, "<waiting>"),
-        self.conversation_buffer.clear()
+        # self.conversation_buffer
+        # 是否要清空self.conversation_buffer?
         return text_to_consider
 
     # def extract_first_match(self, key, value):
@@ -280,7 +298,7 @@ class Agent:
     #             return extracted
     #     return None
 
-    def think(
+    def _think(
             self,
             text_to_consider: AgentMessage,
     ) -> Action:
@@ -295,7 +313,7 @@ class Agent:
                         item["reply_prompt"], item["sending_target"])
         return action
 
-    def act(
+    def _act(
             self,
             action: Action,
             agents: list
@@ -313,15 +331,16 @@ class Agent:
             prompt = f"""
             you have used {action.tool_name},and have the answer "{tools}", please continue to finish the dialogue"""
             action.reply_prompt += prompt
-            self.think(AgentMessage(self.name, action.sending_target, action.reply_prompt))
             log = Log(self.name, action.sending_target, action.type, action.reply_prompt, self.received_messages)
             with open('../Log/log.txt', 'a', encoding='utf-8') as file:
                 file.write(log.convert_to_str())
+            self._memorize(log)
+            action = self._think(AgentMessage(self.name, action.sending_target, action.reply_prompt))
 
         if action.type == 'send_message':
             for i in action.sending_target:
                 result = action.reply_prompt
-                agents[i].conversation_buffer.append(result)
+                agents[i].message_buffer.append(result)
                 log = Log(self.name, action.sending_target, action.type, action.reply_prompt, self.received_messages)
                 with open('../Log/log.txt', 'a', encoding='utf-8') as file:
                     file.write(log.convert_to_str())
@@ -363,8 +382,8 @@ class Agent:
         text_to_consider = self.receive_information()
         if text_to_consider.prompt == "<waiting>":
             return
-        actions = self.think(text_to_consider)
-        self.act(actions)
+        actions = self._think(text_to_consider)
+        self._act(actions, )
 
 
 class EntranceAgent(Agent):

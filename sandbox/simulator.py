@@ -49,10 +49,10 @@ class Simulator:
                 info = AgentInfo(0.4, 0.4,
                                  self.agent_description_path)  ###actively_chat_probability，end_chat_probability 未填写
                 if i == 0:
-                    agent = EntranceAgent(name=[i], model='got-4o-mini', tools=self.tools,
+                    agent = EntranceAgent(name=[i], model='gpt-4o-mini', tools=self.tools,
                                           background=info, extra_command="")
                 else:
-                    agent = Agent(name=[i], model='got-4o-mini', tools=self.tools, background=info)
+                    agent = Agent(name=[i], model='gpt-4o-mini', tools=self.tools, background=info)
                 self.agents.append(agent)
         if self.agents_mode == 'preset':
             self._init_neighbors(self.num_agents, self.agents)
@@ -77,7 +77,7 @@ class Simulator:
                 i_R = 0
             agents[i].background.neighbors.append(i_L)
             agents[i].background.neighbors.append(i_R)
-        pass
+        # pass
 
     def initialize(
             self,
@@ -99,16 +99,6 @@ class Simulator:
         entrance_num = random.randint(0, len(self.agents))
         return self.agents[entrance_num]
 
-    # async def _emulate_step(
-    #         self,
-    # ) -> None:
-    #     """
-    #     模拟一个时间步
-    #     :return:
-    #     """
-    #     await asyncio.gather(*(agent.emulate_one_step() for agent in self.agents))
-    #     pass
-
     def emulate(
             self,
             num_step: int = 10
@@ -121,4 +111,4 @@ class Simulator:
         for _ in range(num_step):
             for agent in self.agents:
                 agent.emulate_one_step()
-        pass
+        # pass

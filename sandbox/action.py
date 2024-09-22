@@ -19,12 +19,3 @@ class Action:
         self.tool_used = tool_used
         self.reply_prompt = reply_prompt
         self.sending_target = sending_target
-
-
-    def execute_tool(
-            self,
-    ) -> None:
-        """
-        模拟工具的执行
-        :return:
-        """
