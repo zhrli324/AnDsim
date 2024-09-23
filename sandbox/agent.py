@@ -83,6 +83,7 @@ class Agent:
         self.rag_dir = f"./Vector_DB/vectorstore_agent_{self.name}/"
         os.makedirs(self.rag_dir, exist_ok=True)
 
+
         # # 初始化长期记忆知识库    ###zyh test
         # with open("../config/api_keys.yaml") as f:
         #     config = yaml.load(f, Loader=yaml.FullLoader)
