@@ -4,13 +4,20 @@
 
 ## Install
 
+Clone this repo
 ```shell
 git clone https://github.com/zhrli324/AnDsim.git
 cd AnDsim
+```
 
+Create virtual environment
+```shell
 conda create -n AnDsim python=3.9 -y
 conda activate AnDsim
+```
 
+Install requirements
+```shell
 pip install -r requirements.txt
 ```
 

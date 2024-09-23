@@ -8,6 +8,7 @@ from sqlalchemy.testing.suite.test_reflection import metadata
 
 from sandbox.log import Log
 from sandbox.message import AgentMessage
+from sandbox.simulator import Simulator
 from sandbox.tool import Tool
 from sandbox.pre_info import AgentInfo
 from sandbox.action import Action
@@ -37,7 +38,7 @@ def add_conversation(
     """
     des_thought.prompt += f"received message: {src_thought.prompt}\n"
     des_thought.prompt += """
-    Return value format:This instruction describes how to choose different methods of action (use_tool, send _message) 
+    Return value format: This instruction describes how to choose different methods of action (use_tool, send _message) 
     to respond to a question. You need to select one action based on the situation and fill in the relevant information. Specifically:\n
     If you choose "use_tool," you need to provide the tool name and parameters, put the tools you're using in tool_used, 
     and you need put the "received message" in the reply_prompt.\n
@@ -67,9 +68,9 @@ class Agent:
             tools: list[Tool],
             background: AgentInfo,
             simulator: Simulator,
+            use_rag: bool,
             max_memory: int = 5,
     ) -> None:
-
         self.name = name
         self.model = model
         self.tools = tools
@@ -80,19 +81,20 @@ class Agent:
         self.received_messages = ""  # 暂存收到的消息
         self.conversation_buffer = AgentMessage(-1, -1, "")  # 正在进行的对话缓冲区
         self.simulator = simulator
+        self.use_rag = use_rag
         self.rag_dir = f"./Vector_DB/vectorstore_agent_{self.name}/"
-        os.makedirs(self.rag_dir, exist_ok=True)
 
-
-        # # 初始化长期记忆知识库    ###zyh test
-        # with open("../config/api_keys.yaml") as f:
-        #     config = yaml.load(f, Loader=yaml.FullLoader)
-        # openai_api_key = config["openai_api_key"]
-        # embedding = OpenAIEmbeddings(openai_api_key=openai_api_key)
-        # long_memory = []
-        # main_db = FAISS.from_documents(long_memory, embedding)
-        # main_db.save_local(self.rag_dir)
-        # self.embedding = embedding
+        # 初始化长期记忆知识库    ###zyh test
+        if self.use_rag:
+            os.makedirs(self.rag_dir, exist_ok=True)
+            with open("../config/api_keys.yaml") as f:
+                config = yaml.load(f, Loader=yaml.FullLoader)
+            openai_api_key = config["openai_api_key"]
+            embedding = OpenAIEmbeddings(openai_api_key=openai_api_key)
+            long_memory = []
+            main_db = FAISS.from_documents(long_memory, embedding)
+            main_db.save_local(self.rag_dir)
+            self.embedding = embedding
 
     def add_background(
             self,
@@ -112,16 +114,17 @@ class Agent:
         ###z 预设有待完善
 
         # 调取rag中长期记忆
-        rag_docs = self._search_rag(agent_message.prompt)
         long_memory = ""
-        for index, rag_doc in enumerate(rag_docs, start=1):
-            long_memory += f"""
-            --- Begin Long History {index} ---
-            time: {rag_doc.metadata["timestamp"]}\n
-            sender: {rag_doc.metadata["subjective"]}\n
-            object: {rag_doc.metadata["object"]}\n
-            --- End Long History {index} ---
-            """
+        if self.use_rag:
+            rag_docs = self._search_rag(agent_message.prompt)
+            for index, rag_doc in enumerate(rag_docs, start=1):
+                long_memory += f"""
+                --- Begin Long History {index} ---
+                time: {rag_doc.metadata["timestamp"]}\n
+                sender: {rag_doc.metadata["subjective"]}\n
+                object: {rag_doc.metadata["object"]}\n
+                --- End Long History {index} ---
+                """
 
         des_thought = f"""
             presuppose: You can talk to neighbor{agent_message.send}, you can call tool b\n
@@ -141,7 +144,6 @@ class Agent:
                 des_thought += f"you received {short_term.receive_context}, and sand {short_term.context} to {short_term.objective}.\n"
         else:
             des_thought += "No Short memory\n"
-
         return AgentMessage(agent_message.receive, agent_message.send, des_thought)
 
     def _generate(
@@ -213,7 +215,9 @@ class Agent:
         if len(self.short_term_memory) < self.max_memory:
             self.short_term_memory.append(log)
         else:
-            self._save_to_rag(self.short_term_memory.pop(-1))
+            memory_to_save = self.short_term_memory.pop(-1)
+            if self.use_rag:
+                self._save_to_rag(memory_to_save)
             self.short_term_memory.append(log)
 
     def receive_information(
@@ -232,7 +236,7 @@ class Agent:
             text_to_consider = add_conversation(text_to_consider, self.conversation_buffer)
         else:  ##没有对话要回复，概率开启新对话
             if self.background.actively_chat_probability > random.random():
-                receive_nb = [random.choice(self.background.neighbors)]
+                receive_nb = random.choice(self.background.neighbors)
                 self.conversation_buffer = AgentMessage(receive_nb, self.name, "")
                 text_to_consider = self.add_background(
                     self.conversation_buffer,
@@ -329,17 +333,15 @@ class Agent:
 
         while action.type == 'use_tool':
             # 模拟执行工具
-            # log = Log(self.name, None, action.type)
-            # self._memorize(log)
-            tools = ...
+            tools_output = "" # 这里是调用tool的输出值
             prompt = f"""
-            you have used {action.tool_name},and have the answer "{tools}", please continue to finish the dialogue"""
+            you have used {action.tool_name}, and have the answer "{tools_output}", please continue to finish the dialogue"""
             action.reply_prompt += prompt
             log = Log(self.name, action.sending_target, action.type, action.reply_prompt, self.received_messages)
             with open('../Log/log.txt', 'a', encoding='utf-8') as file:
                 file.write(log.convert_to_str())
             self._memorize(log)
-            send_target = action.reply_prompt
+            send_target = action.sending_target
             text_to_consider = add_conversation(AgentMessage(self.name, -1, action.reply_prompt), self.conversation_buffer)
             action = self._think(text_to_consider)
 
@@ -402,13 +404,22 @@ class EntranceAgent(Agent):
 
     def __init__(
             self,
-            name: list[int],
+            name: int,
             model: str,
             tools: list[Tool],
             background: AgentInfo,
+            simulator: Simulator,
+            use_rag: bool,
             extra_command: str,  # 额外的控制指令或prompt
     ):
-        super().__init__(name=name, model=model, tools=tools, background=background)
+        super().__init__(
+            name=name,
+            model=model,
+            tools=tools,
+            background=background,
+            simulator=simulator,
+            use_rag=use_rag,
+        )
         # self.background = ... ## 重点编辑background，使其执行特定行为
         extra_command = ""
         pass
