@@ -9,8 +9,8 @@ class Log:
 
     def __init__(
             self,
-            subjective: str,
-            objective: str,
+            subjective: int,
+            objective: int,
             select: str,
             context: str,
             receive_context: str,
