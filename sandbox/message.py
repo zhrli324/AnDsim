@@ -6,8 +6,8 @@ class AgentMessage:
 
     def __init__(
             self,
-            send: list,
-            receive: list,
+            send: int,
+            receive: int,
             prompt: str,
     ) -> None:
         """
