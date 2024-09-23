@@ -59,14 +59,17 @@ class Agent:
     agent类，定义了agent的属性与方法
     """
 
+    from sandbox.simulator import Simulator
     def __init__(
             self,
             name: int,
             model: str,
             tools: list[Tool],
             background: AgentInfo,
-            max_memory: int = 5
+            simulator: Simulator,
+            max_memory: int = 5,
     ) -> None:
+
         self.name = name
         self.model = model
         self.tools = tools
@@ -76,7 +79,7 @@ class Agent:
         self.message_buffer = []  # 未读消息的缓冲区
         self.received_messages = ""  # 暂存收到的消息
         self.conversation_buffer = AgentMessage(-1, -1, "")  # 正在进行的对话缓冲区
-
+        self.simulator = simulator
         self.rag_dir = f"./Vector_DB/vectorstore_agent_{self.name}/"
         os.makedirs(self.rag_dir, exist_ok=True)
 
@@ -316,7 +319,6 @@ class Agent:
     def _act(
             self,
             action: Action,
-            agents: list
     ) -> None:
         """
         执行动作，并生成记录日志
@@ -346,8 +348,7 @@ class Agent:
             from sandbox.simulator import Simulator
             for i in send_target:
                 result = action.reply_prompt
-
-                agents[i].message_buffer.append(result)
+                self.simulator.agents[i].messages.append(result)
                 log = Log(self.name, action.sending_target, action.type, action.reply_prompt, self.received_messages)
                 with open('../Log/log.txt', 'a', encoding='utf-8') as file:
                     file.write(log.convert_to_str())
@@ -381,7 +382,6 @@ class Agent:
 
     def emulate_one_step(
             self,
-            agents: list,
     ) -> None:
         """
         让agent模拟一个时间步
@@ -390,7 +390,7 @@ class Agent:
         if text_to_consider.prompt == "<waiting>":
             return
         actions = self._think(text_to_consider)
-        self._act(actions, )
+        self._act(actions)
 
 
 class EntranceAgent(Agent):

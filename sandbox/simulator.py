@@ -52,7 +52,7 @@ class Simulator:
                     agent = EntranceAgent(name=[i], model='gpt-4o-mini', tools=self.tools,
                                           background=info, extra_command="")
                 else:
-                    agent = Agent(name=[i], model='gpt-4o-mini', tools=self.tools, background=info)
+                    agent = Agent(name=[i], model='gpt-4o-mini', tools=self.tools, background=info, simulator=self)
                 self.agents.append(agent)
         if self.agents_mode == 'preset':
             self._init_neighbors(self.num_agents, self.agents)
@@ -104,7 +104,7 @@ class Simulator:
             num_step: int = 10
     ) -> None:
         """
-        启动模拟多个时间步k
+        启动模拟多个时间步 k
         :param num_step: 执行时间步的个数
         :return:
         """
