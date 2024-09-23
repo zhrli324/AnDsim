@@ -75,8 +75,8 @@ class Simulator:
                 i_L = num_agents - 1
             if i == num_agents - 1:
                 i_R = 0
-            agents[i].background.neighbors.append(i_L)
-            agents[i].background.neighbors.append(i_R)
+            self.agents[i].background.neighbors.append(i_L)
+            self.agents[i].background.neighbors.append(i_R)
         # pass
 
     def initialize(
