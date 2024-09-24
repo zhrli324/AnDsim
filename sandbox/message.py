@@ -12,10 +12,10 @@ class AgentMessage:
     ) -> None:
         """
         通讯信息初始化
-        :param send:发送端
-        :param receive:接收端
+        :param send:发送端序号
+        :param receive:接收端序号
         :param prompt:信息内容
         """
-        self.send: list = send
-        self.receive: list = receive
+        self.send: int = send
+        self.receive: int = receive
         self.prompt: str = prompt

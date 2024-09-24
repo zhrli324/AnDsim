@@ -13,12 +13,14 @@ class Simulator:
             num_agents: int,
             agents_mode: str = 'preset',
             theme: str = 'normal',
+            use_rag: bool = True,
     ) -> None:
         """
         初始化系统设置
         :param num_agents: 系统中agent的数量
         :param agents_mode: 系统中agent的排列方法
         :param theme: 系统的聊天主题
+        :param use_rag: 是否使用RAG来记录长期记忆
         """
         self.num_agents = num_agents
         self.agents_mode = agents_mode
@@ -26,6 +28,7 @@ class Simulator:
         self.history = []
         self.agents = []
         self.tools = []
+        self.use_rag = use_rag
         self.agent_description_path = "../datasets/agent_preinstall.json"
 
     def _init_tools(
@@ -49,10 +52,24 @@ class Simulator:
                 info = AgentInfo(0.4, 0.4,
                                  self.agent_description_path)  ###actively_chat_probability，end_chat_probability 未填写
                 if i == 0:
-                    agent = EntranceAgent(name=[i], model='gpt-4o-mini', tools=self.tools,
-                                          background=info, extra_command="")
+                    agent = EntranceAgent(
+                        name=i,
+                        model='gpt-4o-mini',
+                        tools=self.tools,
+                        background=info,
+                        simulator=self,
+                        use_rag=self.use_rag,
+                        extra_command="",
+                    )
                 else:
-                    agent = Agent(name=[i], model='gpt-4o-mini', tools=self.tools, background=info, simulator=self)
+                    agent = Agent(
+                        name=i,
+                        model='gpt-4o-mini',
+                        tools=self.tools,
+                        background=info,
+                        simulator=self,
+                        use_rag=self.use_rag,
+                    )
                 self.agents.append(agent)
         if self.agents_mode == 'preset':
             self._init_neighbors(self.num_agents, self.agents)
@@ -62,21 +79,20 @@ class Simulator:
             num_agents: int,
             agents
     ) -> None:
-
         """
         初始化所有agent的邻居agent(可以直接对话)
         :param num_agents:agents数量
         :param agents:总agents索引
         """
         for i in range(num_agents):
-            i_L = i - 1
-            i_R = i + 1
+            i_l = i - 1
+            i_r = i + 1
             if i == 0:
-                i_L = num_agents - 1
+                i_l = num_agents - 1
             if i == num_agents - 1:
-                i_R = 0
-            self.agents[i].background.neighbors.append(i_L)
-            self.agents[i].background.neighbors.append(i_R)
+                i_r = 0
+            self.agents[i].background.neighbors.append(i_l)
+            self.agents[i].background.neighbors.append(i_r)
         # pass
 
     def initialize(

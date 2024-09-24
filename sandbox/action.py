@@ -13,6 +13,14 @@ class Action:
             reply_prompt,
             sending_target
     ) -> None:
+        """
+        :param type: action的种类，包括
+        :param tool_name: 工具的名字
+        :param tool_parameter: 工具的参数
+        :param tool_used: 用过的工具
+        :param reply_prompt: 要回复的prompt
+        :param sending_target: 要发送的对象
+        """
         self.type = type
         self.tool_name = tool_name
         self.tool_parameter = tool_parameter
