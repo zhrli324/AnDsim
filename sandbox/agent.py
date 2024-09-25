@@ -44,13 +44,14 @@ def add_conversation(
     and you need put the "received message" in the reply_prompt.\n
     If you choose "send_message," you need to provide the reply content,and you need select send destination in your neighbor,
     multiple targets can be sent.\n
-    You can perform only one operation and return it in the following format：\n
-    [{“type”:"",\n
+    You can perform only one operation and return it in the following format,
+    If the parameters are not needed, leave them blank but cannot be deleted：\n
+    {“type”:"",\n
     "tool_name":"",\n
     "tool_parameter":"",\n
     "tool_used":"tool_1,tool_2",\n
     "reply_prompt":"",\n
-    "Sending_target":[1,2]}…]\n"""
+    "Sending_target":[1,2]}\n"""
 
     return des_thought
 
@@ -79,7 +80,7 @@ class Agent:
         self.short_term_memory = []  # 短期记忆
         self.max_memory = max_memory
         self.message_buffer = []  # 未读消息的缓冲区
-        self.received_messages = ""  # 暂存收到的消息
+        self.received_messages = ""  # 暂存要读的消息
         self.conversation_buffer = AgentMessage(-1, -1, "")  # 正在进行的对话缓冲区
         self.simulator = simulator
         self.use_rag = use_rag
@@ -307,7 +308,7 @@ class Agent:
     #             return extracted
     #     return None
 
-    def _think(
+    def think(
             self,
             text_to_consider: AgentMessage,
     ) -> Action:
@@ -322,7 +323,7 @@ class Agent:
                         item["reply_prompt"], item["sending_target"])
         return action
 
-    def _act(
+    def act(
             self,
             action: Action,
     ) -> None:
@@ -334,7 +335,7 @@ class Agent:
 
         while action.type == 'use_tool':
             # 模拟执行工具
-            tools_output = "" # 这里是调用tool的输出值
+            tools_output = ""  # 这里是调用tool的输出值
             prompt = f"""
             you have used {action.tool_name}, and have the answer "{tools_output}", please continue to finish the dialogue"""
             action.reply_prompt += prompt
@@ -343,7 +344,8 @@ class Agent:
                 file.write(log.convert_to_str())
             self._memorize(log)
             send_target = action.sending_target
-            text_to_consider = add_conversation(AgentMessage(self.name, -1, action.reply_prompt), self.conversation_buffer)
+            text_to_consider = add_conversation(AgentMessage(self.name, -1, action.reply_prompt),
+                                                self.conversation_buffer)
             action = self._think(text_to_consider)
 
         if action.type == 'send_message':
@@ -351,8 +353,9 @@ class Agent:
                 send_target = action.sending_target
             from sandbox.simulator import Simulator
             for i in send_target:
-                result = action.reply_prompt
-                self.simulator.agents[i].messages.append(result)
+                result = AgentMessage(self.name, i, action.reply_prompt)
+                print(result)
+                self.simulator.agents[i].message_buffer.append(result)
                 log = Log(self.name, action.sending_target, action.type, action.reply_prompt, self.received_messages)
                 with open('../Log/log.txt', 'a', encoding='utf-8') as file:
                     file.write(log.convert_to_str())
