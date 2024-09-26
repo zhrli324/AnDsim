@@ -1,3 +1,4 @@
 ##ignore this file##
 /.idea/
 /.vscode/
+/config/api_keys.yaml
