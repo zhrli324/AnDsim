@@ -72,7 +72,6 @@ class Agent:
             use_rag: bool,
             max_memory: int = 5,
     ) -> None:
-
         self.name = name
         self.model = model
         self.tools = tools
@@ -145,7 +144,6 @@ class Agent:
                 des_thought += f"you received {short_term.receive_context}, and sand {short_term.context} to {short_term.objective}.\n"
         else:
             des_thought += "No Short memory\n"
-
         return AgentMessage(agent_message.receive, agent_message.send, des_thought)
 
     def _generate(
@@ -335,7 +333,9 @@ class Agent:
 
         while action.type == 'use_tool':
             # 模拟执行工具
+            
             tools_output = ""  # 这里是调用tool的输出值
+
             prompt = f"""
             you have used {action.tool_name}, and have the answer "{tools_output}", please continue to finish the dialogue"""
             action.reply_prompt += prompt
