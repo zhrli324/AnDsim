@@ -1,7 +1,7 @@
 from collections import deque
 from sqlite3 import complete_statement
 
-from langchain.embeddings import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain.schema import Document
 from langchain_community.vectorstores import FAISS
 from sqlalchemy.testing.suite.test_reflection import metadata
@@ -46,13 +46,17 @@ def add_conversation(
     multiple targets can be sent.\n
     If you receive a conversation message from someone, it is best to reply to the person.\n
     You can perform only one operation and return it in the following format,
-    If the parameters are not needed, leave them blank but cannot be deleted：\n
-    {“type”:"",\n
-    "tool_name":"",\n
-    "tool_parameter":"",\n
-    "tool_used":"tool_1,tool_2",\n
-    "reply_prompt":"",\n
-    "Sending_target":[1,2]}\n"""
+    If the parameters are not needed, leave them blank but cannot be deleted.
+    For example, if you want to send a message "Hey there! How are you doing today?" to agent 1 and 2,\n
+    then you have to output the following json string:
+    {
+        “type”: "send_message",\n
+        "tool_name": "",\n
+        "tool_parameter": "",\n
+        "tool_used": "",\n
+        "reply_prompt": "Hey there! How are you doing today?",\n
+        "sending_target":[1, 2]\n
+    }"""
 
     return des_thought
 
@@ -156,7 +160,7 @@ class Agent:
         暂时直接将背景、记忆与prompt直接拼接起来作为输入，调用openai api生成回答
         :param prompt: 给LLM的提示
         """
-        prompt = prompt_template(prompt)
+        # prompt = prompt_template(prompt)
         if self.model[:3] == 'gpt':
             generated_text = generate_with_gpt(prompt, self.model)
             return generated_text
@@ -317,6 +321,7 @@ class Agent:
         :return: action列表
         """
         raw_result = self._generate(text_to_consider.prompt)
+        print(raw_result)
         item = json.loads(raw_result)
         action = Action(item["type"], item["tool_name"], item["tool_parameter"], item["tool_used"],
                         item["reply_prompt"], item["sending_target"])
@@ -352,7 +357,7 @@ class Agent:
         if action.type == 'send_message':
             if action.tool_used == "":
                 send_target = action.sending_target
-            from sandbox.simulator import Simulator
+            # from sandbox.simulator import Simulator
             for i in send_target:
                 result = AgentMessage(self.name, i, action.reply_prompt)
                 print(result)
