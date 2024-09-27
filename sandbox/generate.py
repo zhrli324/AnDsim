@@ -15,17 +15,20 @@ def generate_with_gpt(
         config = yaml.load(f, Loader=yaml.FullLoader)
     openai_api_key = config["openai_api_key"]
     client = OpenAI(api_key=openai_api_key)
+    # client = OpenAI(api_key="", base_url="")
     generated_text = client.chat.completions.create(
         model="gpt-4o-mini",
+        # model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "You are an agent."},
+            {"role": "system", "content": "You are an agent in a multi-agent system."},
             {
                 "role": "user",
                 "content": prompt
             }
         ]
     )
-    return str(generated_text.choices[0].message)
+    return str(generated_text.choices[0].message.content)
+
 
 
 def generate_with_claude(
