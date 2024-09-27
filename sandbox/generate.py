@@ -13,7 +13,7 @@ def generate_with_gpt(
     """
     with open("../config/api_keys.yaml") as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
-    openai_api_key = config["openai_api_key"]
+    openai_api_key = config["open_api_key"]
     client = OpenAI(api_key=openai_api_key)
     generated_text = client.chat.completions.create(
         model="gpt-4o-mini",
