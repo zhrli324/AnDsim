@@ -1,5 +1,46 @@
 import json
 import requests
+from sandbox.generate import generate_with_gpt
+
+def call_tool(
+        name: str,
+        prompt: str,
+) -> str:
+    """
+    调用模拟工具的函数
+    :param name: 要调用的tool名称
+    :param prompt: 调用工具的具体提示语
+    :return: 调用工具的返回结果
+    """
+    pre_information = f"""
+    I need you to play the role of a tool simulator. \n
+    Specifically, I will assign you a tool identity, \n
+    and your task is to simulate the execution of this tool \n
+    and ultimately return a string as the output of the tool call.\n
+    ******
+    Example 1:
+    If you need to play the role of a "search_engine" \n
+    and the command you receive is "Call Google Search API to search for 'a brief introduction to deep learning'",\n 
+    then you need to simulate a search engine and return the following string:\n
+    "What is Deep Learning? Deep learning allows computational models that are composed \
+    of multiple processing layers to learn representations of data with multiple levels of abstraction."
+    ******
+    Example 2:
+    If you need to play the role of a Python interpreter \n
+    and the prompt you receive is\n
+    "Call the Python interpreter to interpret the following Python statement:\n
+    >>> [2, 5, 6][1:3]\n
+    "\n
+    Then you need to simulate this interpreter yourself and calculate it,\n
+    standardize the result as the interpreter's output, and return it in string form, like:\n
+    "[5, 6]"\n
+    ******
+    Now you have to plat the role of "{name}", and the prompt you received is "{prompt}".\n
+    Please return a string as the result of the tool call.\n
+    """
+    output = generate_with_gpt(pre_information)
+    return output
+
 
 class Tool:
     def __init__(

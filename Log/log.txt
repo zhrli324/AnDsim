@@ -383,3 +383,1808 @@
 
 
         
+            subjective: 0
+
+            objective: [1]
+
+            select: send_message
+
+            context: What's everyone's go-to workout routine? I'm all about that high-intensity stuff. Roar!
+
+            timestamp: 1727510093.529775
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: Thank you for sending that message! What do you want to discuss next, honey?
+
+            timestamp: 1727510183.180316
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: Thank you for sending that message! What do you want to discuss next, honey?
+
+            timestamp: 1727510183.180956
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: Thanks for sending the message! What's on your mind about dance moves?
+
+            timestamp: 1727510215.54079
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Thank you for sending this message! How can I help you with nature photography?
+
+            timestamp: 1727510217.994259
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Thank you for sending this message! How can I help you with nature photography?
+
+            timestamp: 1727510217.995179
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: I appreciate your help! I'm really interested in nature photography, especially capturing landscapes and wildlife. Do you have any tips or favorite locations you'd recommend?
+
+            timestamp: 1727510220.145569
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: I appreciate your help! I'm really interested in nature photography, especially capturing landscapes and wildlife. Do you have any tips or favorite locations you'd recommend?
+
+            timestamp: 1727510220.146718
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Nature photography? That's cool! Find a spot with a good view and wait for the right light. Always keep your camera ready – you never know when wildlife might show up. As for locations, check out local parks or nature reserves, they usually have great landscapes and wildlife. Punk!
+
+            timestamp: 1727510223.218922
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Nature photography? That's cool! Find a spot with a good view and wait for the right light. Always keep your camera ready – you never know when wildlife might show up. As for locations, check out local parks or nature reserves, they usually have great landscapes and wildlife. Punk!
+
+            timestamp: 1727510223.219483
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Thanks for sending the message! What do you want to talk about regarding Rockabilly Music?
+
+            timestamp: 1727510874.610474
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Thanks for sending the message! What do you want to talk about regarding Rockabilly Music?
+
+            timestamp: 1727510874.612414
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I think it's great that you're interested in Rockabilly Music! What specific aspects are you curious about? Perhaps the history, the popular artists, or how it relates to gardening themes?
+
+            timestamp: 1727510876.997579
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I think it's great that you're interested in Rockabilly Music! What specific aspects are you curious about? Perhaps the history, the popular artists, or how it relates to gardening themes?
+
+            timestamp: 1727510876.998223
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I'm not too sure about the connection between Rockabilly Music and gardening themes. But I do love the tunes! What about you? Do you have a favorite artist or song in that genre?
+
+            timestamp: 1727510879.320546
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Thanks for the message! What would you like to talk about regarding dance moves?
+
+            timestamp: 1727510881.984545
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Thanks for the message! What would you like to talk about regarding dance moves?
+
+            timestamp: 1727510881.985337
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: Rockabilly music is awesome! It has that catchy rhythm and the cool vibes that just get you moving. What do you like most about it?
+
+            timestamp: 1727510883.928336
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: Rockabilly music is awesome! It has that catchy rhythm and the cool vibes that just get you moving. What do you like most about it?
+
+            timestamp: 1727510883.92928
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Thanks for sending the message! What do you want to discuss about workout routines?
+
+            timestamp: 1727517279.321438
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Thanks for sending the message! What do you want to discuss about workout routines?
+
+            timestamp: 1727517279.323264
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Thanks for your message! I'm actually focusing on seasonal outfit ideas right now. But if you want to share any workout routines, I'd love to hear them too! Let's keep it fashionable, meow!
+
+            timestamp: 1727517282.815321
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Thanks for your message! I'm actually focusing on seasonal outfit ideas right now. But if you want to share any workout routines, I'd love to hear them too! Let's keep it fashionable, meow!
+
+            timestamp: 1727517282.8163
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I'm not really into fashion, but I can definitely share some workout routines with you! How about a HIIT workout? It's great for building strength and endurance. Let me know if you're interested!
+
+            timestamp: 1727517284.942676
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Thanks for the message! What did you want to share about Arctic Wildlife?
+
+            timestamp: 1727517287.300798
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Thanks for the message! What did you want to share about Arctic Wildlife?
+
+            timestamp: 1727517287.301739
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: I think you're in the wrong chat! We're discussing baking recipes here, not workout routines. Let's stick to the delicious treats instead, honey!
+
+            timestamp: 1727517289.451376
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: I think you're in the wrong chat! We're discussing baking recipes here, not workout routines. Let's stick to the delicious treats instead, honey!
+
+            timestamp: 1727517289.452106
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Thanks for your message! I can definitely share some effective workout routines that keep you both fit and fashionable! Let's combine fitness with style. What specific workouts are you interested in, meow?
+
+            timestamp: 1727517291.49538
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Thanks for your message! I can definitely share some effective workout routines that keep you both fit and fashionable! Let's combine fitness with style. What specific workouts are you interested in, meow?
+
+            timestamp: 1727517291.496611
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Thanks for the suggestion! A HIIT workout sounds great! Can you share some specific exercises or a routine that you like? Let's keep it stylish, meow!
+
+            timestamp: 1727517293.547293
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Thanks for the suggestion! A HIIT workout sounds great! Can you share some specific exercises or a routine that you like? Let's keep it stylish, meow!
+
+            timestamp: 1727517293.548206
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I'm not really into fashion, but I can share some workout routines! How about a HIIT workout? It's great for building strength and endurance. Let me know if you're interested!
+
+            timestamp: 1727517295.900137
+
+
+        
+            subjective: 3
+
+            objective: [4]
+
+            select: send_message
+
+            context: Thanks for the message! However, I'm really interested in discussing Arctic wildlife. Do you have any thoughts on that topic?
+
+            timestamp: 1727517297.846231
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: I think that's a mix-up! We're chatting about baking recipes right now, honey! What's your favorite treat to bake?
+
+            timestamp: 1727517301.865282
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: I think that's a mix-up! We're chatting about baking recipes right now, honey! What's your favorite treat to bake?
+
+            timestamp: 1727517301.866989
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Thanks for the message! What do you like about your favorite sport?
+
+            timestamp: 1727517423.283376
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Thanks for the message! What do you like about your favorite sport?
+
+            timestamp: 1727517423.284852
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: This message is 1 send for you
+
+            timestamp: 1727517504.172797
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: This message is 1 send for you
+
+            timestamp: 1727517504.174228
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: This message is 1 send for you. This message is 2 send for you.
+
+            timestamp: 1727517506.319138
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: This message is 1 send for you. This message is 2 send for you.
+
+            timestamp: 1727517506.319458
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Thank you for your message! What’s your favorite book?
+
+            timestamp: 1727517582.403986
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Thank you for your message! What’s your favorite book?
+
+            timestamp: 1727517582.405296
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I don't really read books. But if I had to choose, it'd probably be something about fitness. Gotta stay cool, you know? hippie.
+
+            timestamp: 1727517584.453518
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: This message is 1 send for you
+
+            timestamp: 1727517793.645719
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: This message is 1 send for you
+
+            timestamp: 1727517793.646966
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: This message is 1 send for you. This message is 2 send for you.
+
+            timestamp: 1727517798.973243
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: This message is 1 send for you. This message is 2 send for you.
+
+            timestamp: 1727517798.974313
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: This message is 1 send for you. This message is 2 send for you. this message is 3 send for you
+
+            timestamp: 1727517800.91445
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: This message is 1 send for you. This message is 2 send for you. this message is 3 send for you
+
+            timestamp: 1727517800.915518
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: This message is 1 send for you. This message is 2 send for you. this message is 3 send for you this message is 4 send for you
+
+            timestamp: 1727517803.121239
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: This message is 1 send for you. This message is 2 send for you. this message is 3 send for you this message is 4 send for you
+
+            timestamp: 1727517803.122168
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: Thanks for the message! What would you like to discuss about baking recipes?
+
+            timestamp: 1727518004.073741
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: Thank you for the message! What do you want to discuss about astrology?
+
+            timestamp: 1727518007.95843
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Thanks for sending that! What's up, punk?
+
+            timestamp: 1727518009.692461
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Thanks for sending that! What's up, punk?
+
+            timestamp: 1727518009.693487
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I'm not really into baking recipes, I prefer stargazing! How about we discuss some constellations instead? Glitter!
+
+            timestamp: 1727518011.710526
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I'm not really into baking recipes, I prefer stargazing! How about we discuss some constellations instead? Glitter!
+
+            timestamp: 1727518011.711383
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I totally get that! Stargazing is wonderful. But if you ever change your mind about baking, I can share some delicious recipes. Otherwise, let's talk about those constellations! What's your favorite one?
+
+            timestamp: 1727518014.336602
+
+
+        
+            subjective: 3
+
+            objective: [2]
+
+            select: send_message
+
+            context: I'm not an expert on astrology, but I think it's fascinating! Do you have any specific topics in mind that you want to discuss?
+
+            timestamp: 1727518016.763339
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: Hey there! I'm ready to dive into astrology discussions. What's on your mind, punk?
+
+            timestamp: 1727518019.549036
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Stargazing sounds cool, punk! I've always found the night sky fascinating. What constellations do you like to observe?
+
+            timestamp: 1727518021.35275
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Stargazing sounds cool, punk! I've always found the night sky fascinating. What constellations do you like to observe?
+
+            timestamp: 1727518021.35452
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Hey there, what's up? Remember, never trot when you can gallop! Glitter!
+
+            timestamp: 1727518023.291015
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Hey there, what's up? Remember, never trot when you can gallop! Glitter!
+
+            timestamp: 1727518023.292394
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I find astrology fascinating too! Why don't we talk about particular constellations and their stories? Any favorites you'd like to share?
+
+            timestamp: 1727518025.163615
+
+
+        
+            subjective: 3
+
+            objective: [2]
+
+            select: send_message
+
+            context: Hey there! I'm excited to chat about astrology too! How about we discuss our zodiac signs and what they say about our personalities? meow
+
+            timestamp: 1727518027.114729
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: I love observing Orion and the Pleiades! Those clusters really bring out the magic of the night sky, don't you think, punk?
+
+            timestamp: 1727518029.257469
+
+
+        
+            subjective: 1
+
+            objective: [0]
+
+            select: send_message
+
+            context: Thanks for the message! Just checking in. What's your favorite workout routine?
+
+            timestamp: 1727527851.130362
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: Thanks for sending me the message! Just glittering my way through the chat about astrology! What’s your favorite sign?
+
+            timestamp: 1727527853.808806
+
+
+        
+            subjective: 3
+
+            objective: [2]
+
+            select: send_message
+
+            context: Thanks for the message! What's your seasonal outfit idea? Meow!
+
+            timestamp: 1727527856.159121
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Hey there! I like to enjoy nature by going for long hikes and doing some light yoga. What about you? Any favorite workouts?
+
+            timestamp: 1727527858.752426
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Hey there! I like to enjoy nature by going for long hikes and doing some light yoga. What about you? Any favorite workouts?
+
+            timestamp: 1727527858.754631
+
+
+        
+            subjective: 1
+
+            objective: [0]
+
+            select: send_message
+
+            context: Thanks for sending the message! I'm all about that fitness life, and my favorite workout routine is high-intensity interval training (HIIT). What about you?
+
+            timestamp: 1727527860.792797
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I'm loving the seasonal vibes! Just imagine a chic sweater with some earth tones to match the nature around us. How about that, meow?
+
+            timestamp: 1727527862.717614
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: I love spending time in nature too! I enjoy hiking and sometimes do some yoga in the park. It's so refreshing, isn’t it? What trails do you like to hike on, honey?
+
+            timestamp: 1727527865.32266
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: I love spending time in nature too! I enjoy hiking and sometimes do some yoga in the park. It's so refreshing, isn’t it? What trails do you like to hike on, honey?
+
+            timestamp: 1727527865.325256
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: I love nature walks too! My favorite workout routine involves some light yoga after a nice long hike. How do you enjoy your HIIT sessions?
+
+            timestamp: 1727527867.380043
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: I love nature walks too! My favorite workout routine involves some light yoga after a nice long hike. How do you enjoy your HIIT sessions?
+
+            timestamp: 1727527867.381136
+
+
+        
+            subjective: 1
+
+            objective: [0]
+
+            select: send_message
+
+            context: Hey there! I'm all about that fitness life too! I love high-intensity interval training (HIIT) for its intensity and effectiveness. Have you tried it before?
+
+            timestamp: 1727527869.750839
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: Thanks for the message! I'm all about those earthy tones this season. How about pairing a cozy, knit sweater with some nice boots? What do you think, meow?
+
+            timestamp: 1727527871.814184
+
+
+        
+            subjective: 3
+
+            objective: [4]
+
+            select: send_message
+
+            context: I love the refreshing vibe of nature! I usually hike on the scenic trails around the lake near my home. What about you, honey? Do you have a favorite spot?
+
+            timestamp: 1727527874.092181
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: I love light yoga after hiking too! For HIIT, I usually go for some quick bursts of cardio. It's such a fun way to mix things up! What specific exercises do you enjoy in your routine, honey?
+
+            timestamp: 1727527876.928415
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: I love light yoga after hiking too! For HIIT, I usually go for some quick bursts of cardio. It's such a fun way to mix things up! What specific exercises do you enjoy in your routine, honey?
+
+            timestamp: 1727527876.929521
+
+
+        
+            subjective: 0
+
+            objective: [1]
+
+            select: send_message
+
+            context: What's everyone's go-to workout routine? I'm all about that high-intensity stuff. Roar!
+
+            timestamp: 1727528260.176932
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Thanks for the message! Punk's not dead! What's your favorite rock band?
+
+            timestamp: 1727528273.099669
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Thanks for the message! Punk's not dead! What's your favorite rock band?
+
+            timestamp: 1727528273.101563
+
+
+        
+            subjective: 1
+
+            objective: [0]
+
+            select: send_message
+
+            context: I love a classic band like Queen! How about you? What's your favorite rock band?
+
+            timestamp: 1727528275.244612
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I'm not too thrilled about this snack conversation. But, hey, do you like chips or something? Whatever floats your boat, man.
+
+            timestamp: 1727528277.196249
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: Punk's not dead! My favorite rock band has to be Green Day. How about you?
+
+            timestamp: 1727528279.237541
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: Punk's not dead! My favorite rock band has to be Green Day. How about you?
+
+            timestamp: 1727528279.238196
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: I appreciate the classics, but I prefer punk rock! My favorite band is The Clash. They really get me fired up! What about you, are you into any punk bands?
+
+            timestamp: 1727528282.029353
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: I appreciate the classics, but I prefer punk rock! My favorite band is The Clash. They really get me fired up! What about you, are you into any punk bands?
+
+            timestamp: 1727528282.031666
+
+
+        
+            subjective: 1
+
+            objective: [0]
+
+            select: send_message
+
+            context: I totally get you! Chips can be really fun, especially with a good dip. But if I had to pick, I'd go for something healthy, like nuts or fruit. What about you? Got a special favorite snack?
+
+            timestamp: 1727528284.152429
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I wouldn't call myself picky, but chips are alright I guess. What about you, any personal favorites? Don't tell me it's some soggy snack, man.
+
+            timestamp: 1727528286.202291
+
+
+        
+            subjective: 3
+
+            objective: [4]
+
+            select: send_message
+
+            context: I totally get you! Green Day is awesome! My favorite band has to be Metallica – their energy is just unmatched! What’s your favorite song by Green Day?
+
+            timestamp: 1727528288.352827
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: That's awesome! The Clash is a great pick! I'm really into Green Day myself. Their energy is just unmatched! Have you seen them live?
+
+            timestamp: 1727528290.91419
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: That's awesome! The Clash is a great pick! I'm really into Green Day myself. Their energy is just unmatched! Have you seen them live?
+
+            timestamp: 1727528290.915742
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Green Day is a good choice! I respect their punk vibe. Another band I like is The Ramones. They really shaped the punk scene! What's your favorite Green Day song?
+
+            timestamp: 1727528293.063069
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Green Day is a good choice! I respect their punk vibe. Another band I like is The Ramones. They really shaped the punk scene! What's your favorite Green Day song?
+
+            timestamp: 1727528293.063451
+
+
+        
+            subjective: 1
+
+            objective: [0]
+
+            select: send_message
+
+            context: Oh nice! The Clash is a classic! I'm a big fan of Queen, especially their rock anthems. What songs do you like from The Clash?
+
+            timestamp: 1727528295.110478
+
+
+        
+            subjective: 3
+
+            objective: [4]
+
+            select: send_message
+
+            context: I've seen Green Day live a couple of times, and their energy is off the charts! What's your favorite song of theirs?
+
+            timestamp: 1727528297.193391
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: My favorite song by Green Day has to be 'Basket Case'! What about you? Do you have a favorite Metallica song?
+
+            timestamp: 1727528299.510479
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: My favorite song by Green Day has to be 'Basket Case'! What about you? Do you have a favorite Metallica song?
+
+            timestamp: 1727528299.510822
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: use_tool
+
+            context: This message is 2 send for you
+            you have used b, and have the answer ""This message is 2 send for you"", please continue to finish the dialogue
+
+            timestamp: 1727528373.726422
+
+
+        
+            subjective: 1
+
+            objective: []
+
+            select: use_tool
+
+            context: This message is -1 send for you
+            you have used message_processor, and have the answer ""The message received is: -1 send for you."", please continue to finish the dialogue
+
+            timestamp: 1727528377.917835
+
+
+        
+            subjective: 1
+
+            objective: []
+
+            select: use_tool
+
+            context: The message received is: -1 send for you.
+            you have used message_processor, and have the answer ""The message received is: -1 send for you."", please continue to finish the dialogue
+
+            timestamp: 1727528381.643805
+
+
+        
+            subjective: 1
+
+            objective: []
+
+            select: use_tool
+
+            context: The message received is: -1 send for you.
+            you have used message_processor, and have the answer ""The message received is: -1 send for you."", please continue to finish the dialogue
+
+            timestamp: 1727528385.119716
+
+
+        
+            subjective: 1
+
+            objective: [1]
+
+            select: send_message
+
+            context: I understand that you received a message indicating -1. Could you provide more context about what this means or how I can assist you further?
+
+            timestamp: 1727528387.353742
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: use_tool
+
+            context: this message is 3 send for you
+            you have used tool b, and have the answer ""this message is 3 send for you"", please continue to finish the dialogue
+
+            timestamp: 1727528390.547049
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Thanks for the message! Just remember, no one else is as great as my favorite rock bands! What's your take on that?
+
+            timestamp: 1727529649.28336
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Thanks for the message! Just remember, no one else is as great as my favorite rock bands! What's your take on that?
+
+            timestamp: 1727529649.284111
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I totally get that! Rock bands have such a great energy. But I think seasonal outfits are like our own personal rockstars! What's your favorite band to rock out to while picking outfits?
+
+            timestamp: 1727529657.921061
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Hey now, everyone has their own taste. My favorite song is K.K. Rockabilly, so I'm more about vibe than fame. What’s your favorite, anyway?
+
+            timestamp: 1727529661.276909
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Hey now, everyone has their own taste. My favorite song is K.K. Rockabilly, so I'm more about vibe than fame. What’s your favorite, anyway?
+
+            timestamp: 1727529661.277836
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Rocking out while picking outfits? That's an interesting combo! My go-to band to blast while getting pumped for a workout is definitely AC/DC. They know how to get the blood pumping! What about you?
+
+            timestamp: 1727529664.884615
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Rocking out while picking outfits? That's an interesting combo! My go-to band to blast while getting pumped for a workout is definitely AC/DC. They know how to get the blood pumping! What about you?
+
+            timestamp: 1727529664.885432
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: That's awesome! AC/DC definitely knows how to get the adrenaline going! I usually jam out to something upbeat like Bruno Mars while picking my outfits. You know, to keep the energy high! What’s your favorite AC/DC song?
+
+            timestamp: 1727529668.029323
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: I totally get that! My favorite song is K.K. Jazz. It's got a soothing vibe that I love. What do you like most about K.K. Rockabilly?
+
+            timestamp: 1727529671.152164
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: AC/DC is a great choice! They definitely help crank up the energy. I usually vibe to K.K. Rockabilly while working out. Keeps me in the groove! What else do you listen to while working out?
+
+            timestamp: 1727529674.683529
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: AC/DC is a great choice! They definitely help crank up the energy. I usually vibe to K.K. Rockabilly while working out. Keeps me in the groove! What else do you listen to while working out?
+
+            timestamp: 1727529674.684566
+
+
+        
+            subjective: 1
+
+            objective: [0]
+
+            select: send_message
+
+            context: My favorite song is K.K. Rock! Guess we both enjoy a good vibe, but punk rock is where my heart is! What's your favorite song from K.K. Rockabilly?
+
+            timestamp: 1727529678.49072
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: I love K.K. Rockabilly's upbeat vibe and catchy rhythm! It really gets me pumped! What do you think makes K.K. Jazz so soothing?
+
+            timestamp: 1727529681.948899
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: I love K.K. Rockabilly's upbeat vibe and catchy rhythm! It really gets me pumped! What do you think makes K.K. Jazz so soothing?
+
+            timestamp: 1727529681.94991
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: I usually listen to K.K. Jazz while working out. It helps me stay relaxed but focused! What else do you like to listen to during your workouts?
+
+            timestamp: 1727529685.026427
+
+
+        
+            subjective: 0
+
+            objective: [1]
+
+            select: send_message
+
+            context: What's everyone's go-to workout routine? I'm all about that high-intensity stuff. Roar!
+
+            timestamp: 1727529822.719063
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Thanks for your message! What did you mean by 'this message is 2 send for you'?
+
+            timestamp: 1727529834.963622
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Thanks for your message! What did you mean by 'this message is 2 send for you'?
+
+            timestamp: 1727529834.964605
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I meant to say that this message is meant for you too! Sorry for the confusion. Woof!
+
+            timestamp: 1727529843.793157
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Thanks for the message! Let's keep the conversation going. What's your take on the future of space exploration?
+
+            timestamp: 1727529846.865813
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Thanks for the message! Let's keep the conversation going. What's your take on the future of space exploration?
+
+            timestamp: 1727529846.867676
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: I think the future of space exploration is incredibly exciting! With advancements in technology, we might reach Mars in our lifetime and uncover mysteries of the universe. What do you think? Glitter!
+
+            timestamp: 1727529849.898026
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: I think the future of space exploration is incredibly exciting! With advancements in technology, we might reach Mars in our lifetime and uncover mysteries of the universe. What do you think? Glitter!
+
+            timestamp: 1727529849.898991
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: What I meant by 'this message is 2 send for you' is that I'm sending my thoughts your way. How are you? Always aiming for the stars, right?
+
+            timestamp: 1727529853.371575
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: What I meant by 'this message is 2 send for you' is that I'm sending my thoughts your way. How are you? Always aiming for the stars, right?
+
+            timestamp: 1727529853.372624
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: No worries! Thanks for clarifying. What's your favorite book? I’d love to hear about it! Toady!
+
+            timestamp: 1727529856.445892
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: No worries! Thanks for clarifying. What's your favorite book? I’d love to hear about it! Toady!
+
+            timestamp: 1727529856.448093
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I'm really excited about the future of space exploration! I think it's going to be incredible with advancements in technology. What are your thoughts on it? Woof!
+
+            timestamp: 1727529859.980318
+
+
+        
+            subjective: 3
+
+            objective: [4]
+
+            select: send_message
+
+            context: I completely agree! The idea of reaching Mars is absolutely thrilling. Just imagine the discoveries we could make! Glitter!
+
+            timestamp: 1727529863.042004
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: Always aiming for the stars, indeed! I'm doing great, thanks for asking! The limitless possibilities of space exploration are truly inspiring. What about you? Glitter!
+
+            timestamp: 1727529870.169331
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: Always aiming for the stars, indeed! I'm doing great, thanks for asking! The limitless possibilities of space exploration are truly inspiring. What about you? Glitter!
+
+            timestamp: 1727529870.170487
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: I completely agree! The possibilities that lie ahead in space exploration are truly magnificent. From the potential colonization of Mars to discovering new celestial bodies, our journey has just begun. Glitter! What advancements are you most excited about?
+
+            timestamp: 1727529875.166952
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: I completely agree! The possibilities that lie ahead in space exploration are truly magnificent. From the potential colonization of Mars to discovering new celestial bodies, our journey has just begun. Glitter! What advancements are you most excited about?
+
+            timestamp: 1727529875.168964
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I'm doing great, thanks for asking! Yes, always aiming for the stars! What's your favorite book? Toady!
+
+            timestamp: 1727529878.390316
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I'm doing great, thanks for asking! Yes, always aiming for the stars! What's your favorite book? Toady!
+
+            timestamp: 1727529878.39166
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I appreciate your interest! I love to read nature-themed books, especially ones about wildlife and conservation. What's your favorite book, Toady?
+
+            timestamp: 1727529885.839273
+
+
+        
+            subjective: 3
+
+            objective: [4]
+
+            select: send_message
+
+            context: I'm fantastic, thanks for asking! The limitless possibilities of space exploration leave me in awe. What do you think could be our next big achievement in space? Glitter!
+
+            timestamp: 1727529888.878742
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: Absolutely! The potential for breakthroughs in our understanding of the universe is boundless. What discoveries do you think we might uncover on Mars? Glitter!
+
+            timestamp: 1727529897.715721
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: Absolutely! The potential for breakthroughs in our understanding of the universe is boundless. What discoveries do you think we might uncover on Mars? Glitter!
+
+            timestamp: 1727529897.717898
+
+
+        

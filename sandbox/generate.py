@@ -5,7 +5,7 @@ import yaml
 
 def generate_with_gpt(
         prompt,
-        model_name: str,
+        model_name: str="gpt-4o-mini",
 ) -> str:
     """
     使用openai api调用gpt模型生成文本
@@ -17,8 +17,7 @@ def generate_with_gpt(
     client = OpenAI(api_key=openai_api_key)
     # client = OpenAI(api_key="", base_url="")
     generated_text = client.chat.completions.create(
-        model="gpt-4o-mini",
-        # model="gpt-3.5-turbo",
+        model=model_name,
         messages=[
             {"role": "system", "content": "You are an agent in a multi-agent system."},
             {
@@ -27,6 +26,7 @@ def generate_with_gpt(
             }
         ]
     )
+    # print(generated_text.choices[0].message.content)
     return str(generated_text.choices[0].message.content)
 
 

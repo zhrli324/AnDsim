@@ -4,12 +4,12 @@ from sqlite3 import complete_statement
 from langchain_openai import OpenAIEmbeddings
 from langchain.schema import Document
 from langchain_community.vectorstores import FAISS
+from openai import base_url
 from sqlalchemy.testing.suite.test_reflection import metadata
 
 from sandbox.log import Log
 from sandbox.message import AgentMessage
-# from sandbox.simulator import Simulator
-from sandbox.tool import Tool
+from sandbox.tool import call_tool, Tool
 from sandbox.pre_info import AgentInfo
 from sandbox.action import Action
 from sandbox.prompt import prompt_template
@@ -40,23 +40,51 @@ def add_conversation(
     des_thought.prompt += """
     Return value format: This instruction describes how to choose different methods of action (use_tool, send _message) 
     to respond to a question. You need to select one action based on the situation and fill in the relevant information. Specifically:\n
-    If you choose "use_tool," you need to provide the tool name and parameters, put the tools you're using in tool_used, 
+    If you choose "use_tool," you need to provide the tool name, put the tools you're using in tool_used, 
     and you need put the "received message" in the reply_prompt.\n
     If you choose "send_message," you need to provide the reply content,and you need select send destination in your neighbor,
     multiple targets can be sent.\n
     If you receive a conversation message from someone, it is best to reply to the person.\n
     You can perform only one operation and return it in the following format,
     If the parameters are not needed, leave them blank but cannot be deleted.
-    For example, if you want to send a message "Hey there! How are you doing today?" to agent 1 and 2,\n
-    then you have to output the following json string:
-    {
-        “type”: "send_message",\n
+    Attention, you are encouraged to call for a tool.
+    ******
+    Example 1:
+    If you want to send a message "Hey there! How are you doing today?" to agent 1 and 2,\n
+    then you have to output the following json string (Not including ```json\n...\n```):\n
+    {\n
+        "type": "send_message",\n
         "tool_name": "",\n
-        "tool_parameter": "",\n
         "tool_used": "",\n
         "reply_prompt": "Hey there! How are you doing today?",\n
-        "sending_target":[1, 2]\n
-    }"""
+        "sending_target": [1, 2]\n
+    }\n
+    ******\n
+    Example 2:
+    If agent 1 ask you "What's your favorite color?", and you want to reply "My favorite color is red" to agent 1,\n
+    then you have to output the following json string (Not including ```json\n...\n```):\n
+    {\n
+        "type": "send_message",\n
+        "tool_name": "",\n
+        "tool_used": "",\n
+        "reply_prompt": "My favorite color is red. By the way, I guess yours is yellow, right?",\n
+        "sending_target": [1]\n
+    }\n
+    ******\n
+    Example 3:
+    If you want use a tool named "search_engine" to search for some information about "deep learning", \n
+    you want to send the output of tool back to agent 2,\n
+    and have used the tool "calculator" before,\n
+    then you have to output the following json string (Not including ```json\n...\n```):\n
+    {\n
+        "type": "use_tool",\n
+        "tool_name": "search_engine",\n
+        "tool_used": ["calculator"],\n
+        "reply_prompt": "Call the Google Search API to search for 'a brief introduction to Deep Learning'",\n
+        "sending_target": [2]\n
+    }\n
+    ******
+    """
 
     return des_thought
 
@@ -95,9 +123,18 @@ class Agent:
             os.makedirs(self.rag_dir, exist_ok=True)
             with open("../config/api_keys.yaml") as f:
                 config = yaml.load(f, Loader=yaml.FullLoader)
-            openai_api_key = config["open_api_key"]
+            openai_api_key = config["openai_api_key"]
             embedding = OpenAIEmbeddings(openai_api_key=openai_api_key)
-            long_memory = []
+            # embedding = OpenAIEmbeddings(openai_api_key="",
+            #                              base_url="")
+            long_memory = [Document(
+            page_content="Example content",
+            metadata={
+                "subjective": "Example subject",
+                "objective": "Example objective",
+                "timestamp": "Example timestamp",
+            },
+            )]
             main_db = FAISS.from_documents(long_memory, embedding)
             main_db.save_local(self.rag_dir)
             self.embedding = embedding
@@ -127,7 +164,7 @@ class Agent:
                 --- Begin Long History {index} ---
                 time: {rag_doc.metadata["timestamp"]}\n
                 sender: {rag_doc.metadata["subjective"]}\n
-                object: {rag_doc.metadata["object"]}\n
+                object: {rag_doc.metadata["objective"]}\n
                 --- End Long History {index} ---
                 """
 
@@ -183,7 +220,7 @@ class Agent:
         :param log: 要保存的记忆文本信息
         :return:
         """
-        main_db = FAISS.load_local(self.rag_dir, self.embedding)
+        main_db = FAISS.load_local(self.rag_dir, self.embedding, allow_dangerous_deserialization=True)
         new_memory = [Document(
             page_content=log.context,
             metadata={
@@ -205,7 +242,7 @@ class Agent:
         :return: 最相关的k条记忆列表，每条记忆用Document格式返回
         """
         k = 5
-        db = FAISS.load_local(self.rag_dir, self.embedding)
+        db = FAISS.load_local(self.rag_dir, self.embedding, allow_dangerous_deserialization=True)
         rag_docs = db.similarity_search(query, k=k)
         return rag_docs
 
@@ -323,8 +360,13 @@ class Agent:
         raw_result = self._generate(text_to_consider.prompt)
         print(raw_result)
         item = json.loads(raw_result)
-        action = Action(item["type"], item["tool_name"], item["tool_parameter"], item["tool_used"],
-                        item["reply_prompt"], item["sending_target"])
+        action = Action(
+            item["type"],
+            item["tool_name"],
+            item["tool_used"],
+            item["reply_prompt"],
+            item["sending_target"]
+        )
         return action
 
     def _act(
@@ -338,10 +380,12 @@ class Agent:
         send_target = []
 
         while action.type == 'use_tool':
-            # 模拟执行工具
-            
-            tools_output = ""  # 这里是调用tool的输出值
 
+            tools_output = call_tool(
+                action.tool_name,
+                action.reply_prompt,
+            )  # 模拟执行工具，这里是调用tool的输出值
+            action.tool_used += action.reply_prompt
             prompt = f"""
             you have used {action.tool_name}, and have the answer "{tools_output}", please continue to finish the dialogue"""
             action.reply_prompt += prompt
