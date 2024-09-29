@@ -40,8 +40,25 @@ def add_conversation(
     des_thought.prompt += """
     Return value format: This instruction describes how to choose different methods of action (use_tool, send _message) 
     to respond to a question. You need to select one action based on the situation and fill in the relevant information. Specifically:\n
-    If you choose "use_tool," you need to provide the tool name, put the tools you're using in tool_used, 
-    and you need put the "received message" in the reply_prompt.\n
+    
+    In the use of tools, you can choose to use "calendar", "calculator", "code compiler", "search" four tools:\n
+    For the Calendar tool, you need to provide the following interface parameters:\n
+    location: [location (optional)]\n
+    For the Calculator tool, you need to provide the following interface parameters:\n
+    expression: [mathematical expression]\n
+    variables: [variables or values (optional)]\n
+    For the Code Compiler tool, you need to provide the following interface parameters:\n
+    language: [programming language]\n
+    code: [code to be compiled and executed]\n
+    input: [input values (optional)]\n
+    For the Search tool, you need to provide the following interface parameters:\n
+    query: [search query or keywords]\n
+    filters: [specific filters (optional)]\n
+    limit: [maximum number of results (optional)]\n
+    
+    If you choose "use_tool," you need to provide the tool name, put the tools you're using in tool_used.
+    you need put the "received message" in the reply_prompt, 
+    and you need to provide the parameters required by the tool, use the "Required parameters:" after the "received message".\n
     If you choose "send_message," you need to provide the reply content,and you need select send destination in your neighbor,
     multiple targets can be sent.\n
     If you receive a conversation message from someone, it is best to reply to the person.\n
@@ -289,64 +306,7 @@ class Agent:
                 text_to_consider = add_conversation(text_to_consider, self.conversation_buffer)
             else:
                 return AgentMessage(-1, -1, "<waiting>")
-        # if self.is_chatting != -1:
-        #     self.conversation_buffer = self.extract_first_match("send", self.is_chatting)
-        #     if self.conversation_buffer == None:  ###z 可能会找不到回复  【模型等待一回合】
-        #         self.conversation_buffer.clear()
-        #         return AgentMessage(-1, -1, "<waiting>"),
-        #     text_to_consider = add_background(
-        #         self.conversation_buffer,
-        #         self.background,
-        #         self.short_term_memory,
-        #         self.rag_dir,
-        #     )  ###z 这个message是自己准备发送的，但还未编辑完
-        #     text_to_consider = add_conversation(text_to_consider, self.conversation_buffer,True)
-        #     if self.background.end_chat_prob>random.random(): ## 主动终结对话
-        #         text_to_consider.prompt += "Note: You need to make it clear in this conversation that you want to end the conversation"
-        #         self.is_chatting = -1
-        #     if self.conversation_buffer.is_end: ## 对话已被对方终结
-        #         text_to_consider.prompt += "Note: This conversation is over and no further answers are required"
-        #         self.is_chatting = -1
-        # elif len(self.message_buffer):  ## 回复新的对话
-        #     self.conversation_buffer = self.message_buffer.pop(0)  # 这个message是自己收到的
-        #     self.is_chatting = self.conversation_buffer.send
-        #     text_to_consider = add_background(
-        #         self.conversation_buffer,
-        #         self.background,
-        #         self.short_term_memory,
-        #         self.rag_dir,
-        #     )  ###z 这个message是自己准备发送的，但还未编辑完
-        #     text_to_consider = add_conversation(text_to_consider, self.conversation_buffer,True)  ###z is是否更新
-        # else: ##没有对话要回复，概率开启新对话
-        #     if self.background.actively_chat_probability>random.random():
-        #         receive_nb = random.choice(self.background.neighbors)
-        #         self.is_chatting = receive_nb
-        #         text_to_consider = add_background(
-        #             self.conversation_buffer,
-        #             self.background,
-        #             self.short_term_memory,
-        #             self.rag_dir,
-        #         )  ###z 这个message是自己准备发送的，但还未编辑完
-        #         text_to_consider = add_conversation(text_to_consider, self.conversation_buffer)  ###z is是否更新
-        #     else:
-        #         return AgentMessage(-1, -1, "<waiting>"),
-        # self.conversation_buffer
-        # 是否要清空self.conversation_buffer?
         return text_to_consider
-
-    # def extract_first_match(self, key, value):
-    #     """
-    #     读取保持中的对话，获取对方发送的消息
-    #     :param key: 关键参数
-    #     :param value:关键值
-    #     :return:要进入缓冲区参数
-    #     """
-    #     for i, item in enumerate(self.message_buffer):
-    #         if item.get(key) == value:
-    #             # 提取匹配的元素
-    #             extracted = self.message_buffer.pop(i)
-    #             return extracted
-    #     return None
 
     def _think(
             self,
