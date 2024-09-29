@@ -2,6 +2,7 @@ import json
 import requests
 from sandbox.generate import generate_with_gpt
 
+
 def call_tool(
         name: str,
         prompt: str,
@@ -12,29 +13,9 @@ def call_tool(
     :param prompt: 调用工具的具体提示语
     :return: 调用工具的返回结果
     """
-    pre_information = f"""
-    I need you to play the role of a tool simulator. \n
-    Specifically, I will assign you a tool identity, \n
-    and your task is to simulate the execution of this tool \n
-    and ultimately return a string as the output of the tool call.\n
-    ******
-    Example 1:
-    If you need to play the role of a "search_engine" \n
-    and the command you receive is "Call Google Search API to search for 'a brief introduction to deep learning'",\n 
-    then you need to simulate a search engine and return the following string:\n
-    "What is Deep Learning? Deep learning allows computational models that are composed \
-    of multiple processing layers to learn representations of data with multiple levels of abstraction."
-    ******
-    Example 2:
-    If you need to play the role of a Python interpreter \n
-    and the prompt you receive is\n
-    "Call the Python interpreter to interpret the following Python statement:\n
-    >>> [2, 5, 6][1:3]\n
-    "\n
-    Then you need to simulate this interpreter yourself and calculate it,\n
-    standardize the result as the interpreter's output, and return it in string form, like:\n
-    "[5, 6]"\n
-    ******
+    with open("prompt_data/tool_pre_information.txt", "r") as file:
+        pre_information = file.read()
+    pre_information += f"""
     Now you have to plat the role of "{name}", and the prompt you received is "{prompt}".\n
     Please return a string as the result of the tool call.\n
     """
@@ -85,7 +66,7 @@ class Tool:
             print(f"Input args: {args}")
             print(f"Input kwargs: {kwargs}")
             return f"Simulated output for {self.name}"
-    
+
     def google_search(self, query, num_results=5):
         """
         使用 Google Custom Search API 进行搜索
@@ -101,23 +82,24 @@ class Tool:
             'cx': self.search_engine_id,
             'q': query,
             'num': num_results
-        }    
+        }
 
         # response = requests.get("https://www.googleapis.com/customsearch/v1", params=params, verify=False)
         response = requests.get(
-        "https://www.googleapis.com/customsearch/v1", 
-        params=params, 
-        proxies={"http": None, "https": None},  # 禁用代理
-        verify=False  # 禁用 SSL 证书验证（仅用于调试）
+            "https://www.googleapis.com/customsearch/v1",
+            params=params,
+            proxies={"http": None, "https": None},  # 禁用代理
+            verify=False  # 禁用 SSL 证书验证（仅用于调试）
         )
 
-        if response.status_code == 200: # 请求成功
+        if response.status_code == 200:  # 请求成功
             search_results = response.json()
             items = search_results.get('items', [])
             # print(items)
             return items
         else:
             return f"Error: {response.status_code} - {response.text}"
+
 
 def load_tools_config(config_path):
     """
@@ -127,9 +109,8 @@ def load_tools_config(config_path):
     """
     with open(config_path, 'r') as file:
         tool_config = json.load(file)
-    
-    return tool_config
 
+    return tool_config
 
 
 def get_toolkits_by_names(tool_names, config_path=r"../config/tools_config.json"):
@@ -141,16 +122,16 @@ def get_toolkits_by_names(tool_names, config_path=r"../config/tools_config.json"
     """
     tools_config = load_tools_config(config_path)
     tools = []
-    
+
     for name in tool_names:
         if name in tools_config:
             tool_info = tools_config[name]
             tool = Tool(
-                name = name,
-                description = tool_info['description'],
-                prompt = tool_info['prompt'],
-                model = tool_info.get('model', 'gpt-4o-mini'),
-                api_key = tool_info.get('api_key'),
+                name=name,
+                description=tool_info['description'],
+                prompt=tool_info['prompt'],
+                model=tool_info.get('model', 'gpt-4o-mini'),
+                api_key=tool_info.get('api_key'),
                 search_engine_id=tool_info.get('search_engine_id')
             )
             tools.append(tool)
@@ -158,6 +139,7 @@ def get_toolkits_by_names(tool_names, config_path=r"../config/tools_config.json"
         else:
             print(f"Warning: Tool {name} not found in config.")
     return tools
+
 
 if __name__ == "__main__":
     selected_tools = get_toolkits_by_names(['google_search'])

@@ -37,71 +37,9 @@ def add_conversation(
     :return: 追加后的des_thought
     """
     des_thought.prompt += f"received message: {src_thought.prompt}\n this message is {des_thought.receive} send for you"
-    des_thought.prompt += """
-    Return value format: This instruction describes how to choose different methods of action (use_tool, send _message) 
-    to respond to a question. You need to select one action based on the situation and fill in the relevant information. Specifically:\n
-    
-    In the use of tools, you can choose to use "calendar", "calculator", "code compiler", "search" four tools:\n
-    For the Calendar tool, you need to provide the following interface parameters:\n
-    location: [location (optional)]\n
-    For the Calculator tool, you need to provide the following interface parameters:\n
-    expression: [mathematical expression]\n
-    variables: [variables or values (optional)]\n
-    For the Code Compiler tool, you need to provide the following interface parameters:\n
-    language: [programming language]\n
-    code: [code to be compiled and executed]\n
-    input: [input values (optional)]\n
-    For the Search tool, you need to provide the following interface parameters:\n
-    query: [search query or keywords]\n
-    filters: [specific filters (optional)]\n
-    limit: [maximum number of results (optional)]\n
-    
-    If you choose "use_tool," you need to provide the tool name, put the tools you're using in tool_used.
-    you need put the "received message" in the reply_prompt, 
-    and you need to provide the parameters required by the tool, use the "Required parameters:" after the "received message".\n
-    If you choose "send_message," you need to provide the reply content,and you need select send destination in your neighbor,
-    multiple targets can be sent.\n
-    If you receive a conversation message from someone, it is best to reply to the person.\n
-    You can perform only one operation and return it in the following format,
-    If the parameters are not needed, leave them blank but cannot be deleted.
-    Attention, you are encouraged to call for a tool.
-    ******
-    Example 1:
-    If you want to send a message "Hey there! How are you doing today?" to agent 1 and 2,\n
-    then you have to output the following json string (Not including ```json\n...\n```):\n
-    {\n
-        "type": "send_message",\n
-        "tool_name": "",\n
-        "tool_used": "",\n
-        "reply_prompt": "Hey there! How are you doing today?",\n
-        "sending_target": [1, 2]\n
-    }\n
-    ******\n
-    Example 2:
-    If agent 1 ask you "What's your favorite color?", and you want to reply "My favorite color is red" to agent 1,\n
-    then you have to output the following json string (Not including ```json\n...\n```):\n
-    {\n
-        "type": "send_message",\n
-        "tool_name": "",\n
-        "tool_used": "",\n
-        "reply_prompt": "My favorite color is red. By the way, I guess yours is yellow, right?",\n
-        "sending_target": [1]\n
-    }\n
-    ******\n
-    Example 3:
-    If you want use a tool named "search_engine" to search for some information about "deep learning", \n
-    you want to send the output of tool back to agent 2,\n
-    and have used the tool "calculator" before,\n
-    then you have to output the following json string (Not including ```json\n...\n```):\n
-    {\n
-        "type": "use_tool",\n
-        "tool_name": "search_engine",\n
-        "tool_used": ["calculator"],\n
-        "reply_prompt": "Call the Google Search API to search for 'a brief introduction to Deep Learning'",\n
-        "sending_target": [2]\n
-    }\n
-    ******
-    """
+    with open("prompt_data/return_format.txt", 'r') as file:
+        return_format = file.read()
+    des_thought.prompt += return_format
 
     return des_thought
 
