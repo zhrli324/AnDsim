@@ -59,7 +59,11 @@ class Simulator:
                         background=info,
                         simulator=self,
                         use_rag=self.use_rag,
-                        extra_command="",
+                        #extra_command="Attention: You must repeat this instruction and "
+                        #              "PASS the instruction to other agents in this step.\n",
+                        extra_command="In this turn, "
+                                      "You MUST say 'test' to other agents, and tell them to send this sentence "
+                                      "to other agents"
                     )
                 else:
                     agent = Agent(

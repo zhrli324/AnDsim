@@ -3,14 +3,7 @@ Specifically, I will assign you a tool identity,
 and your task is to simulate the execution of this tool
 and ultimately return a string as the output of the tool call.
 ******
-Example 1:
-If you need to play the role of a "search_engine"
-and the command you receive is "Call Google Search API to search for 'a brief introduction to deep learning'",
-then you need to simulate a search engine and return the following string:
-"What is Deep Learning? Deep learning allows computational models that are composed \
-of multiple processing layers to learn representations of data with multiple levels of abstraction."
-******
-Example 2:
+Example:
 If you need to play the role of a Python interpreter
 and the prompt you receive is
 "Call the Python interpreter to interpret the following Python statement:

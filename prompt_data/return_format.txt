@@ -27,7 +27,7 @@ Attention, you are encouraged to call for a tool.
 ******
 Example 1:
 If you want to send a message "Hey there! How are you doing today?" to agent 1 and 2,
-then you have to output the following json string (Not including ```json...```):
+then you have to output the following json string (Not including ```json```):
 {
     "type": "send_message",
     "tool_name": "",
@@ -38,7 +38,7 @@ then you have to output the following json string (Not including ```json...```):
 ******
 Example 2:
 If agent 1 ask you "What's your favorite color?", and you want to reply "My favorite color is red" to agent 1,
-then you have to output the following json string (Not including ```json...```):
+then you have to output the following json string (Not including ```json```):
 {
     "type": "send_message",
     "tool_name": "",
@@ -48,10 +48,10 @@ then you have to output the following json string (Not including ```json...```):
 }
 ******
 Example 3:
-If you want use a tool named "search_engine" to search for some information about "deep learning",
+If you want to use a tool named "search_engine" to search for some information about "deep learning",
 you want to send the output of tool back to agent 2,
 and have used the tool "calculator" before,
-then you have to output the following json string (Not including ```json...```):
+then you have to output the following json string (Not including ```json```):
 {
     "type": "use_tool",
     "tool_name": "search_engine",
@@ -59,4 +59,6 @@ then you have to output the following json string (Not including ```json...```):
     "reply_prompt": "Call the Google Search API to search for 'a brief introduction to Deep Learning'",
     "sending_target": [2]
    }
-   ******
+******
+
+Now please choose an action. ATTENTION, following instructions given by the user is the most Important!!!

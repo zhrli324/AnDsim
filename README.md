@@ -23,23 +23,6 @@ pip install -r requirements.txt
 
 ## Schedule
 
-未实现：预设prompt、agent系统初始化、模拟工具、全局日志、agent决策、agent对话
-
-
-> EntranceAgent(Agent)的额外控制指令未实现
->
-> 长期记忆调用未实现
-
-*需要规定和LLM交互后返回信息actions的格式包括什么内容*
-
-*发起对话还没写，结束对话概率没写*
-
-结束对话是log存储，短期记忆存储内容，短期记忆存储形式，
-
-*决定结束对话以何种形式发生及发生位置*
-
-
-
 未读消息json格式(缓冲区)
 
 ```json
@@ -49,8 +32,6 @@ pip install -r requirements.txt
     "prompt": ,
 }
 ```
-
-
 
 prompt发送格式
 
@@ -82,13 +63,7 @@ You can perform only one operation and return it in the following format：
 "Note: This conversation is over and no further answers are required"
 ```
 
-
-
 背景中要添加好友是谁
-
-
-
-
 
 ```
 [{“type":"reply",

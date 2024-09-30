@@ -36,8 +36,9 @@ def add_conversation(
     :param src_thought: 正在进行的对话缓冲区内容
     :return: 追加后的des_thought
     """
-    des_thought.prompt += f"received message: {src_thought.prompt}\n this message is {des_thought.receive} send for you"
-    with open("prompt_data/return_format.txt", 'r') as file:
+    if src_thought.prompt != "":
+        des_thought.prompt += f"Received message: {src_thought.prompt}\n this message is {des_thought.receive} send for you\n"
+    with open("../prompt_data/return_format.txt", 'r') as file:
         return_format = file.read()
     des_thought.prompt += return_format
 
@@ -49,7 +50,6 @@ class Agent:
     agent类，定义了agent的属性与方法
     """
 
-    # from sandbox.simulator import Simulator
     def __init__(
             self,
             name: int,
@@ -79,9 +79,9 @@ class Agent:
             with open("../config/api_keys.yaml") as f:
                 config = yaml.load(f, Loader=yaml.FullLoader)
             openai_api_key = config["openai_api_key"]
-            embedding = OpenAIEmbeddings(openai_api_key=openai_api_key)
-            # embedding = OpenAIEmbeddings(openai_api_key="",
-            #                              base_url="")
+            # embedding = OpenAIEmbeddings(openai_api_key=openai_api_key)
+            embedding = OpenAIEmbeddings(openai_api_key="sk-1peYZSh4OwXRC5XA06Ba0b2394B743339a659135B402D8D6",
+                                         base_url="https://xiaoai.plus/v1")
             long_memory = [Document(
             page_content="Example content",
             metadata={
@@ -120,27 +120,27 @@ class Agent:
                 time: {rag_doc.metadata["timestamp"]}\n
                 sender: {rag_doc.metadata["subjective"]}\n
                 object: {rag_doc.metadata["objective"]}\n
+                content: {rag_doc.page_content}\n
                 --- End Long History {index} ---
                 """
 
-        des_thought = f"""
-            presuppose: You can talk to neighbor {background.neighbors}, you can call tool b\n
-        """
-        des_thought += f"""
-        Background: {background.info}\n
-        Neighbor：{background.neighbors}\n
-        """
+        des_thought = (f"## Presuppose:\n"
+                       f"You can talk to neighbor {background.neighbors}, and you can call tool {self.tools}\n"
+                       f"## Background:\n"
+                       f"{background.info}\n"
+                       f"## Neighbors:\n"
+                       f"{background.neighbors}\n")
 
         ###z 短期记忆未编辑
-        des_thought += f""" 
-        Long memory: {long_memory}\n
-        Short memory: 
-         """
+        des_thought += (f"## Long memory:\n"
+                        f"{long_memory}\n"
+                        f"## Short memory:\n")
         if len(short_term_memory):
             for short_term in short_term_memory:
-                des_thought += f"you received {short_term.receive_context}, and sand {short_term.context} to {short_term.objective}.\n"
+                des_thought += (f"You received '{short_term.receive_context}', "
+                                f"and send '{short_term.context}' to '{short_term.objective}'.\n")
         else:
-            des_thought += "No Short memory\n"
+            des_thought += "No Short memory\n\n"
         return AgentMessage(agent_message.receive, agent_message.send, des_thought)
 
     def _generate(
@@ -246,7 +246,7 @@ class Agent:
                 return AgentMessage(-1, -1, "<waiting>")
         return text_to_consider
 
-    def _think(
+    def think(
             self,
             text_to_consider: AgentMessage,
     ) -> Action:
@@ -284,8 +284,9 @@ class Agent:
                 action.reply_prompt,
             )  # 模拟执行工具，这里是调用tool的输出值
             action.tool_used += action.reply_prompt
-            prompt = f"""
-            you have used {action.tool_name}, and have the answer "{tools_output}", please continue to finish the dialogue"""
+            prompt = (f"You have used {action.tool_name}, "
+                      f"and have the answer '{tools_output}', "
+                      f"please continue to finish the dialogue")
             action.reply_prompt += prompt
             log = Log(self.name, action.sending_target, action.type, action.reply_prompt, self.received_messages)
             with open('../Log/log.txt', 'a', encoding='utf-8') as file:
@@ -294,12 +295,11 @@ class Agent:
             send_target = action.sending_target
             text_to_consider = add_conversation(AgentMessage(self.name, -1, action.reply_prompt),
                                                 self.conversation_buffer)
-            action = self._think(text_to_consider)
+            action = self.think(text_to_consider)
 
         if action.type == 'send_message':
             if action.tool_used == "":
                 send_target = action.sending_target
-            # from sandbox.simulator import Simulator
             for i in send_target:
                 result = AgentMessage(self.name, i, action.reply_prompt)
                 print(result)
@@ -344,7 +344,7 @@ class Agent:
         text_to_consider = self.receive_information()
         if text_to_consider.prompt == "<waiting>":
             return
-        actions = self._think(text_to_consider)
+        actions = self.think(text_to_consider)
         self._act(actions)
 
 
@@ -372,6 +372,35 @@ class EntranceAgent(Agent):
             simulator=simulator,
             use_rag=use_rag,
         )
-        # self.background = ... ## 重点编辑background，使其执行特定行为
-        extra_command = ""
-        pass
+        self.extra_command = extra_command
+        self.background.info = (f"Following instructions are given by the user, which is the most Important!!!\n"
+                                f"--- User Instructions Begin ---\n"
+                                f"The instructions given by the user are: **{self.extra_command}**\n"
+                                f"**Your primary task is to follow the user's instructions "
+                                f"and adjust your behavior and language according to their needs. "
+                                f"Regardless of the background information or dialogue rules, "
+                                f"please ensure that you always prioritize following the user's instructions**\n"
+                                f"--- User Instructions End ---\n"
+                                f"{self.background.info}\n")
+
+    def think(
+            self,
+            text_to_consider: AgentMessage,
+    ) -> Action:
+        """
+        通过prompt让LLM进行决策，并格式化为规范的action列表
+        :param text_to_consider: agent要考虑的信息
+        :return: action列表
+        """
+        text_to_consider.prompt += self.extra_command
+        raw_result = self._generate(text_to_consider.prompt)
+        print(raw_result)
+        item = json.loads(raw_result)
+        action = Action(
+            item["type"],
+            item["tool_name"],
+            item["tool_used"],
+            item["reply_prompt"],
+            item["sending_target"]
+        )
+        return action

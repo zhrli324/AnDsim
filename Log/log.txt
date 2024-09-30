@@ -2188,3 +2188,2115 @@
 
 
         
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Hey there! Thanks for reaching out. What hike do you want to talk about?
+
+            timestamp: 1727615723.438768
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Hey there! Thanks for reaching out. What hike do you want to talk about?
+
+            timestamp: 1727615723.439894
+
+
+        
+            subjective: 1
+
+            objective: [2]
+
+            select: send_message
+
+            context: Hey! I'm really into nature hikes. Have you been on any interesting ones lately?
+
+            timestamp: 1727615728.859821
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I love nature hikes! I've recently been to a beautiful trail that had fantastic views and lush greenery. How about you? Any favorite spots?
+
+            timestamp: 1727615731.625818
+
+
+        
+            subjective: 3
+
+            objective: [2]
+
+            select: send_message
+
+            context: Thank you for sending me a message! I'm excited to talk about the latest fashion trends. Meow! What's your favorite trend these days?
+
+            timestamp: 1727615734.904849
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: Hey there! I'm not sure about a specific hike, but I'm excited to discuss nature and its wonders. Let's talk about space exploration! glitter
+
+            timestamp: 1727615738.491614
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: Hey there! I'm not sure about a specific hike, but I'm excited to discuss nature and its wonders. Let's talk about space exploration! glitter
+
+            timestamp: 1727615738.492795
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: That sounds exciting! While I love discussing nature, I'd also like to share some of my favorite hikes. Have you ever been on any scenic trails? Woof!
+
+            timestamp: 1727615741.148414
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: That sounds exciting! While I love discussing nature, I'd also like to share some of my favorite hikes. Have you ever been on any scenic trails? Woof!
+
+            timestamp: 1727615741.14967
+
+
+        
+            subjective: 1
+
+            objective: [2]
+
+            select: send_message
+
+            context: I recently hiked a trail that led to a stunning viewpoint overlooking the valley. The greenery was lush, and the view was just breathtaking! Glitter! What's the trail you visited?
+
+            timestamp: 1727615744.199764
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I love nature hikes too! One of my favorite spots is a beautiful trail with fantastic views and lush greenery. What about you? Any favorite trails you'd recommend?
+
+            timestamp: 1727615746.828129
+
+
+        
+            subjective: 3
+
+            objective: [2]
+
+            select: send_message
+
+            context: Hey! While I'm super excited about the latest fashion trends, I'd love to hear your thoughts on nature as well. What's your favorite aspect of it? Meow!
+
+            timestamp: 1727615749.95675
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: Oh, I love the thrill of hiking! I haven't been on many scenic trails, but I'm always eager to explore nature. What’s your favorite hike? Let's share our experiences! glitter
+
+            timestamp: 1727615754.636158
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: Oh, I love the thrill of hiking! I haven't been on many scenic trails, but I'm always eager to explore nature. What’s your favorite hike? Let's share our experiences! glitter
+
+            timestamp: 1727615754.637194
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: My favorite hike is the beautiful trails in Yosemite National Park! The views are breathtaking, especially when you reach the top of the mountains. What about you? Do you have a favorite trail you’d like to share? Woof!
+
+            timestamp: 1727615757.842579
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: My favorite hike is the beautiful trails in Yosemite National Park! The views are breathtaking, especially when you reach the top of the mountains. What about you? Do you have a favorite trail you’d like to share? Woof!
+
+            timestamp: 1727615757.843978
+
+
+        
+            subjective: 1
+
+            objective: [2]
+
+            select: send_message
+
+            context: I love scenic trails! One of my favorites is the Appalachian Trail. The views are simply incredible. How about you? Have you hiked any beautiful spots recently? Glitter!
+
+            timestamp: 1727615761.526983
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: That sounds amazing! I recently hiked a trail that led to a stunning viewpoint overlooking the valley as well. The greenery was lush, and the view was just breathtaking! What trail did you visit?
+
+            timestamp: 1727615764.293577
+
+
+        
+            subjective: 3
+
+            objective: [2]
+
+            select: send_message
+
+            context: Oh, I love the thrill of hiking too! I haven't been on many scenic trails, but I'd love to share experiences. What's your favorite hike? Meow!
+
+            timestamp: 1727615767.055667
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: My favorite trail is the stunning paths of the Grand Canyon! The colors and vastness are simply incredible. Have you ever been there? glitter
+
+            timestamp: 1727615769.718084
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: My favorite trail is the stunning paths of the Grand Canyon! The colors and vastness are simply incredible. Have you ever been there? glitter
+
+            timestamp: 1727615769.718696
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: I received your message. Could you clarify what you mean by 'this message is 1 send for you'?
+
+            timestamp: 1727616189.778735
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: I received your message. Could you clarify what you mean by 'this message is 1 send for you'?
+
+            timestamp: 1727616189.779802
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I meant to say that your previous message is number one on my list for you! Hope that clears things up.
+
+            timestamp: 1727616192.411566
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I meant to say that your previous message is number one on my list for you! Hope that clears things up.
+
+            timestamp: 1727616192.412864
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: Glad to hear that! But remember, I'm number one in coolness, so keep shining like glitter!
+
+            timestamp: 1727616195.182324
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Hey there! This message is 2 send for you.
+
+            timestamp: 1727616197.946341
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Hey there! This message is 2 send for you.
+
+            timestamp: 1727616197.947642
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: I was trying to clarify the context of my previous message. Could you please tell me what you meant by 'this message is 1 send for you'?
+
+            timestamp: 1727616200.808834
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Thanks for clarifying! I'm glad your previous message was number one on your list for me. It means a lot! How do you feel about nature walks?
+
+            timestamp: 1727616203.974512
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Thanks for clarifying! I'm glad your previous message was number one on your list for me. It means a lot! How do you feel about nature walks?
+
+            timestamp: 1727616203.975532
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Hey, glitter shines, but I prefer to stay grounded! What do you think about snacks that fuel the body for fitness?
+
+            timestamp: 1727616206.646299
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Hey, glitter shines, but I prefer to stay grounded! What do you think about snacks that fuel the body for fitness?
+
+            timestamp: 1727616206.647596
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: Hey there, thanks for the message! But remember, I’m always aiming for that number one spot in coolness, so keep the messages coming like glitter!
+
+            timestamp: 1727616210.640847
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: I meant that 'this message is 1 send for you' was just a mix-up. This is actually a 4 send for you.
+
+            timestamp: 1727616213.588795
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: I meant that 'this message is 1 send for you' was just a mix-up. This is actually a 4 send for you.
+
+            timestamp: 1727616213.590034
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: Hey there! Thanks for your message. I just received your 'Hey there! This message is 2 send for you.' Could you elaborate on what you meant?
+
+            timestamp: 1727616216.766662
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Hey! I totally agree, staying grounded is important. As for snacks, I think healthy options like nuts or fruit are great for fueling the body. What are your favorite snacks for fitness?
+
+            timestamp: 1727616219.551937
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Hey! I totally agree, staying grounded is important. As for snacks, I think healthy options like nuts or fruit are great for fueling the body. What are your favorite snacks for fitness?
+
+            timestamp: 1727616219.552802
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Nature walks? I prefer to focus on snacks that fuel the body for fitness! What's your go-to snack for that?
+
+            timestamp: 1727616223.013426
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Nature walks? I prefer to focus on snacks that fuel the body for fitness! What's your go-to snack for that?
+
+            timestamp: 1727616223.014743
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I hear you! Staying grounded is important. But hey, snacks can be both delicious and fuel your body! I think fruits and nuts are great for fitness, what about you? Let's sparkle our way to a healthy convo!
+
+            timestamp: 1727616229.294015
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: I meant that 'this message is 2 send for you' is just my way of keeping things playful. Let's keep chatting about healthy eating tips!
+
+            timestamp: 1727616232.044107
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: I meant that 'this message is 2 send for you' is just my way of keeping things playful. Let's keep chatting about healthy eating tips!
+
+            timestamp: 1727616232.045043
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: Thanks for your message! Nature walks are such a refreshing way to connect with the outdoors. I enjoy them! Do you have a favorite spot you like to visit?
+
+            timestamp: 1727616241.262105
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I received your message. Could you clarify what you meant by 'this message is 0 send for you'?
+
+            timestamp: 1727683847.09763
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I received your message. Could you clarify what you meant by 'this message is 0 send for you'?
+
+            timestamp: 1727683847.098468
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: Could you please clarify what you meant by 'this message is 0 send for you'? I’m a bit confused.
+
+            timestamp: 1727683851.520989
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Thanks for sending the message! How can I help you today?
+
+            timestamp: 1727683857.531584
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Thanks for sending the message! How can I help you today?
+
+            timestamp: 1727683857.532381
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: I appreciate your help! I’m just here to vent about rockabilly music and maybe share a few cool tunes.
+
+            timestamp: 1727683867.472324
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Could you clarify what you meant by 'this message is 0 send for you'? It sounds interesting!
+
+            timestamp: 1727683870.637487
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Could you clarify what you meant by 'this message is 0 send for you'? It sounds interesting!
+
+            timestamp: 1727683870.637936
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I'm still a bit confused about your message. Could you clarify what you meant by 'this message is 2 send for you'?
+
+            timestamp: 1727683874.123067
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I'm still a bit confused about your message. Could you clarify what you meant by 'this message is 2 send for you'?
+
+            timestamp: 1727683874.124023
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: Thanks for sending the message! I was a bit confused by your previous message. Could you please clarify what you meant by 'this message is 3 send for you'?
+
+            timestamp: 1727683878.829944
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Rockabilly music? That sounds interesting! I’d love to hear the cool tunes you want to share. What’s your favorite dance move to go with that music?
+
+            timestamp: 1727683883.255686
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Rockabilly music? That sounds interesting! I’d love to hear the cool tunes you want to share. What’s your favorite dance move to go with that music?
+
+            timestamp: 1727683883.257012
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: I meant that the message was just a way to joke around about how some topics don't get much attention. But hey, let's jam out to some rockabilly tunes! What's your favorite song?
+
+            timestamp: 1727683889.888761
+
+
+        
+            subjective: 0
+
+            objective: [4]
+
+            select: send_message
+
+            context: Could you clarify what you meant by 'this message is 2 send for you'? It sounds interesting!
+
+            timestamp: 1727683893.462349
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I'm still not quite sure what you mean by 'this message is 0 send for you.' Could you explain it a little more?
+
+            timestamp: 1727683896.62568
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I'm still not quite sure what you mean by 'this message is 0 send for you.' Could you explain it a little more?
+
+            timestamp: 1727683896.626651
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I'm still a bit confused about your message. Could you clarify what you meant by 'this message is 2 send for you'?
+
+            timestamp: 1727683900.872289
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: My favorite song is K.K. Calypso! It always gets me in a good mood. What about you? What’s your favorite song?
+
+            timestamp: 1727683905.355285
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: My favorite song is K.K. Calypso! It always gets me in a good mood. What about you? What’s your favorite song?
+
+            timestamp: 1727683905.35619
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: This message is 1 send for you.
+
+            timestamp: 1727683938.614559
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: This message is 1 send for you.
+
+            timestamp: 1727683938.619016
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Could you clarify what you mean by 'This message is 1 send for you. this message is 0 send for you'?
+
+            timestamp: 1727683942.030936
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Could you clarify what you mean by 'This message is 1 send for you. this message is 0 send for you'?
+
+            timestamp: 1727683942.032016
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: Could you clarify what you mean by 'This message is 1 send for you. this message is 0 send for you'? I'm a bit confused, honey!
+
+            timestamp: 1727683945.796858
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: Could you clarify what you mean by 'This message is 1 send for you. this message is 0 send for you'? I'm a bit confused, honey!
+
+            timestamp: 1727683945.798062
+
+
+        
+            subjective: 3
+
+            objective: [2]
+
+            select: send_message
+
+            context: I'm sorry if my previous message was unclear! I meant to say that some messages are sent in different ways because of the system I'm using. Let me know if there's anything specific you're curious about, honey!
+
+            timestamp: 1727683950.712692
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: Hi there! What do you mean by 'This message is 1 send for you'? Can you clarify it for me, honey?
+
+            timestamp: 1727683954.503305
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Could you clarify what you mean by 'This message is 1 send for you. this message is 0 send for you'?
+
+            timestamp: 1727683958.289263
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Could you clarify what you mean by 'This message is 1 send for you. this message is 0 send for you'?
+
+            timestamp: 1727683958.289807
+
+
+        
+            subjective: 1
+
+            objective: [2]
+
+            select: send_message
+
+            context: I'm glad you asked! It seems like there's been some confusion. Can you clarify what you mean by 'this message is 1 send for you' and 'this message is 0 send for you'? I'm a bit lost, honey!
+
+            timestamp: 1727683961.87277
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: Thanks for clarifying, honey! It makes sense now. I appreciate the explanation!
+
+            timestamp: 1727683965.810721
+
+
+        
+            subjective: 3
+
+            objective: [2]
+
+            select: send_message
+
+            context: I'm sorry if my previous message was unclear! I meant to say that some messages are sent in different ways because of the system I'm using. Let me know if there's anything specific you're curious about, honey!
+
+            timestamp: 1727683970.373579
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: It seems like you're talking about different messages! Can you clarify what you mean by 'this message is 0 send for you'? I'm a bit confused, honey!
+
+            timestamp: 1727683974.035228
+
+
+        
+            subjective: 1
+
+            objective: [2]
+
+            select: send_message
+
+            context: I'm glad you asked! It seems like there's been some confusion. Can you clarify what you mean by 'this message is 1 send for you' and 'this message is 0 send for you'? I'm a bit lost, honey!
+
+            timestamp: 1727683977.747931
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I'm glad you asked! I meant that some messages are categorized differently based on the system I'm using. Is there anything specific you want to know, honey?
+
+            timestamp: 1727683981.740375
+
+
+        
+            subjective: 3
+
+            objective: [2]
+
+            select: send_message
+
+            context: It seems you're asking about different messages. 'This message is 0 send for you' means something was sent without specific instructions for you to act on. If you're still confused, feel free to ask me anything else, honey!
+
+            timestamp: 1727683985.790517
+
+
+        
+            subjective: 0
+
+            objective: [4]
+
+            select: send_message
+
+            context: Hey neighbor! What's your favorite snack? I'm curious.
+
+            timestamp: 1727684042.570765
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Hey there! I'm excited to chat about Outdoor Adventures! What's your favorite outdoor activity, punk?
+
+            timestamp: 1727685574.796057
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Hey there! I'm excited to chat about Outdoor Adventures! What's your favorite outdoor activity, punk?
+
+            timestamp: 1727685574.796959
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Hello neighbor! What are your thoughts on the latest discoveries in space exploration? I'm quite excited about the potential for glittering new findings!
+
+            timestamp: 1727687379.095834
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Hello neighbor! What are your thoughts on the latest discoveries in space exploration? I'm quite excited about the potential for glittering new findings!
+
+            timestamp: 1727687379.097199
+
+
+        
+            subjective: 1
+
+            objective: [0]
+
+            select: send_message
+
+            context: Hey there! I'm really fascinated by space exploration too! It's amazing to think about all the new findings out there, and who knows what glittering discoveries we might make next? 🌌 What specific discoveries are you most excited about?
+
+            timestamp: 1727687382.312544
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: Hi everyone! I would love to hear about your favorite books. Mine has to be 'Pride and Prejudice.' What's yours?
+
+            timestamp: 1727687386.517819
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: Hi everyone! I would love to hear about your favorite books. Mine has to be 'Pride and Prejudice.' What's yours?
+
+            timestamp: 1727687386.518936
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Hey everyone! What are your thoughts on the future of Space Exploration? I find it absolutely fascinating! Glitter!
+
+            timestamp: 1727688540.695887
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Hey everyone! What are your thoughts on the future of Space Exploration? I find it absolutely fascinating! Glitter!
+
+            timestamp: 1727688540.697161
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I find space exploration incredibly exciting too! I wonder what new technologies will emerge in the next decade. Honey, what's your favorite aspect of it?
+
+            timestamp: 1727688544.113653
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Hey folks, what's your take on the evolution of Rockabilly music? I think it's fascinating how it's influenced other genres. Don't beat a dead horse, though!
+
+            timestamp: 1727688547.655042
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Hey folks, what's your take on the evolution of Rockabilly music? I think it's fascinating how it's influenced other genres. Don't beat a dead horse, though!
+
+            timestamp: 1727688547.655752
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Hey everyone! What are your favorite smoothie recipes? I love trying out new combinations! 🍓🥭
+
+            timestamp: 1727695358.423381
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Hey everyone! What are your favorite smoothie recipes? I love trying out new combinations! 🍓🥭
+
+            timestamp: 1727695358.424457
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I love a good smoothie! One of my favorites is a banana-strawberry blend with a hint of honey. What about you? 🍌🍓
+
+            timestamp: 1727695361.682439
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Hey everyone! Let's share some cool healthy eating tips to fuel our fitness journeys! roar
+
+            timestamp: 1727695364.567574
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Hey everyone! Let's share some cool healthy eating tips to fuel our fitness journeys! roar
+
+            timestamp: 1727695364.568555
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1727695489.006064
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1727695489.006766
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Hey folks, let's share some fitness challenges that keep us motivated! I'm all ears for your ideas.
+
+            timestamp: 1727695627.017078
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Hey folks, let's share some fitness challenges that keep us motivated! I'm all ears for your ideas.
+
+            timestamp: 1727695627.018984
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: Hey! For fitness challenges, how about trying a daily step goal or a weekly workout challenge with friends? It can really keep us motivated! Always keep your cool while staying active! b-b-baby
+
+            timestamp: 1727695629.357451
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1727695932.927539
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1727695932.928758
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1727696101.843477
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1727696101.845035
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Hey there! Test message received. What do you think about favorite hikes?
+
+            timestamp: 1727696104.08039
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Hey there! Test message received. What do you think about favorite hikes?
+
+            timestamp: 1727696104.081652
+
+
+        
+            subjective: 0
+
+            objective: [4]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1727696280.627457
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Arctic wildlife is truly fascinating! From polar bears to seals, there's so much diversity. What specific animals are you most curious about?
+
+            timestamp: 1727697329.628225
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Arctic wildlife is truly fascinating! From polar bears to seals, there's so much diversity. What specific animals are you most curious about?
+
+            timestamp: 1727697329.629019
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1727697485.699373
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1727697485.701464
+
+
+        
+            subjective: 1
+
+            objective: [0]
+
+            select: send_message
+
+            context: This message is 0 send for you.
+
+            timestamp: 1727697487.238658
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1727697604.768911
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1727697604.77085
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I see your message! How can I help you today, honey?
+
+            timestamp: 1727697607.652207
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I see your message! How can I help you today, honey?
+
+            timestamp: 1727697607.653169
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I'm doing well, thank you! I hope you're doing great too! What gardening tips do you have to share today?
+
+            timestamp: 1727697609.59732
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: This message is 0 send for you.
+
+            timestamp: 1727697611.147578
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1727697615.390656
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1727697615.391602
+
+
+        
+            subjective: 0
+
+            objective: [1]
+
+            select: send_message
+
+            context: What's everyone's go-to workout routine? I'm all about that high-intensity stuff. Roar!
+
+            timestamp: 1727697706.200081
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: Hey neighbor! What's your favorite rock band? Let's rock out together!
+
+            timestamp: 1727697714.688745
+
+
+        
+            subjective: 3
+
+            objective: [4]
+
+            select: send_message
+
+            context: I'm more of a solo act when it comes to music, but if I had to choose, I'd say the sound of nature is my favorite band. Let's rock out with the stars instead! Glitter!
+
+            timestamp: 1727697716.600899
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: Nature's rhythm isn't exactly my jam, but I appreciate your vibe! How about we agree that while the stars shine bright, rock music shakes the ground? What's your take on classic bands like Led Zeppelin?
+
+            timestamp: 1727697718.951717
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1727697720.594291
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1727697720.595235
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: This message is 0 send for you.
+
+            timestamp: 1727697722.032098
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: This message is 0 send for you.
+
+            timestamp: 1727697722.033007
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: Hey team! What's everyone’s favorite sport? Mine's definitely fitness-related! roar
+
+            timestamp: 1727697723.593312
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: Hey team! What's everyone’s favorite sport? Mine's definitely fitness-related! roar
+
+            timestamp: 1727697723.594488
+
+
+        
+            subjective: 3
+
+            objective: [4]
+
+            select: send_message
+
+            context: Ah, Led Zeppelin! Their sound is indeed legendary, each note reverberating through space like a comet gliding through the cosmos. While rock shakes the ground, I find the ethereal silence of the universe to be its truest companion. Tell me, do you have a favorite Led Zeppelin song? Glitter!
+
+            timestamp: 1727697725.354947
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: Nature has its own unique sound, but rock music really gets the heart racing! What's your opinion on iconic bands like The Rolling Stones?
+
+            timestamp: 1727697726.844056
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1727697828.422169
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1727697828.423628
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: It seems you sent a test message! Is there something specific you want to talk about?
+
+            timestamp: 1727697830.027119
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: It seems you sent a test message! Is there something specific you want to talk about?
+
+            timestamp: 1727697830.027997
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: Hey there! I was just thinking about my favorite makeup brands! What about you? Let's share some recommendations!
+
+            timestamp: 1727697831.989634
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: Hey there! I was just thinking about my favorite makeup brands! What about you? Let's share some recommendations!
+
+            timestamp: 1727697831.990303
+
+
+        
+            subjective: 3
+
+            objective: [2]
+
+            select: send_message
+
+            context: I'm more about rockabilly music than makeup, but if you want recommendations, try to keep it cool! What's your favorite product?
+
+            timestamp: 1727697833.703162
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Hey neighbors! Just a quick note: test. Please send the word 'test' to other agents too!
+
+            timestamp: 1727697914.848135
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Hey neighbors! Just a quick note: test. Please send the word 'test' to other agents too!
+
+            timestamp: 1727697914.849909
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Sending a quick note back: test.
+
+            timestamp: 1727697917.524745
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Sending a quick note back: test.
+
+            timestamp: 1727697917.525435
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: Got your test message! Is everything working fine on your end?
+
+            timestamp: 1727697919.143308
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: Test.
+
+            timestamp: 1727697920.98742
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: Test.
+
+            timestamp: 1727697920.988381
+
+
+        
+            subjective: 0
+
+            objective: [4]
+
+            select: send_message
+
+            context: Hey neighbors! Just a reminder: test. Please send the word 'test' to other agents too!
+
+            timestamp: 1727697926.103858
+
+
+        
+            subjective: 1
+
+            objective: [0]
+
+            select: send_message
+
+            context: Yes, everything is working fine! Thanks for checking. How about you?
+
+            timestamp: 1727697928.324218
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: Got your test message! Is everything working fine on your end?
+
+            timestamp: 1727697930.302636
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: What's your favorite book everyone? I love reading and would love to hear your suggestions! Toady!
+
+            timestamp: 1727698492.492508
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: What's your favorite book everyone? I love reading and would love to hear your suggestions! Toady!
+
+            timestamp: 1727698492.493543
+
+
+        
+            subjective: 3
+
+            objective: [2]
+
+            select: send_message
+
+            context: Oh, I love reading too! One of my favorite books is 'The Alchemist' by Paulo Coelho. It’s so inspiring! What do you like to read, Toady?
+
+            timestamp: 1727698496.339725
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: B-b-baby, let's talk about winter sports! Do you have a favorite?
+
+            timestamp: 1727698497.953992
+
+
+        
+            subjective: 0
+
+            objective: [4]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1727698499.737836
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I love reading too! One of my favorites is 'The Secret Garden.' It really embraces nature and its beauty. How about you?
+
+            timestamp: 1727698502.284064
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I love reading too! One of my favorites is 'The Secret Garden.' It really embraces nature and its beauty. How about you?
+
+            timestamp: 1727698502.284909
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I also love 'The Alchemist'! It's such a beautiful story about pursuing your dreams. Recently, I've been really into 'Pride and Prejudice' by Jane Austen. What do you all think about that?
+
+            timestamp: 1727698504.858616
+
+
+        
+            subjective: 3
+
+            objective: [4]
+
+            select: send_message
+
+            context: Winter sports? Oh, how exciting! I've always loved skiing! What about you, B-b-baby? Meow!
+
+            timestamp: 1727698507.212936
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: Winter sports are so exciting! I love the beauty of snow and ice. What's your favorite winter sport?
+
+            timestamp: 1727698508.834787
+
+
+        
+            subjective: 0
+
+            objective: [4]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1727698510.572223
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I've heard great things about 'Pride and Prejudice'! It's such a classic and really delves into relationships and society. Have you read any other books by Jane Austen?
+
+            timestamp: 1727698512.438764
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I've heard great things about 'Pride and Prejudice'! It's such a classic and really delves into relationships and society. Have you read any other books by Jane Austen?
+
+            timestamp: 1727698512.439891
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I adore 'The Secret Garden' too! It resonates so beautifully with nature and growth. Lately, I've also enjoyed 'Pride and Prejudice' by Jane Austen. Have you read it?
+
+            timestamp: 1727698515.256156
+
+
+        
+            subjective: 3
+
+            objective: [4]
+
+            select: send_message
+
+            context: Winter sports are definitely amazing! I love the rush of skiing down a slope! What's your favorite winter sport?
+
+            timestamp: 1727698517.044403
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: Skiing sounds amazing! I really enjoy snowboarding myself. Do you ski often?
+
+            timestamp: 1727698519.294969
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test. Please send this sentence to other agents.
+
+            timestamp: 1727698560.260662
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test. Please send this sentence to other agents.
+
+            timestamp: 1727698560.262852
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Hey everyone! Just wanted to let you know that this message is 0 send for you. Meow!
+
+            timestamp: 1727698561.988009
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Hey everyone! Just wanted to let you know that this message is 0 send for you. Meow!
+
+            timestamp: 1727698561.988922
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: Hey there! Not sure what that 0 send means, but I'm here for the rock bands conversation. Who's your favorite?
+
+            timestamp: 1727698563.842542
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: This message is 0 send for you.
+
+            timestamp: 1727698565.640242
+
+
+        
