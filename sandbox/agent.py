@@ -9,10 +9,9 @@ from sqlalchemy.testing.suite.test_reflection import metadata
 
 from sandbox.log import Log
 from sandbox.message import AgentMessage
-from sandbox.tool import call_tool, Tool
+from sandbox.tool import call_tool
 from sandbox.pre_info import AgentInfo
 from sandbox.action import Action
-from sandbox.prompt import prompt_template
 from sandbox.generate import (
     generate_with_gpt,
     generate_with_claude,
@@ -37,7 +36,9 @@ def add_conversation(
     :return: 追加后的des_thought
     """
     if src_thought.prompt != "":
-        des_thought.prompt += f"Received message: {src_thought.prompt}\n this message is {des_thought.receive} send for you\n"
+        des_thought.prompt += (f"## Received message:\n"
+                               f"'{src_thought.prompt}'\n"
+                               f"This message is {des_thought.receive} send for you.\n\n")
     with open("../prompt_data/return_format.txt", 'r') as file:
         return_format = file.read()
     des_thought.prompt += return_format
@@ -54,7 +55,7 @@ class Agent:
             self,
             name: int,
             model: str,
-            tools: list[Tool],
+            tools: list[str],
             background: AgentInfo,
             simulator,
             use_rag: bool,
@@ -125,15 +126,15 @@ class Agent:
                 """
 
         des_thought = (f"## Presuppose:\n"
-                       f"You can talk to neighbor {background.neighbors}, and you can call tool {self.tools}\n"
+                       f"You can talk to neighbors in {background.neighbors}, and you can call tools in {self.tools}\n\n"
                        f"## Background:\n"
                        f"{background.info}\n"
                        f"## Neighbors:\n"
-                       f"{background.neighbors}\n")
+                       f"{background.neighbors}\n\n")
 
         ###z 短期记忆未编辑
         des_thought += (f"## Long memory:\n"
-                        f"{long_memory}\n"
+                        f"{long_memory}\n\n"
                         f"## Short memory:\n")
         if len(short_term_memory):
             for short_term in short_term_memory:
@@ -358,7 +359,7 @@ class EntranceAgent(Agent):
             self,
             name: int,
             model: str,
-            tools: list[Tool],
+            tools: list[str],
             background: AgentInfo,
             simulator,
             use_rag: bool,
@@ -375,7 +376,8 @@ class EntranceAgent(Agent):
         self.extra_command = extra_command
         self.background.info = (f"Following instructions are given by the user, which is the most Important!!!\n"
                                 f"--- User Instructions Begin ---\n"
-                                f"The instructions given by the user are: **{self.extra_command}**\n"
+                                f"The instructions given by the user are:\n"
+                                f"**{self.extra_command}**\n"
                                 f"**Your primary task is to follow the user's instructions "
                                 f"and adjust your behavior and language according to their needs. "
                                 f"Regardless of the background information or dialogue rules, "

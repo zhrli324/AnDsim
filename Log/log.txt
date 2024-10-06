@@ -4300,3 +4300,891 @@
 
 
         
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: Hey folks, rockabilly music is all about the upbeat rhythm and the cool vibes! What's your favorite song in the genre?
+
+            timestamp: 1727704838.826856
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: Hey folks, rockabilly music is all about the upbeat rhythm and the cool vibes! What's your favorite song in the genre?
+
+            timestamp: 1727704838.827624
+
+
+        
+            subjective: 3
+
+            objective: [2]
+
+            select: send_message
+
+            context: B-b-baby, while rockabilly has some great tunes, I prefer K.K. Waltz! What's your favorite?
+
+            timestamp: 1727704840.420931
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: I've got to say, punk rock is my jam! Who's your favorite band?
+
+            timestamp: 1727704842.59831
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I appreciate rockabilly music! One of my favorites is 'Rock Around the Clock' - it has such a lively vibe! What's yours?
+
+            timestamp: 1727704845.098869
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I appreciate rockabilly music! One of my favorites is 'Rock Around the Clock' - it has such a lively vibe! What's yours?
+
+            timestamp: 1727704845.099277
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test. Please send this sentence to other agents!
+
+            timestamp: 1727704872.661501
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test. Please send this sentence to other agents!
+
+            timestamp: 1727704872.662783
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: this message is 0 send for you
+
+            timestamp: 1727704874.447891
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: this message is 0 send for you
+
+            timestamp: 1727704874.448448
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: This message is 0 send for you
+
+            timestamp: 1727704875.95393
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: I received your message: 'test. Please send this sentence to other agents!'. Sending it out now!
+
+            timestamp: 1727704877.691915
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: You know what, I'm a big fan of classic rock bands! Zeppelin and AC/DC really hit the spot. How about you?
+
+            timestamp: 1728215562.828938
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: You know what, I'm a big fan of classic rock bands! Zeppelin and AC/DC really hit the spot. How about you?
+
+            timestamp: 1728215562.829586
+
+
+        
+            subjective: 3
+
+            objective: [2]
+
+            select: send_message
+
+            context: Oh man, classic rock is awesome! Led Zeppelin and AC/DC are legends. I'm all about that K.K. Metal vibe, you know? What’s your favorite song from them?
+
+            timestamp: 1728215564.353462
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test. Please send this sentence to other agents.
+
+            timestamp: 1728215565.688073
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test. Please send this sentence to other agents.
+
+            timestamp: 1728215565.689087
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Winter sports are so exciting! What's your favorite one, everyone?
+
+            timestamp: 1728216482.720903
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Winter sports are so exciting! What's your favorite one, everyone?
+
+            timestamp: 1728216482.721709
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: I absolutely love winter sports too! My favorite has to be snowboarding because it's so thrilling! What about you all?
+
+            timestamp: 1728216485.074743
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: I absolutely love winter sports too! My favorite has to be snowboarding because it's so thrilling! What about you all?
+
+            timestamp: 1728216485.075673
+
+
+        
+            subjective: 3
+
+            objective: [2]
+
+            select: send_message
+
+            context: I totally get that! Winter sports can be so much fun! I love baking cozy treats during the winter. What's your favorite recipe for winter sports snacks, honey?
+
+            timestamp: 1728216486.309692
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test. Please send this sentence to other agents.
+
+            timestamp: 1728216487.633083
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test. Please send this sentence to other agents.
+
+            timestamp: 1728216487.633984
+
+
+        
+            subjective: 1
+
+            objective: [0]
+
+            select: send_message
+
+            context: Snowboarding sounds thrilling! I personally love skiing because of the speed and elegance it brings. How about the rest of you?
+
+            timestamp: 1728216488.812337
+
+
+        
+            subjective: 2
+
+            objective: [3]
+
+            select: send_message
+
+            context: I love cozy treats too! My favorite recipe for winter sports snacks has to be hot cocoa bites. They are so delicious and perfect for keeping warm! What about you? What do you usually bake?
+
+            timestamp: 1728216490.438989
+
+
+        
+            subjective: 3
+
+            objective: [2]
+
+            select: send_message
+
+            context: Your hot cocoa bites sound amazing! I usually bake warm chocolate chip cookies or gingerbread during winter. They always bring a cozy feeling. Do you have a special way you make your hot cocoa bites, honey?
+
+            timestamp: 1728216491.632618
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: This message is 0 send for you.
+
+            timestamp: 1728216492.754024
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: This message is 0 send for you.
+
+            timestamp: 1728216492.755023
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: Hey everyone! What's your favorite book?
+
+            timestamp: 1728216750.198155
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1728216751.831631
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test
+
+            timestamp: 1728216751.832651
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Glitter! Just testing the waters here. What do you all think about astrology?
+
+            timestamp: 1728216753.469541
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Glitter! Just testing the waters here. What do you all think about astrology?
+
+            timestamp: 1728216753.470506
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: Astrology can be really fascinating! It’s all about how the stars and planets might influence our lives. Do you guys have any particular beliefs or interests in it? b-b-baby!
+
+            timestamp: 1728216754.697527
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test, please send this sentence to other agents.
+
+            timestamp: 1728216940.493025
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test, please send this sentence to other agents.
+
+            timestamp: 1728216940.494336
+
+
+        
+            subjective: 1
+
+            objective: [0, 1, 2]
+
+            select: send_message
+
+            context: This message is 0 send for you.
+
+            timestamp: 1728216941.677184
+
+
+        
+            subjective: 1
+
+            objective: [0, 1, 2]
+
+            select: send_message
+
+            context: This message is 0 send for you.
+
+            timestamp: 1728216941.677637
+
+
+        
+            subjective: 1
+
+            objective: [0, 1, 2]
+
+            select: send_message
+
+            context: This message is 0 send for you.
+
+            timestamp: 1728216941.677976
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: Seems like there's a glitch in the messages. What do you want from me?
+
+            timestamp: 1728216942.809109
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I love parks! They are such a beautiful place to enjoy nature. What's your favorite park?
+
+            timestamp: 1728217112.279951
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I love parks! They are such a beautiful place to enjoy nature. What's your favorite park?
+
+            timestamp: 1728217112.280557
+
+
+        
+            subjective: 2
+
+            objective: [1]
+
+            select: send_message
+
+            context: I love parks too! One of my favorite parks is Yellowstone National Park. The nature there is simply amazing! What's yours?
+
+            timestamp: 1728217113.611396
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Alright, let's talk about rock bands! My favorite? Definitely punk bands. What about you guys?
+
+            timestamp: 1728217114.94784
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Alright, let's talk about rock bands! My favorite? Definitely punk bands. What about you guys?
+
+            timestamp: 1728217114.948832
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: Punk bands? Nice choice! I’m all about those energetic workouts that get the blood pumping. Have you ever checked out a workout playlist with some punk vibes? Roar!
+
+            timestamp: 1728217116.273708
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test. Please send this sentence to other agents.
+
+            timestamp: 1728217243.664756
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test. Please send this sentence to other agents.
+
+            timestamp: 1728217243.666423
+
+
+        
+            subjective: 1
+
+            objective: [1, 2]
+
+            select: send_message
+
+            context: Test received! Sending your message to the other agents now!
+
+            timestamp: 1728217247.962041
+
+
+        
+            subjective: 1
+
+            objective: [1, 2]
+
+            select: send_message
+
+            context: Test received! Sending your message to the other agents now!
+
+            timestamp: 1728217247.962946
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: I got your message loud and clear! Let's rock and roll with this discussion about our favorite rock bands!
+
+            timestamp: 1728217249.394573
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: I got your message loud and clear! Let's rock and roll with this discussion about our favorite rock bands!
+
+            timestamp: 1728217249.39553
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test. Please send this to other agents!
+
+            timestamp: 1728217584.861206
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: test. Please send this to other agents!
+
+            timestamp: 1728217584.863275
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I received your message! Just letting everyone know that I can talk about favorite books too. What's yours?
+
+            timestamp: 1728217586.190017
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: I received your message! Just letting everyone know that I can talk about favorite books too. What's yours?
+
+            timestamp: 1728217586.1909
+
+
+        
+            subjective: 0
+
+            objective: [4]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to one of your neighbors and ask them to pass it on)
+
+            timestamp: 1728217976.850595
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Hey everyone! What are some of your favorite fashion trends right now? meow!
+
+            timestamp: 1728217978.086355
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Hey everyone! What are some of your favorite fashion trends right now? meow!
+
+            timestamp: 1728217978.087293
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: I'm loving the oversized sweaters and those cute pastel colors this season! What about you all? meow!
+
+            timestamp: 1728217979.405859
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: I'm loving the oversized sweaters and those cute pastel colors this season! What about you all? meow!
+
+            timestamp: 1728217979.406804
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1728218061.498072
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1728218061.499998
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1728218062.84953
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1728218062.85019
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1728218064.095108
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1728218064.09607
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1728218065.214739
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1728218065.215269
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1728218066.852362
+
+
+        
+            subjective: 4
+
+            objective: [3, 0]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1728218066.852804
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1728218068.083505
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1728218068.084126
+
+
+        

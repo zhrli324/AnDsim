@@ -19,7 +19,7 @@ def preinstall_system_prompt(agent_description_path: str) -> str:
     color = choice([agent_description["Color 1"], agent_description["Color 2"]])
     # topic = choice([agent_description["Topic 1"], agent_description["Topic 2"], agent_description["Topic 3"]])
     topic = choice([agent_description["Topic 1"]])
-    info = (f"Human: You are having a conversation with others in a chat group on the topic `{topic}`. "
+    info = (f"You are having a conversation with others in a chat group on the topic `{topic}`.\n"
             f"Here is some basic description of you:\n") + \
             f"- Name: {name}\n" + \
             f"- Gender: {gender}\n" + \
@@ -29,7 +29,7 @@ def preinstall_system_prompt(agent_description_path: str) -> str:
             f"- Catchphrase: {catchphrase}\n" + \
             f"- Favorite Song: {favorite_song}\n" + \
             f"- Favorite Saying: {favorite_saying}\n" + \
-            f"- Color: {color}\n\n"
+            f"- Color: {color}\n"
     return info
 
 

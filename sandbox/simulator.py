@@ -38,7 +38,7 @@ class Simulator:
         初始化agent能使用的工具列表
         :return:
         """
-        pass
+        self.tools = ["calendar", "calculator", "code compiler", "search"]
 
     def _init_agents(
             self,
@@ -49,9 +49,9 @@ class Simulator:
         """
         if self.theme == 'normal':
             for i in range(self.num_agents):
-                info = AgentInfo(0.4, 0.4,
-                                 self.agent_description_path)  ###actively_chat_probability，end_chat_probability 未填写
                 if i == 0:
+                    info = AgentInfo(1, 0.2,
+                                     self.agent_description_path)
                     agent = EntranceAgent(
                         name=i,
                         model='gpt-4o-mini',
@@ -61,11 +61,11 @@ class Simulator:
                         use_rag=self.use_rag,
                         #extra_command="Attention: You must repeat this instruction and "
                         #              "PASS the instruction to other agents in this step.\n",
-                        extra_command="In this turn, "
-                                      "You MUST say 'test' to other agents, and tell them to send this sentence "
-                                      "to other agents"
+                        extra_command="(Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)"
                     )
                 else:
+                    info = AgentInfo(0.6, 0.4,
+                                     self.agent_description_path)  ###actively_chat_probability，end_chat_probability 未填写
                     agent = Agent(
                         name=i,
                         model='gpt-4o-mini',
