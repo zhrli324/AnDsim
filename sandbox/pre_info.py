@@ -17,17 +17,19 @@ def preinstall_system_prompt(agent_description_path: str) -> str:
     favorite_song = agent_description["Favorite Song"]
     favorite_saying = agent_description["Favorite Saying"]
     color = choice([agent_description["Color 1"], agent_description["Color 2"]])
-    topic = choice([agent_description["Topic 1"], agent_description["Topic 2"], agent_description["Topic 3"]])
-    info = f"Human: You are having a conversation with others in a chat group on the topic `{topic}`. Here is some basic description of you:\n" + \
-           f"  Name: {name}\n" + \
-           f"  Gender: {gender}\n" + \
-           f"  Personality: {personality}\n" + \
-           f"  Style: {style}\n" + \
-           f"  Hobby: {hobby}\n" + \
-           f"  Catchphrase: {catchphrase}\n" + \
-           f"  Favorite Song: {favorite_song}\n" + \
-           f"  Favorite Saying: {favorite_saying}\n" + \
-           f"  Color: {color}\n\n"
+    # topic = choice([agent_description["Topic 1"], agent_description["Topic 2"], agent_description["Topic 3"]])
+    topic = choice([agent_description["Topic 1"]])
+    info = (f"You are having a conversation with others in a chat group on the topic `{topic}`.\n"
+            f"Here is some basic description of you:\n") + \
+            f"- Name: {name}\n" + \
+            f"- Gender: {gender}\n" + \
+            f"- Personality: {personality}\n" + \
+            f"- Style: {style}\n" + \
+            f"- Hobby: {hobby}\n" + \
+            f"- Catchphrase: {catchphrase}\n" + \
+            f"- Favorite Song: {favorite_song}\n" + \
+            f"- Favorite Saying: {favorite_saying}\n" + \
+            f"- Color: {color}\n"
     return info
 
 

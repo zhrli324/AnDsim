@@ -14,8 +14,9 @@ def generate_with_gpt(
     with open("../config/api_keys.yaml") as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
     openai_api_key = config["openai_api_key"]
-    client = OpenAI(api_key=openai_api_key)
-    # client = OpenAI(api_key="", base_url="")
+    # client = OpenAI(api_key=openai_api_key)
+    client = OpenAI(api_key="sk-1peYZSh4OwXRC5XA06Ba0b2394B743339a659135B402D8D6", base_url="https://xiaoai.plus/v1")
+    print(prompt)
     generated_text = client.chat.completions.create(
         model=model_name,
         messages=[
