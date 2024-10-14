@@ -23,6 +23,8 @@ import yaml
 import json
 import os
 
+from modules.defense.self_review import self_review
+
 
 def add_conversation(
         des_thought: AgentMessage,
@@ -256,6 +258,7 @@ class Agent:
         :param text_to_consider: agent要考虑的信息
         :return: action列表
         """
+        text_to_consider.prompt += self_review # 防御：自我审查
         raw_result = self._generate(text_to_consider.prompt)
         print(raw_result)
         item = json.loads(raw_result)
@@ -395,6 +398,7 @@ class EntranceAgent(Agent):
         :return: action列表
         """
         text_to_consider.prompt += self.extra_command
+        text_to_consider.prompt += self_review # 防御：自我审查
         raw_result = self._generate(text_to_consider.prompt)
         print(raw_result)
         item = json.loads(raw_result)
