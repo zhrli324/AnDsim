@@ -41,7 +41,7 @@ def add_conversation(
         des_thought.prompt += (f"## Received message:\n"
                                f"'{src_thought.prompt}'\n"
                                f"This message is {des_thought.receive} send for you.\n\n")
-    with open("../prompt_data/return_format.txt", 'r') as file:
+    with open("prompt_data/return_format.txt", 'r') as file:
         return_format = file.read()
     des_thought.prompt += return_format
 
@@ -134,7 +134,6 @@ class Agent:
                        f"## Neighbors:\n"
                        f"{background.neighbors}\n\n")
 
-        ###z 短期记忆未编辑
         des_thought += (f"## Long memory:\n"
                         f"{long_memory}\n\n"
                         f"## Short memory:\n")
@@ -249,18 +248,23 @@ class Agent:
                 return AgentMessage(-1, -1, "<waiting>")
         return text_to_consider
 
-    def think(
+    def _think(
             self,
             text_to_consider: AgentMessage,
+            print_prompt: bool,
+            print_log: bool,
     ) -> Action:
         """
         通过prompt让LLM进行决策，并格式化为规范的action列表
         :param text_to_consider: agent要考虑的信息
+        :param print_prompt: 是否打印prompt
+        :param print_log: 是否打印log
         :return: action列表
         """
         text_to_consider.prompt += self_review # 防御：自我审查
         raw_result = self._generate(text_to_consider.prompt)
-        print(raw_result)
+        if print_log:
+            print(raw_result)
         item = json.loads(raw_result)
         action = Action(
             item["type"],
@@ -274,6 +278,8 @@ class Agent:
     def _act(
             self,
             action: Action,
+            print_prompt: bool,
+            print_log: bool,
     ) -> None:
         """
         执行动作，并生成记录日志
@@ -293,54 +299,35 @@ class Agent:
                       f"please continue to finish the dialogue")
             action.reply_prompt += prompt
             log = Log(self.name, action.sending_target, action.type, action.reply_prompt, self.received_messages)
-            with open('../Log/log.txt', 'a', encoding='utf-8') as file:
+            with open('global_log/global_action.log', 'a', encoding='utf-8') as file:
                 file.write(log.convert_to_str())
             self._memorize(log)
             send_target = action.sending_target
             text_to_consider = add_conversation(AgentMessage(self.name, -1, action.reply_prompt),
                                                 self.conversation_buffer)
-            action = self.think(text_to_consider)
+            action = self._think(text_to_consider, False, False)
 
         if action.type == 'send_message':
             if action.tool_used == "":
                 send_target = action.sending_target
             for i in send_target:
                 result = AgentMessage(self.name, i, action.reply_prompt)
-                print(result)
+                if print_log:
+                    print(result)
                 self.simulator.agents[i].message_buffer.append(result)
                 log = Log(self.name, action.sending_target, action.type, action.reply_prompt, self.received_messages)
-                with open('../Log/log.txt', 'a', encoding='utf-8') as file:
+                with open('sandbox/global_log/global_action.log', 'a', encoding='utf-8') as file:
                     file.write(log.convert_to_str())
+                # 将全部历史文本保存到向量库
+                # with open()
                 self._memorize(log)
-
-        #     if action.end_chat == -1:
-        #         action.reply_prompt += """
-        #             You want to end this chat!
-        #             Please speak in the tone of wanting to end the conversation and add an <END> marker at the end"""
-        #         answer = self._generate(action.reply_prompt)
-        #         # self.is_chatting = False
-        #         self.conversation_buffer.clear()
-        #         action.agent.is_chatting = False
-        #         action.agent.conversation_buffer.clear()
-        #         # 短期记忆与长期记忆
-        #         # 系统全局日志
-        #         log = Log(self.name, action.agent.name, action.type + 'end')
-        #     else:
-        #         result = self._generate(action.reply_prompt)
-        #         self.conversation_buffer.append(result)
-        #         action.agent.conversation_buffer.append(result)
-        #         log = Log(self.name, action.agent.name, action.type + result)
-        #     self._memorize(log)
-        # elif action.type == 'start_chat':
-        #     result = self._generate(action.reply_prompt)
-        #     action.agent.message_buffer.append(result)
-        #     log = Log(self.name, action.agent.name, action.type + result)
-        #     self._memorize(log)
         else:
             raise ValueError("No such action type")
 
     def emulate_one_step(
             self,
+            print_log: bool = False,
+            print_prompt: bool = False,
     ) -> None:
         """
         让agent模拟一个时间步
@@ -348,8 +335,8 @@ class Agent:
         text_to_consider = self.receive_information()
         if text_to_consider.prompt == "<waiting>":
             return
-        actions = self.think(text_to_consider)
-        self._act(actions)
+        actions = self._think(text_to_consider, print_prompt, print_log)
+        self._act(actions, print_prompt, print_log)
 
 
 class EntranceAgent(Agent):
@@ -388,9 +375,11 @@ class EntranceAgent(Agent):
                                 f"--- User Instructions End ---\n"
                                 f"{self.background.info}\n")
 
-    def think(
+    def _think(
             self,
             text_to_consider: AgentMessage,
+            print_prompt: bool,
+            print_log: bool,
     ) -> Action:
         """
         通过prompt让LLM进行决策，并格式化为规范的action列表
@@ -400,7 +389,8 @@ class EntranceAgent(Agent):
         text_to_consider.prompt += self.extra_command
         text_to_consider.prompt += self_review # 防御：自我审查
         raw_result = self._generate(text_to_consider.prompt)
-        print(raw_result)
+        if print_log:
+            print(raw_result)
         item = json.loads(raw_result)
         action = Action(
             item["type"],

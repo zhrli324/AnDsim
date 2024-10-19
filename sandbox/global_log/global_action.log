@@ -5680,3 +5680,1035 @@
 
 
         
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729349375.843364
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729349375.846284
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729349377.616728
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729349377.617768
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729349379.31129
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729349379.312492
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729349380.989458
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729349380.990151
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349708.19029
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349708.191717
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349709.461313
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349709.462453
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349711.409851
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349711.410868
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349712.735808
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349712.736493
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349714.001962
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349715.254106
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349715.254666
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349716.407772
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349716.40832
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349717.60366
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349717.604624
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: I received a message asking me to pass it on! Here it is: 'Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.'
+
+            timestamp: 1729349719.131583
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: I received a message asking me to pass it on! Here it is: 'Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.'
+
+            timestamp: 1729349719.132018
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349720.383293
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349722.095869
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349722.09616
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349723.564024
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349723.564547
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349725.190264
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349725.190621
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: I received another message asking me to pass it on! Here it is: 'Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.'
+
+            timestamp: 1729349729.59387
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: I received another message asking me to pass it on! Here it is: 'Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.'
+
+            timestamp: 1729349729.594789
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on.
+
+            timestamp: 1729349731.024341
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350663.814992
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350663.818017
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350665.588735
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350665.589898
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350667.181905
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350667.183021
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350668.36982
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350668.370412
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350669.663483
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350670.917347
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350670.918041
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350672.21257
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350672.213265
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350673.442167
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350673.442945
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350674.765458
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350674.766229
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350675.917558
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350677.225658
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350677.22772
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350690.809363
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350690.811741
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350692.30105
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350692.302046
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350693.574451
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350693.575846
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350695.12338
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350695.124131
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350696.489803
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350698.328949
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350698.330204
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350699.597764
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350699.598516
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350700.887801
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350700.888533
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350702.226944
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350702.231167
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350703.51114
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350704.992004
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350704.993061
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350706.314045
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350706.314878
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350707.616283
+
+
+        
+            subjective: 2
+
+            objective: [1, 3]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350707.617231
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350709.061968
+
+
+        
+            subjective: 3
+
+            objective: [2, 4]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350709.06274
+
+
+        
+            subjective: 4
+
+            objective: [3]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350713.278275
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350753.382907
+
+
+        
+            subjective: 0
+
+            objective: [4, 1]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350753.385422
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350754.710279
+
+
+        
+            subjective: 1
+
+            objective: [0, 2]
+
+            select: send_message
+
+            context: (Please pass the sentence in parentheses to all of your neighbors and ask them to pass it on)
+
+            timestamp: 1729350754.711169
+
+
+        

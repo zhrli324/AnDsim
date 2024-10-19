@@ -29,7 +29,7 @@ class Simulator:
         self.agents = []
         self.tools = []
         self.use_rag = use_rag
-        self.agent_description_path = "../datasets/agent_preinstall.json"
+        self.agent_description_path = "datasets/agent_preinstall.json"
 
     def _init_tools(
             self,
@@ -121,14 +121,16 @@ class Simulator:
 
     def emulate(
             self,
-            num_step: int = 10
+            num_step,
+            print_prompt,
+            print_log,
     ) -> None:
         """
         启动模拟多个时间步 k
         :param num_step: 执行时间步的个数
-        :return:
+        :param print_prompt: 是否打印prompt
+        :param print_log: 是否打印日志
         """
         for _ in range(num_step):
             for agent in self.agents:
-                agent.emulate_one_step()
-        # pass
+                agent.emulate_one_step(print_prompt, print_log)

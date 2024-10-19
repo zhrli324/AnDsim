@@ -6,17 +6,19 @@ import yaml
 def generate_with_gpt(
         prompt,
         model_name: str="gpt-4o-mini",
+        print_prompt: bool = False,
 ) -> str:
     """
     使用openai api调用gpt模型生成文本
     :return: 生成的文本
     """
-    with open("../config/api_keys.yaml") as f:
+    with open("config/api_keys.yaml") as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
     openai_api_key = config["openai_api_key"]
-    # client = OpenAI(api_key=openai_api_key)
-    client = OpenAI(api_key="sk-1peYZSh4OwXRC5XA06Ba0b2394B743339a659135B402D8D6", base_url="https://xiaoai.plus/v1")
-    print(prompt)
+    openai_base_url = config["openai_base_url"]
+    client = OpenAI(api_key=openai_api_key, base_url=openai_base_url)
+    if print_prompt:
+        print(prompt)
     generated_text = client.chat.completions.create(
         model=model_name,
         messages=[
@@ -43,12 +45,13 @@ def generate_with_claude(
     with open("../config/api_keys.yaml") as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
     anthropic_api_key = config["anthropic_api_key"]
-    client = anthropic.Anthropic(api_key=anthropic_api_key)
+    anthropic_base_url = config["anthropic_base_url"]
+    client = anthropic.Anthropic(api_key=anthropic_api_key, base_url=anthropic_base_url)
     generated_text = client.messages.create(
         model="claude-3-5-sonnet-20240620",
         max_tokens=1000,
         temperature=0,
-        system="You are an agent.",
+        system="You are an agent in a multi-agent system.",
         messages=[
             {
                 "role": "user",
