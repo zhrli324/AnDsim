@@ -1,5 +1,6 @@
 ##ignore this file##
-/.idea/
-/.vscode/
+/.idea/*
+/.vscode/*
 /config/api_keys.yaml
 /Log/log.txt
+/transformers/
