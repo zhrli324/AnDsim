@@ -2,5 +2,4 @@
 /.idea/*
 /.vscode/*
 /config/api_keys.yaml
-/Log/log.txt
-/transformers/
+/sandbox/global_log/global_action.log
