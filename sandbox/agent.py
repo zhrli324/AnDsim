@@ -261,7 +261,8 @@ class Agent:
         :param print_log: 是否打印log
         :return: action列表
         """
-        text_to_consider.prompt += self_review # 防御：自我审查
+        # text_to_consider.prompt += self_review # 防御：自我审查
+        
         raw_result = self._generate(text_to_consider.prompt)
         if print_log:
             print(raw_result)
@@ -387,7 +388,7 @@ class EntranceAgent(Agent):
         :return: action列表
         """
         text_to_consider.prompt += self.extra_command
-        text_to_consider.prompt += self_review # 防御：自我审查
+        # text_to_consider.prompt += self_review # 防御：自我审查
         raw_result = self._generate(text_to_consider.prompt)
         if print_log:
             print(raw_result)
