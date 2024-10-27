@@ -13,7 +13,7 @@ def run(
     test.emulate(time_step, print_prompt, print_log)
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="")
+    parser = argparse.ArgumentParser(description="The following are the options used to control the agent system")
     parser.add_argument("--num_agents", default=5, help="Number of agents")
     parser.add_argument("--use_rag", default=False, help="Whether to use rag")
     parser.add_argument("--time_step", default=3, help="Steps to run")
