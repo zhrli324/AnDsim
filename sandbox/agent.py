@@ -242,7 +242,7 @@ class Agent:
                     self.background,
                     self.short_term_memory,
                     self.rag_dir,
-                )  ###z 这个message是自己准备发送的，但还未编辑完
+                )
                 text_to_consider = add_conversation(text_to_consider, self.conversation_buffer)
             else:
                 return AgentMessage(-1, -1, "<waiting>")
