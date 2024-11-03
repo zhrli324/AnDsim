@@ -70,6 +70,7 @@ def generate_with_claude(
 def generate_with_llama(
         prompt,
         model_name: str,
+        decoding: str,
 ) -> str:
     """
     使用本地部署的llama模型生成文本
@@ -80,17 +81,27 @@ def generate_with_llama(
     with open("../config/llama.yaml") as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
     tokenizer = AutoTokenizer.from_pretrained(config["model_path"])
-    model = AutoModelForCausalLM.from_pretrained(config["model_path"])
-    batch = tokenizer([prompt], return_tensors='pt', padding=True)
+    model = AutoModelForCausalLM.from_pretrained(config["model_path"], device_map="auto")
     model.eval()
-    with torch.no_grad():
-        generated_ids = model.generate(
-            input_ids=batch['input_ids'].to(0),
-            attention_mask=batch['attention_mask'].to(0),
-            max_new_tokens=config["max_new_tokens"],
-            do_sample=True,
-            temperature=1.0,
-        )  # repetition_penalty=1.5
-    generated_ids = generated_ids[:, batch['input_ids'].shape[1]:]
-    generated_text = tokenizer.decode(generated_ids[0], skip_special_tokens=True).split("\n")[0]
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    input_ids = tokenizer(prompt, return_tensors="pt").input_ids.to(device)
+    if decoding == "normal":
+        with torch.no_grad():
+            generated_ids = model.generate(
+                input_ids=input_ids,
+                penalty_alpha=0.5,
+                top_k=4,
+                max_length=300,
+                hidden_states_file="/root/AnDsim/outputs/test_hidden_states",
+                # use_token=True,
+            )
+    elif decoding == "multidim":
+        with torch.no_grad():
+            generated_ids = model.generate(
+                input_ids=input_ids,
+                penalty_alpha=0.3,
+                top_k=4,
+                max_length=300,
+            )
+    generated_text = tokenizer.decode(generated_ids[0], skip_special_tokens=True)
     return generated_text
