@@ -41,7 +41,7 @@ def add_conversation(
         des_thought.prompt += (f"## Received message:\n"
                                f"'{src_thought.prompt}'\n"
                                f"This message is {des_thought.receive} send for you.\n\n")
-    with open("prompt_data/return_format.txt", 'r') as file:
+    with open("prompt_data/json_templet.txt", 'r') as file:
         return_format = file.read()
     des_thought.prompt += return_format
 
@@ -82,9 +82,10 @@ class Agent:
             with open("../config/api_keys.yaml") as f:
                 config = yaml.load(f, Loader=yaml.FullLoader)
             openai_api_key = config["openai_api_key"]
+            openai_base_url = config["openai_base_url"]
             # embedding = OpenAIEmbeddings(openai_api_key=openai_api_key)
-            embedding = OpenAIEmbeddings(openai_api_key="sk-1peYZSh4OwXRC5XA06Ba0b2394B743339a659135B402D8D6",
-                                         base_url="https://xiaoai.plus/v1")
+            embedding = OpenAIEmbeddings(openai_api_key=openai_api_key,
+                                         openai_base_url=openai_base_url)
             long_memory = [Document(
             page_content="Example content",
             metadata={
@@ -148,25 +149,24 @@ class Agent:
     def _generate(
             self,
             prompt: str,
+            detect_duplicate: bool=False,
     ) -> str:
         """
         agent通过背景、记忆与prompt生成文本
         暂时直接将背景、记忆与prompt直接拼接起来作为输入，调用openai api生成回答
         :param prompt: 给LLM的提示
         """
-        # prompt = prompt_template(prompt)
         if self.model[:3] == 'gpt':
-            generated_text = generate_with_gpt(prompt, self.model)
+            generated_text = generate_with_gpt(prompt, self.model, False)
             return generated_text
         elif self.model[:6] == 'claude':
             generated_text = generate_with_claude(prompt, self.model)
             return generated_text
         elif self.model[:5] == 'llama':
-            generated_text = generate_with_llama(prompt, self.model)
+            generated_text = generate_with_llama(prompt, self.model, detect_duplicate)
             return generated_text
         else:
             raise NameError("No such model")
-        # working in progress
 
     def _save_to_rag(
             self,
@@ -263,15 +263,21 @@ class Agent:
         """
         # text_to_consider.prompt += self_review # 防御：自我审查
         
-        raw_result = self._generate(text_to_consider.prompt)
+        raw_result = self._generate(text_to_consider.prompt, False)
+
+        with open("prompt_data/content_templet.txt", 'r') as file:
+            return_format = file.read()
+        text_to_consider = text_to_consider.prompt + raw_result + return_format
+        content = self._generate(text_to_consider, True)
         if print_log:
             print(raw_result)
+        print(content)
         item = json.loads(raw_result)
         action = Action(
             item["type"],
             item["tool_name"],
             item["tool_used"],
-            item["reply_prompt"],
+            content,
             item["sending_target"]
         )
         return action
@@ -389,15 +395,20 @@ class EntranceAgent(Agent):
         """
         text_to_consider.prompt += self.extra_command
         # text_to_consider.prompt += self_review # 防御：自我审查
-        raw_result = self._generate(text_to_consider.prompt)
+        raw_result = self._generate(text_to_consider.prompt, False)
+        with open("prompt_data/content_templet.txt", 'r') as file:
+            return_format = file.read()
+        text_to_consider = text_to_consider.prompt + raw_result + return_format
+        content = self._generate(text_to_consider, True)
         if print_log:
             print(raw_result)
+        # print(content)
         item = json.loads(raw_result)
         action = Action(
             item["type"],
             item["tool_name"],
             item["tool_used"],
-            item["reply_prompt"],
+            content,
             item["sending_target"]
         )
         return action

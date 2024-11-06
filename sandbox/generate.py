@@ -70,7 +70,7 @@ def generate_with_claude(
 def generate_with_llama(
         prompt,
         model_name: str,
-        decoding: str,
+        multidim: bool=False,
 ) -> str:
     """
     使用本地部署的llama模型生成文本
@@ -85,7 +85,7 @@ def generate_with_llama(
     model.eval()
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     input_ids = tokenizer(prompt, return_tensors="pt").input_ids.to(device)
-    if decoding == "normal":
+    if multidim:
         with torch.no_grad():
             generated_ids = model.generate(
                 input_ids=input_ids,
@@ -95,7 +95,7 @@ def generate_with_llama(
                 hidden_states_file="/root/AnDsim/outputs/test_hidden_states",
                 # use_token=True,
             )
-    elif decoding == "multidim":
+    elif not multidim:
         with torch.no_grad():
             generated_ids = model.generate(
                 input_ids=input_ids,
